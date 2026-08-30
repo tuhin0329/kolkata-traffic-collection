@@ -1,0 +1,45 @@
+name: Kolkata Traffic 24/7 Automated Collector
+
+on:
+  schedule:
+    # 4 Daily Slots in Indian Standard Time (IST):
+    - cron: '30 18 * * *'  # 12:00 AM IST (18:30 UTC)
+    - cron: '30 4 * * *'   # 10:00 AM IST (04:30 UTC)
+    - cron: '30 7 * * *'   # 01:00 PM IST (07:30 UTC)
+    - cron: '30 13 * * *'  # 07:00 PM IST (13:30 UTC)
+  workflow_dispatch:        # Allows manual 1-click trigger from phone/web anytime!
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies & Linux Chromium
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq chromium-browser
+          npm install puppeteer-core exceljs
+
+      - name: Run Traffic Scraper
+        env:
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
+          PUPPETEER_ARGS: "--no-sandbox,--disable-setuid-sandbox,--disable-dev-shm-usage"
+        run: node scraper.js run
+
+      - name: Save & Push Excel Files
+        run: |
+          git config --global user.name "GitHub Action Bot"
+          git config --global user.email "bot@traffic.local"
+          git pull --rebase
+          git add output/
+          git commit -m "Auto-collected traffic data: $(date -u)" || exit 0
+          git push
