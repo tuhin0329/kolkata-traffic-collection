@@ -1,0 +1,17 @@
+{
+  "name": "kolkata-traffic-scraper",
+  "version": "1.0.0",
+  "description": "Scrapes Google Maps for private car and bus travel times",
+  "main": "scraper.js",
+  "scripts": {
+    "start": "node scraper.js schedule",
+    "test": "node scraper.js test"
+  },
+  "dependencies": {
+    "exceljs": "^3.4.0",
+    "node-cron": "^4.6.0",
+    "puppeteer": "^22.7.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}
