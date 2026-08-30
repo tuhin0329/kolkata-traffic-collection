@@ -26,7 +26,7 @@ jobs:
       - name: Install Dependencies
         run: npm install puppeteer exceljs
 
-      - name: Run Traffic Scraper (Exact Laptop Replica)
+      - name: Run Traffic Scraper
         run: node scraper.js run
 
       - name: Save & Push Excel Files
