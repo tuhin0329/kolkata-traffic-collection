@@ -1112,8 +1112,9 @@ async function runFetchSession(label = "manual") {
 
   let browser;
   try {
-    browser = await puppeteer.launch({
-      headless: process.env.CI ? true : false, // Set to false so the user can verify with the map
+     browser = await puppeteer.launch({
+      headless: process.env.CI ? true : false,
+      executablePath: process.env.CI ? '/usr/bin/google-chrome-stable' : undefined,
       defaultViewport: null,
       args: [
          "--no-sandbox",
