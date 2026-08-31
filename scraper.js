@@ -1106,14 +1106,9 @@ async function runFetchSession(label = "manual") {
   log(`Time (IST): ${nowIST()}`);
   log(`Routes: ${ROUTES.length}`);
   log(`${"═".repeat(60)}`);
-
   const outDir = path.join(__dirname, "output");
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
-
   let browser;
-  try {
-     browser = await puppeteer.launch({
-         let browser;
   try {
     const isCI = !!process.env.CI;
     browser = await puppeteer.launch({
