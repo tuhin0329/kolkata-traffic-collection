@@ -28,11 +28,11 @@ jobs:
       - name: Run Traffic Scraper (Headless Cloud)
         run: node scraper.js run
 
-      - name: Save & Push Excel Files
+     - name: Save & Push Excel Files
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "bot@traffic.local"
-          git pull --rebase
-          git add output/
+          git add -A
           git commit -m "Auto-collected traffic data: $(date -u)" || exit 0
+          git pull --rebase
           git push
