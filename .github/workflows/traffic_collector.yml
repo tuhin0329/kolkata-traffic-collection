@@ -44,9 +44,9 @@ jobs:
 
       - name: Save & Push Excel Files
         run: |
-          git config --global user.name "GitHub Action Bot"
-          git config --global user.email "bot@traffic.local"
-          git add -A
-          git commit -m "Auto-collected traffic data: $(date -u)" || exit 0
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin main || true
+          git add output/
+          git commit -m "Auto-collected traffic data: $(date -u)" || exit 0
           git push origin main
