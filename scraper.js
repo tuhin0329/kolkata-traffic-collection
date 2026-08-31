@@ -663,9 +663,9 @@ function buildMapsUrl(route, mode) {
   }
   
   if (mode === "bike") {
-    return `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${dest}${viaParam}&travelmode=two-wheeler`;
+    return `https://www.google.co.in/maps/dir/?api=1&origin=${origin}&destination=${dest}${viaParam}&travelmode=two-wheeler&gl=in&hl=en`;
   }
-  return `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${dest}${viaParam}&travelmode=driving`;
+  return `https://www.google.co.in/maps/dir/?api=1&origin=${origin}&destination=${dest}${viaParam}&travelmode=driving&gl=in&hl=en`;
 }
 
 // Bus OD URL
@@ -676,7 +676,7 @@ function buildBusTransitUrl(route) {
   if (route.id === "M12" || route.id === "M13") {
     pref = "&transit_routing_preference=less_walking";
   }
-  return `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${dest}&travelmode=transit&transit_mode=bus${pref}`;
+  return `https://www.google.co.in/maps/dir/?api=1&origin=${origin}&destination=${dest}&travelmode=transit&transit_mode=bus${pref}&gl=in&hl=en`;
 }
 
 // Bus Segment URL for intersection checking
