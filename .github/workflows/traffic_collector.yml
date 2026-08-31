@@ -16,8 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
-      CI: true
-      HEADLESS: "new"
+      CI: "true"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,8 +26,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install All Dependencies
-        run: npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth node-cron exceljs
+      - name: Install Dependencies
+        run: npm install
 
       - name: Install Virtual Display
         run: sudo apt-get update -qq && sudo apt-get install -y -qq xvfb
