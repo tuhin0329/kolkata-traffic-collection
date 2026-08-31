@@ -30,11 +30,12 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install Dependencies & Display Server
+      - name: Install Dependencies & Chrome Browser
         run: |
           sudo apt-get update -y
           sudo apt-get install -y xvfb
           npm install
+          npx puppeteer browsers install chrome
 
       - name: Run Traffic Scraper
         run: |
