@@ -1568,30 +1568,10 @@ async function saveExcel(results, outDir) {
     ];
     
     // Embed images if captured
+   // Images are saved in output/screenshots folder to keep Excel lightweight (<1MB)
+    /*
     const imagesToEmbed = [rData.carImagePath, rData.bikeImagePath, rData.busImagePath];
-    let hasImage = false;
-    
-    imagesToEmbed.forEach((imgPath, idx) => {
-      if (imgPath && fs.existsSync(imgPath)) {
-        try {
-          const imageId = wb.addImage({
-            filename: imgPath,
-            extension: 'jpeg',
-          });
-          sheet.addImage(imageId, {
-            tl: { col: 22 + idx, row: addedRow.number - 1 },
-            ext: { width: 400, height: 250 }
-          });
-          hasImage = true;
-        } catch (err) {
-          log(`  ⚠️ Failed to embed image for ${r.id}: ${err.message}`);
-        }
-      }
-    });
-    
-    if (hasImage) {
-      addedRow.height = 190;
-    }
+    */
 
     // Color-code Car Time based on traffic
     const carMinCell = addedRow.getCell(7);
