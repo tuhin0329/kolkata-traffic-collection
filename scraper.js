@@ -1116,8 +1116,10 @@ async function runFetchSession(label = "manual") {
       headless: process.env.CI ? true : false, // Set to false so the user can verify with the map
       defaultViewport: null,
       args: [
-        "--no-sandbox",
+         "--no-sandbox",
         "--disable-setuid-sandbox",
+        "--ozone-platform=headless",
+        "--disable-gpu",
         "--disable-blink-features=AutomationControlled",
         "--enable-webgl",
         "--use-gl=swiftshader",
