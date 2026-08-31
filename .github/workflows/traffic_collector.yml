@@ -8,11 +8,16 @@ on:
     - cron: '30 13 * * *'  # 07:00 PM IST
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     env:
       CI: true
+      HEADLESS: "new"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -25,14 +30,17 @@ jobs:
       - name: Install All Dependencies
         run: npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth node-cron exceljs
 
-      - name: Run Traffic Scraper (Headless Cloud)
-        run: node scraper.js run
+      - name: Install Virtual Display
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq xvfb
 
-     - name: Save & Push Excel Files
+      - name: Run Traffic Scraper (Headless Cloud)
+        run: xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" node scraper.js run
+
+      - name: Save & Push Excel Files
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "bot@traffic.local"
           git add -A
           git commit -m "Auto-collected traffic data: $(date -u)" || exit 0
-          git pull --rebase
-          git push
+          git pull --rebase origin main || true
+          git push origin main
