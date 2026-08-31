@@ -2,10 +2,11 @@ name: Kolkata Traffic 24/7 Automated Collector
 
 on:
   schedule:
-    - cron: '30 18 * * *'  # 12:00 AM IST
-    - cron: '30 4 * * *'   # 10:00 AM IST
-    - cron: '30 7 * * *'   # 01:00 PM IST
-    - cron: '30 13 * * *'  # 07:00 PM IST
+    # 4 Daily Slots in Indian Standard Time (IST):
+    - cron: '30 18 * * *'  # 12:00 AM IST (18:30 UTC)
+    - cron: '30 4 * * *'   # 10:00 AM IST (04:30 UTC)
+    - cron: '30 7 * * *'   # 01:00 PM IST (07:30 UTC)
+    - cron: '30 13 * * *'  # 07:00 PM IST (13:30 UTC)
   workflow_dispatch:
 
 permissions:
@@ -18,22 +19,26 @@ jobs:
     env:
       CI: "true"
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
         with:
           persist-credentials: true
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install Dependencies & Display Server
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb
+          npm install
 
-      - name: Install Virtual Display
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq xvfb
-
-      - name: Run Traffic Scraper (Headless Cloud)
-        run: xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" node scraper.js run
+      - name: Run Traffic Scraper
+        run: |
+          mkdir -p output
+          xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" node scraper.js run
 
       - name: Save & Push Excel Files
         run: |
