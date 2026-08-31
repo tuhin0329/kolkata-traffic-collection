@@ -1113,20 +1113,18 @@ async function runFetchSession(label = "manual") {
   let browser;
   try {
      browser = await puppeteer.launch({
-      headless: process.env.CI ? true : false,
-      executablePath: process.env.CI ? '/usr/bin/google-chrome-stable' : undefined,
-      defaultViewport: null,
+         let browser;
+  try {
+    const isCI = !!process.env.CI;
+    browser = await puppeteer.launch({
+      headless: isCI ? "new" : false,
+      defaultViewport: { width: 1920, height: 1080 },
       args: [
-         "--no-sandbox",
+        "--no-sandbox",
         "--disable-setuid-sandbox",
-        "--ozone-platform=headless",
-        "--disable-gpu",
+        "--disable-dev-shm-usage",
         "--disable-blink-features=AutomationControlled",
-        "--enable-webgl",
-        "--use-gl=swiftshader",
-        "--ignore-gpu-blocklist",
         "--window-size=1920,1080",
-        "--start-maximized",
         "--lang=en-IN",
       ]
     });
