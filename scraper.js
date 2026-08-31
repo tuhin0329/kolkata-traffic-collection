@@ -1113,7 +1113,7 @@ async function runFetchSession(label = "manual") {
   let browser;
   try {
     browser = await puppeteer.launch({
-      headless: process.env.CI ? 'new' : false, // Set to false so the user can verify with the map
+      headless: process.env.CI ? true : false, // Set to false so the user can verify with the map
       defaultViewport: null,
       args: [
         "--no-sandbox",
