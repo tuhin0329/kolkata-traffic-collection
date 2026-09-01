@@ -236,7 +236,7 @@ const ROUTES = [
     "to": "22.52179187546706, 88.32469649801426",
     "label": "Hazra Road / S P Mukherjee Road connector",
     "originAddress": "Ballygunge, Kolkata, West Bengal, India",
-    "destAddress": "DH Road, Kolkata, West Bengal, India  Thyrocare Diagnostic Lab | Blood Test Centre - JULPIA, WEST BENGAL, GROUND FLOOR, REGENT SUPER MARKET, BUS STAND, NH-12, Diamond Harbour Rd, near AMTALA CTC, KANYANAGAR, BISHNUPUR, JULPIA, West Bengal 700027",
+    "destAddress": "DH Road, Kolkata, West Bengal, India",
     "viaCoord": "22.523865137447483, 88.33981461622014",
     "preferredBuses": [
       "42A",
@@ -277,7 +277,7 @@ const ROUTES = [
     "section": "Major Road",
     "from": "22.49390283116308, 88.34526778991841",
     "to": "22.511962015261304, 88.3220688798639",
-    "label": "Tollygunge - Taratala Road",
+    "label": "Taratala Road",
     "originAddress": "Tollygunge, Kolkata, West Bengal, India",
     "destAddress": "Taratala, Kolkata, West Bengal, India",
     "viaCoord": "22.509790617362288, 88.33231180950128",
@@ -599,8 +599,6 @@ function calcSpeed(distStr, timeMin) {
   let numDist = parseFloat(distText.replace(/[^0-9.]/g, ""));
   if (isNaN(numDist) || numDist <= 0) return "N/A";
 
-  // Google Maps returns distances like "800 m" or "1.2 km"
-  // If the unit is exactly "m", convert it to kilometers
   if (/\bm\b/.test(distText)) {
     numDist = numDist / 1000;
   }
@@ -645,18 +643,10 @@ function getPeakClassification(slotStr) {
 }
 
 // ─── URL BUILDERS ──────────────────────────────────────────────────
-// ALL THREE MODES use the same Origin → Destination from Roads.xlsx.
-// No intermediate waypoints are applied to ANY mode — this ensures the car,
-// bike and bus are all measured on an identical basis (same A→B endpoints).
-// Google Maps routes each mode on the real road network between those points.
-// The routes are valid per the Roads.xlsx because the endpoints (from/to) come
-// directly from the coordinates defined in Coordinates.xlsx for each road.
-
 function buildMapsUrl(route, mode) {
   const origin = encodeURIComponent(route.from);
   const dest   = encodeURIComponent(route.to);
   
-  // Force Car and Bike to use the EXACT coordinates from the Excel sheet
   let viaParam = '';
   if (route.viaCoord) {
     viaParam = `&waypoints=${encodeURIComponent(route.viaCoord)}`;
@@ -668,22 +658,14 @@ function buildMapsUrl(route, mode) {
   return `https://www.google.co.in/maps/dir/?api=1&origin=${origin}&destination=${dest}${viaParam}&travelmode=driving&gl=in&hl=en`;
 }
 
-// Bus OD URL
 function buildBusTransitUrl(route) {
   const origin = encodeURIComponent(route.from);
   const dest   = encodeURIComponent(route.to);
-  let pref = ""; // Defaults to Google Maps 'Best Route' (Fastest) for all routes
+  let pref = ""; 
   if (route.id === "M12" || route.id === "M13") {
     pref = "&transit_routing_preference=less_walking";
   }
   return `https://www.google.co.in/maps/dir/?api=1&origin=${origin}&destination=${dest}&travelmode=transit&transit_mode=bus${pref}&gl=in&hl=en`;
-}
-
-// Bus Segment URL for intersection checking
-function buildBusSegmentUrl(from, to) {
-  const o = encodeURIComponent(from);
-  const d = encodeURIComponent(to);
-  return `https://www.google.com/maps/dir/?api=1&origin=${o}&destination=${d}&travelmode=transit&transit_mode=bus&transit_routing_preference=less_walking`;
 }
 
 function nowIST() {
@@ -729,20 +711,27 @@ function parseMinutes(text) {
   return total > 0 ? total : null;
 }
 
+// Nested Screenshots Organizer: output/screenshots/YYYY-MM-DD/TIME_SLOT/ROUTE_NAME/mode.jpg
 async function saveRouteScreenshot(page, route, mode) {
   try {
+    const fileDate = dateIST();
+    const currentSlot = slotLabel();
+    const generalSlot = getGeneralSlotName(currentSlot).replace(/[:\/]/g, '_');
     const safeLabel = (route.label || "route").replace(/[^a-z0-9]/gi, '_');
-    const roadDir = path.join(__dirname, "output", "screenshots", `${route.id}_${safeLabel}`);
-    if (!fs.existsSync(roadDir)) fs.mkdirSync(roadDir, { recursive: true });
-    const imgName = `${mode}_${Date.now()}.jpg`;
-    const screenshotPath = path.join(roadDir, imgName);
+    const routeFolder = `${route.id}_${safeLabel}`;
     
-    // Ensure viewport is set to wide Full HD
+    // Directory: output/screenshots/YYYY-MM-DD/SLOT/ROUTE_NAME/
+    const targetDir = path.join(__dirname, "output", "screenshots", fileDate, generalSlot, routeFolder);
+    if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+    
+    const imgName = `${mode}.jpg`;
+    const screenshotPath = path.join(targetDir, imgName);
+    const relativePath = `screenshots/${fileDate}/${generalSlot}/${routeFolder}/${imgName}`;
+    
     try {
       await page.setViewport({ width: 1920, height: 1080, deviceScaleFactor: 1 });
     } catch(e) {}
 
-    // Trigger full canvas resize and dismiss any modal banners so 100% of tiles render
     await page.evaluate(() => {
       window.dispatchEvent(new Event('resize'));
       const activeCard = document.querySelector('.section-directions-trip-duration, .MespJc, [data-trip-index="0"]');
@@ -755,12 +744,9 @@ async function saveRouteScreenshot(page, route, mode) {
       dismissBtns.forEach(b => b.click());
     });
     
-    // Wait for all vector tiles, road labels, ETA boxes, and traffic colors to stream completely
     await new Promise(r => setTimeout(r, 2200));
-
-    // High quality JPEG (90) ensures razor-sharp road labels, bus badges, and traffic colors
     await page.screenshot({ path: screenshotPath, type: 'jpeg', quality: 90 });
-    return screenshotPath;
+    return relativePath;
   } catch (err) {
     return null;
   }
@@ -770,7 +756,6 @@ async function extractTravelData(page, url, mode, route) {
   try {
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 45000 });
     
-    // Give it a moment to render the map & routes
     await page.waitForSelector(
       '[data-value="driving"], [data-value="transit"], [data-value="two-wheeler"], [data-travel_mode="8"], .section-directions-trip-duration,' +
       ' .section-trip-header-title, [jsan*="duration"], .MespJc, .Tkt0, .XWZjwc, .Fk3sm, [class*="fontHeadlineSmall"]',
@@ -787,7 +772,6 @@ async function extractTravelData(page, url, mode, route) {
         return /\d+\.?\d*\s*km/i.test(t) || /^\d+\s*m$/i.test(t);
       }
 
-      // Define keywords for fuzzy matching for all modes
       const expectedLower = expectedRoad ? expectedRoad.toLowerCase() : "";
       let keywords = [expectedLower];
       if (expectedLower.includes("bt road") || expectedLower.includes("b t road")) keywords = ["bt road", "b.t. road", "bt rd", "barrackpore trunk"];
@@ -828,15 +812,11 @@ async function extractTravelData(page, url, mode, route) {
           }
           
           if (hasMetro) continue;
-
-          if (hasMetro) continue;
-
           selectedCard = card;
           break;
         }
         
         if (!selectedCard) return null; 
-        
         selectedCard.click(); 
 
         const transitEl = selectedCard.querySelector('.Fk3sm, [class*="fontHeadlineSmall"], .UgZKXd .Fk3sm');
@@ -855,7 +835,6 @@ async function extractTravelData(page, url, mode, route) {
           let name = transitRoute || "Bus Route";
           let totalTimeText = transitEl.textContent.trim();
           
-          // Helper functions to do time math
           function timeToMinutes(t) {
             let m = 0;
             const hrMatch = t.match(/(\d+)\s*(hr|hour|h)/i);
@@ -873,23 +852,6 @@ async function extractTravelData(page, url, mode, route) {
 
           let totalMins = timeToMinutes(totalTimeText);
           
-          // Find walk time from the card summary
-          let walkMins = 0;
-          const walkIcons = selectedCard.querySelectorAll('[aria-label="Walking"]');
-          for (const icon of walkIcons) {
-            const parent = icon.parentElement;
-            if (parent) {
-              const walkText = parent.innerText;
-              const wMatch = walkText.match(/(\d+)\s*min/i);
-              if (wMatch) {
-                walkMins += parseInt(wMatch[1], 10);
-              }
-            }
-          }
-          
-          // Pure bus travel time
-                    let totalMins = timeToMinutes(totalTimeText);
-          
           // 1. Extract walking time
           let walkMins = 0;
           const walkIcons = selectedCard.querySelectorAll('[aria-label="Walking"]');
@@ -904,7 +866,7 @@ async function extractTravelData(page, url, mode, route) {
             }
           }
 
-          // 2. Extract Pure In-Vehicle Moving Time (sums individual bus ride segments, removing 4-min stoppage/wait times)
+          // 2. Extract Pure In-Vehicle Moving Time (subtracts stoppage/transfer waiting)
           let pureRideMins = 0;
           const stopMatches = selectedCard.innerText.match(/(\d+)\s*(?:hr|h|hour)?\s*(\d+)?\s*min\s*\(\d+\s*stops?\)/gi);
           if (stopMatches && stopMatches.length > 0) {
@@ -918,15 +880,14 @@ async function extractTravelData(page, url, mode, route) {
             }
           }
 
-          // If individual moving legs were detected, use pure moving time; otherwise fallback to (total - walk)
           let busMins = (pureRideMins > 0) ? pureRideMins : (totalMins - walkMins);
           if (busMins < 0) busMins = totalMins;
           
           let finalTime = minutesToTime(busMins);
-          
           return { time: finalTime, dist: transitDist, routeName: name, inVehicleMins: busMins, walkMins: walkMins };
+        }
+      }
 
-      // Attempt to find a route that matches our keywords
       const routeCards = document.querySelectorAll(
         '[data-index], [data-trip-index], .MespJc, .PB1zzf, [id^="section-directions-trip-"]'
       );
@@ -946,17 +907,14 @@ async function extractTravelData(page, url, mode, route) {
         
         if (timeMatch && distMatch) {
           const resultObj = { time: timeMatch[0].trim(), dist: distMatch[0].trim(), routeName: routeName };
-          
-          // Save the very first valid route as a fallback
           if (!fallbackMatch) fallbackMatch = resultObj;
           
-          // If we have keywords, check if this route's name matches ANY keyword
           if (keywords.length > 0 && expectedLower !== "") {
              const nameLower = routeName.toLowerCase();
              const isMatch = keywords.some(kw => nameLower.includes(kw));
              if (isMatch) {
                 bestMatch = resultObj;
-                break; // Found our exact road!
+                break;
              }
           }
         }
@@ -977,19 +935,6 @@ async function extractTravelData(page, url, mode, route) {
         }
         if (timeMatch && distMatch) {
           return { time: timeMatch[0].trim(), dist: distMatch[0].trim(), routeName: routeName };
-        }
-      }
-
-      const bodyWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-      let node;
-      while ((node = bodyWalker.nextNode())) {
-        const t = node.textContent?.trim();
-        if (!t || !isTimeText(t)) continue;
-        const parent = node.parentElement;
-        if (!parent) continue;
-        const style = window.getComputedStyle(parent);
-        if (style.display !== "none" && style.visibility !== "hidden") {
-          return { time: t, dist: null, routeName: "Unknown" };
         }
       }
 
@@ -1014,7 +959,6 @@ async function extractTravelData(page, url, mode, route) {
       });
     }
 
-    // -- Take a screenshot for visual verification --
     const imgPath = await saveRouteScreenshot(page, route, mode);
 
     return {
@@ -1030,7 +974,6 @@ async function extractTravelData(page, url, mode, route) {
   }
 }
 
-// Helper to set "Depart at" time on Google Maps
 async function setDepartAtTime(page, timeStr) {
   try {
     await page.evaluate(() => {
@@ -1135,8 +1078,10 @@ async function runFetchSession(label = "manual") {
   log(`Time (IST): ${nowIST()}`);
   log(`Routes: ${ROUTES.length}`);
   log(`${"═".repeat(60)}`);
+
   const outDir = path.join(__dirname, "output");
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+
   let browser;
   try {
     const isCI = !!process.env.CI;
@@ -1172,7 +1117,7 @@ async function runFetchSession(label = "manual") {
       
       let busRaw = null;
       try {
-        // 2. Fetch Bus data — STRICLY ORIGIN TO DESTINATION ONLY (No Middle Locations)
+        // 2. Fetch Bus data
         const busUrl = buildBusTransitUrl(route);
         await page.goto(busUrl, { waitUntil: "domcontentloaded", timeout: 45000 });
         await page.waitForSelector('.MespJc, button[aria-label*="transit"], [data-value="transit"]', { timeout: 6000 }).catch(() => {});
@@ -1185,7 +1130,6 @@ async function runFetchSession(label = "manual") {
         } catch (e) {}
         await new Promise(r => setTimeout(r, 800));
         
-        // Apply Google Maps Route Options (Prefer Bus, Fewer transfers)
         await applyTransitOptions(page);
         
         const nowIST = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
@@ -1214,7 +1158,6 @@ async function runFetchSession(label = "manual") {
             }
             let bestCard = null;
             const cardsRaw = Array.from(document.querySelectorAll('.MespJc'));
-            const clean = (str) => (str || '').toLowerCase().replace(/[\s\-\._]/g, '');
             
             const isMetroOrTrain = (cardEl) => {
               const txt = (cardEl.innerText || '').toLowerCase();
@@ -1226,29 +1169,19 @@ async function runFetchSession(label = "manual") {
             const isWalkOnlyCard = (cardEl) => {
               const txt = (cardEl.innerText || '').toLowerCase();
               if (txt.includes('via ')) return true;
-              
               const hasBusImg = Array.from(cardEl.querySelectorAll('img')).some(i => (i.getAttribute('alt') || i.getAttribute('src') || '').toLowerCase().includes('bus'));
               const hasBusAria = cardEl.querySelector('[aria-label*="Bus"], [aria-label*="bus"]') !== null;
               const hasBusBadge = cardEl.querySelector('.ivN21e, [class*="badge"], span[style*="background-color"]') !== null;
-              
-              if (!hasBusImg && !hasBusAria && !hasBusBadge) {
-                return true;
-              }
-              if (txt.includes('') && !hasBusImg && !hasBusBadge) {
-                return true;
-              }
+              if (!hasBusImg && !hasBusAria && !hasBusBadge) return true;
               return false;
             };
 
             const validCards = cardsRaw.filter(c => !isMetroOrTrain(c));
             const busOnlyCards = validCards.filter(c => !isWalkOnlyCard(c));
-            if (busOnlyCards.length === 0) {
-              return null; // NEVER return walking cards
-            }
-            const cards = busOnlyCards;
+            if (busOnlyCards.length === 0) return null;
             
             let scoredCards = [];
-            for (const card of cards) {
+            for (const card of busOnlyCards) {
               const txt = card.innerText || '';
               let timeMin = 999;
               const h = txt.match(/(\d+)\s*(?:hr|hour|h)/i);
@@ -1259,16 +1192,15 @@ async function runFetchSession(label = "manual") {
               if (totalM > 0) timeMin = totalM;
 
               const badgeEls = card.querySelectorAll('[class*="fontBodyMedium"] span, .ivN21e span, [class*="badge"], span[style*="background"], span');
-              let busNums = Array.from(badgeEls).map(el => el.textContent.trim()).filter(t => t.length > 0 && t.length < 15 && !/min|hr|:|km|walk|from|to||every/i.test(t));
+              let busNums = Array.from(badgeEls).map(el => el.textContent.trim()).filter(t => t.length > 0 && t.length < 15 && !/min|hr|:|km|walk|from|to|every/i.test(t));
               busNums = [...new Set(busNums)];
               const transferCount = Math.max(0, busNums.length - 1);
 
               let walkMin = 0;
-              const walkMatch = txt.match(/walk\s*(\d+)\s*min/i) || txt.match(/(\d+)\s*min\s*(?:walk|)/i) || txt.match(/\s*(\d+)\s*min/i);
+              const walkMatch = txt.match(/walk\s*(\d+)\s*min/i) || txt.match(/(\d+)\s*min\s*(?:walk)/i);
               if (walkMatch) walkMin = parseInt(walkMatch[1], 10);
 
               let score = 100000 - (timeMin * 10) - (transferCount * 5000) - (walkMin * 25);
-              
               if (prefBuses && prefBuses.length > 0 && prefBuses.some(pb => txt.toUpperCase().includes(pb.toUpperCase()))) {
                 score += 50000;
               }
@@ -1299,21 +1231,15 @@ async function runFetchSession(label = "manual") {
             }
             
             if (bestCard) {
-              if (isWalkOnlyCard(bestCard)) {
-                return null;
-              }
               const timeEl = bestCard.querySelector('.Fk3sm, [class*="fontHeadlineSmall"]');
               const timeRaw = timeEl ? timeEl.textContent.trim() : null;
               const distEl = Array.from(bestCard.querySelectorAll('div,span')).find(el => el.textContent.includes('km') || el.textContent.includes(' m'));
               const distM = distEl ? distEl.textContent.match(/[\d.]+\s*(km|m)/i) : null;
               const numEls = bestCard.querySelectorAll('[class*="fontBodyMedium"] span, .ivN21e span, [class*="badge"], [class*="transit"]');
-              let busNums = Array.from(numEls).map(el => el.textContent.trim()).filter(t => t.length > 0 && t.length < 15 && !/min|hr|:|km|walk|/i.test(t)).join(', ');
-              if (!busNums || busNums.trim() === '' || busNums === '') {
-                const parts = bestCard.innerText.split('\n').map(s => s.trim()).filter(s => s.length > 0 && !/min|hr|km|m$|walk||•|details|preview|every|from|to/i.test(s));
-                busNums = parts.slice(0, 2).join(', ');
-              }
+              let busNums = Array.from(numEls).map(el => el.textContent.trim()).filter(t => t.length > 0 && t.length < 15 && !/min|hr|:|km|walk/i.test(t)).join(', ');
               if (!busNums || busNums.trim() === '') busNums = "Matched Bus Route";
-              const walkMatch = bestCard.innerText.match(/(?:|walk)\s*(\d+)\s*min/i);
+              
+              const walkMatch = bestCard.innerText.match(/(?:walk)\s*(\d+)\s*min/i);
               const walkTime = walkMatch ? walkMatch[1] + " min" : "0 min";
               const rawDetails = bestCard.innerText;
               bestCard.click();
@@ -1327,70 +1253,6 @@ async function runFetchSession(label = "manual") {
             log(`      ✅ Found matching bus [${busRaw.routeName}] at Depart at [${tryTime}]`);
             break;
           }
-        }
-
-        // Robust Fallback: If Depart at returned no genuine bus, grab the active bus route directly from live timetable
-        if (!busRaw) {
-          try {
-            await page.goto(busUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
-            await page.waitForSelector('.MespJc', { timeout: 8000 }).catch(() => {});
-            const prefBuses = route.preferredBuses || [];
-            const roadLabel = route.label || '';
-            const carRouteName = carData.routeName || '';
-            const currentRouteId = route.id;
-            const fallbackRes = await page.evaluate((prefBuses, roadLabel, carRouteName, routeId) => {
-              function timeToMin(s) {
-                let m = 0;
-                const h = s.match(/(\d+)\s*(hr|hour|h)/i); if (h) m += parseInt(h[1]) * 60;
-                const mn = s.match(/(\d+)\s*min/i); if (mn) m += parseInt(mn[1]);
-                return m || null;
-              }
-              const isMetroOrTrain = (cardEl) => {
-                const txt = (cardEl.innerText || '').toLowerCase();
-                if (/blue line|green line|purple line|orange line|local train|ferry|vessel|tram/i.test(txt)) return true;
-                const ariaEls = cardEl.querySelectorAll('[aria-label*="Metro"], [aria-label*="Train"], [aria-label*="Subway"], [class*="train"], [class*="subway"], [class*="metro"]');
-                return ariaEls.length > 0;
-              };
-              const isWalkOnlyCard = (cardEl) => {
-                const txt = (cardEl.innerText || '').toLowerCase();
-                if (txt.includes('via ')) return true;
-                const hasBusImg = Array.from(cardEl.querySelectorAll('img')).some(i => (i.getAttribute('alt') || i.getAttribute('src') || '').toLowerCase().includes('bus'));
-                const hasBusAria = cardEl.querySelector('[aria-label*="Bus"], [aria-label*="bus"]') !== null;
-                const hasBusBadge = cardEl.querySelector('.ivN21e, [class*="badge"], span[style*="background-color"]') !== null;
-                if (!hasBusImg && !hasBusAria && !hasBusBadge) return true;
-                if (txt.includes('') && !hasBusImg && !hasBusBadge) return true;
-                return false;
-              };
-              const cardsRaw = Array.from(document.querySelectorAll('.MespJc'));
-              const validCards = cardsRaw.filter(c => !isMetroOrTrain(c));
-              const busOnlyCards = validCards.filter(c => !isWalkOnlyCard(c));
-              if (busOnlyCards.length > 0) {
-                const bestCard = busOnlyCards[0];
-                const timeEl = bestCard.querySelector('.Fk3sm, [class*="fontHeadlineSmall"]');
-                const timeRaw = timeEl ? timeEl.textContent.trim() : null;
-                const distEl = Array.from(bestCard.querySelectorAll('div,span')).find(el => el.textContent.includes('km') || el.textContent.includes(' m'));
-                const distM = distEl ? distEl.textContent.match(/[\d.]+\s*(km|m)/i) : null;
-                const numEls = bestCard.querySelectorAll('[class*="fontBodyMedium"] span, .ivN21e span, [class*="badge"], [class*="transit"]');
-                let busNums = Array.from(numEls).map(el => el.textContent.trim()).filter(t => t.length > 0 && t.length < 15 && !/min|hr|:|km|walk|/i.test(t)).join(', ');
-                if (!busNums || busNums.trim() === '' || busNums === '') {
-                  const parts = bestCard.innerText.split('\n').map(s => s.trim()).filter(s => s.length > 0 && !/min|hr|km|m$|walk||•|details|preview|every|from|to/i.test(s));
-                  busNums = parts.slice(0, 2).join(', ');
-                }
-                if (!busNums || busNums.trim() === '') busNums = "Matched Bus Route";
-                const walkMatch = bestCard.innerText.match(/(?:|walk)\s*(\d+)\s*min/i);
-                const walkTime = walkMatch ? walkMatch[1] + " min" : "0 min";
-                const rawDetails = bestCard.innerText;
-                bestCard.click();
-                return { timeRaw, timeMin: timeToMin(timeRaw), distRaw: distM ? distM[0] : null, routeName: busNums, walkTime, rawDetails, exactMatch: true };
-              }
-              return null;
-            }, prefBuses, roadLabel, carRouteName, currentRouteId);
-
-            if (fallbackRes) {
-              busRaw = fallbackRes;
-              log(`      ✅ Found active bus route [${busRaw.routeName}] (Live Transit Timetable)`);
-            }
-          } catch (e) {}
         }
       } catch(e) {}
 
@@ -1417,7 +1279,7 @@ async function runFetchSession(label = "manual") {
       const bikeData = (await extractTravelData(page, bikeUrl, "bike", route)) || {};
       if (carData.distRaw) bikeData.distRaw = carData.distRaw;
       
-      // 4. Calculate Reason if Bus is faster than Car or Bike
+      // 4. Discrepancy & Speed Advantage Analysis
       let busAdvantageReason = "";
       if (busData.timeMin) {
         const busFasterThanCar = carData.timeMin && busData.timeMin < carData.timeMin;
@@ -1425,22 +1287,10 @@ async function runFetchSession(label = "manual") {
         
         if (busFasterThanCar || busFasterThanBike) {
           const reasons = [];
-          
-          if (busData.walkTime === "0 min" || !busData.walkTime) {
-            reasons.push("0 Min Walk Time (Direct Boarding)");
-          }
-          if (busData.routeName && !busData.routeName.includes(",")) {
-            reasons.push("Direct Route (No Transfers)");
-          }
-          if (carData.trafficCondition && (carData.trafficCondition.includes("Heavy") || carData.trafficCondition.includes("Red"))) {
-            reasons.push("Heavy Car Traffic Route");
-          }
-          
-          if (reasons.length > 0) {
-            busAdvantageReason = reasons.join(" + ");
-          } else {
-            busAdvantageReason = "More direct path or faster lane access";
-          }
+          if (busData.walkTime === "0 min" || !busData.walkTime) reasons.push("0 Min Walk Time (Direct Boarding)");
+          if (busData.routeName && !busData.routeName.includes(",")) reasons.push("Direct Route (No Transfers)");
+          if (carData.trafficCondition && (carData.trafficCondition.includes("Heavy") || carData.trafficCondition.includes("Red"))) reasons.push("Heavy Car Traffic Route");
+          busAdvantageReason = (reasons.length > 0) ? reasons.join(" + ") : "More direct path or dedicated lane access";
         }
       }
 
@@ -1523,17 +1373,14 @@ async function saveExcel(results, outDir) {
     try { await wb.xlsx.readFile(xlsxFile); } catch { wb = new ExcelJS.Workbook(); }
   }
 
-  // Get current slot from the first result
   const currentSlot = results[0].timeSlot || "Data_Run"; 
   const generalSlot = getGeneralSlotName(currentSlot);
-  const sheetName = generalSlot.replace(/[:\/]/g, "_"); // e.g. "10_00 AM"
+  const sheetName = generalSlot.replace(/[:\/]/g, "_");
 
-  // Fetch existing sheet or create it
   let sheet = wb.getWorksheet(sheetName);
   if (!sheet) {
     sheet = wb.addWorksheet(sheetName);
     
-    // Create Header
     const headers = [
       "Route ID", "Category", "Road Name (Matches Coordinate Excel)",
       "Exact Collection Time", "Peak Classification",
@@ -1546,19 +1393,17 @@ async function saveExcel(results, outDir) {
     ];
     sheet.addRow(headers);
     
-    // Seed 40 placeholders exactly in ROUTES order
     for (const r of ROUTES) {
-      sheet.addRow([r.id, r.section, r.label, currentSlot, getPeakClassification(generalSlot), "N/A", "", "N/A", "N/A", "", "N/A", "N/A", "N/A", "", "", 0, "N/A", "N/A", "N/A", "", "", "", "", ""]);
+      sheet.addRow([r.id, r.section, r.label, currentSlot, getPeakClassification(generalSlot), "N/A", "", "N/A", "N/A", "", "N/A", "N/A", "N/A", "", "", 0, "N/A", "N/A", "N/A", "", "", "", "", "", ""]);
     }
   }
 
-  // Iterate exactly by scraping results and push them directly to their strictly indexed row
   for (const rData of results) {
     const routeIndex = ROUTES.findIndex(r => r.id === rData.routeId);
     if (routeIndex === -1) continue;
     
     const r = ROUTES[routeIndex];
-    const targetRowNumber = routeIndex + 2; // header is row 1
+    const targetRowNumber = routeIndex + 2;
     const addedRow = sheet.getRow(targetRowNumber);
     
     const distVal = rData.carDistRaw || rData.busDistRaw || "N/A";
@@ -1591,18 +1436,11 @@ async function saveExcel(results, outDir) {
       calcTransitRatio(busMinVal, carMinVal),
       `Walk: ${rData.busWalkTime || "N/A"}`,
       rData.busReason || "",
-      "", // Car Image
-      "", // Bike Image
-      ""  // Bus Image
+      rData.carImagePath || "",  // Column W (Car Image Path)
+      rData.bikeImagePath || "", // Column X (Bike Image Path)
+      rData.busImagePath || ""   // Column Y (Bus Image Path)
     ];
-    
-    // Embed images if captured
-   // Images are saved in output/screenshots folder to keep Excel lightweight (<1MB)
-    /*
-    const imagesToEmbed = [rData.carImagePath, rData.bikeImagePath, rData.busImagePath];
-    */
 
-    // Color-code Car Time based on traffic
     const carMinCell = addedRow.getCell(7);
     if (rData.carTraffic === "High") {
       carMinCell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD2D2' } };
@@ -1615,7 +1453,6 @@ async function saveExcel(results, outDir) {
       carMinCell.font = { name: 'Segoe UI', size: 10, color: { argb: '006100' }, bold: true };
     }
 
-    // Highlight discrepancies
     if (rData.busReason && (rData.busReason.includes("⚠️") || rData.busReason.includes("DISCREPANCY") || rData.busReason.includes("ANOMALY"))) {
       const reasonCell = addedRow.getCell(21);
       reasonCell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFFFC000" } };
@@ -1624,27 +1461,25 @@ async function saveExcel(results, outDir) {
   }
 
   // ─── STYLING & FORMATTING ──────────────────────────────────────────────────
-  sheet.views = [{ state: 'frozen', ySplit: 1 }]; // Freeze the header row
+  sheet.views = [{ state: 'frozen', ySplit: 1 }];
   
-  // Set Image Column Widths
-  sheet.getColumn(22).width = 60;
-  sheet.getColumn(23).width = 60;
-  sheet.getColumn(24).width = 60;
+  sheet.getColumn(22).width = 40;
+  sheet.getColumn(23).width = 45;
+  sheet.getColumn(24).width = 45;
+  sheet.getColumn(25).width = 45;
   
-  // Make the spreadsheet highly interactive
   sheet.autoFilter = {
     from: 'A1',
     to: sheet.getColumn(sheet.columnCount).letter + '1'
   };
   
-  // Style header row
   const headerRow = sheet.getRow(1);
   headerRow.height = 28;
   headerRow.eachCell((cell) => {
     cell.fill = {
       type: 'pattern',
       pattern: 'solid',
-      fgColor: { argb: '1F4E79' } // Modern Dark Navy
+      fgColor: { argb: '1F4E79' }
     };
     cell.font = {
       name: 'Segoe UI',
@@ -1663,21 +1498,18 @@ async function saveExcel(results, outDir) {
     };
   });
 
-  // Style data rows
   for (let r = 2; r <= sheet.rowCount; r++) {
     const row = sheet.getRow(r);
     row.height = 20;
     const isEven = r % 2 === 0;
-    const defaultBg = isEven ? 'F9FAFB' : 'FFFFFF'; // Elegant off-white stripe
+    const defaultBg = isEven ? 'F9FAFB' : 'FFFFFF';
     
     row.eachCell({ includeEmpty: true }, (cell, colIdx) => {
-      // Set default font properties
       cell.font = cell.font || {};
       cell.font.name = 'Segoe UI';
       cell.font.size = cell.font.size || 10;
-      if (!cell.font.color) cell.font.color = { argb: '333333' }; // Softer text color
+      if (!cell.font.color) cell.font.color = { argb: '333333' };
       
-      // Zebra striping for columns 1-5 and route names columns (c2, c4, etc.)
       const isStaticCol = colIdx <= 5;
       const isRouteCol = colIdx > 5 && ((colIdx - 6) % 4 === 1 || (colIdx - 6) % 4 === 3);
       const isTimeCol = colIdx > 5 && ((colIdx - 6) % 4 === 0 || (colIdx - 6) % 4 === 2);
@@ -1698,7 +1530,6 @@ async function saveExcel(results, outDir) {
         }
       }
       
-      // Borders
       cell.border = {
         top: { style: 'thin', color: { argb: 'E5E7EB' } },
         bottom: { style: 'thin', color: { argb: 'E5E7EB' } },
@@ -1706,7 +1537,6 @@ async function saveExcel(results, outDir) {
         right: { style: 'thin', color: { argb: 'E5E7EB' } }
       };
       
-      // Alignments
       if (colIdx === 1 || colIdx === 2) {
         cell.alignment = { vertical: 'middle', horizontal: 'center' };
       } else if (colIdx === 3) {
@@ -1721,30 +1551,21 @@ async function saveExcel(results, outDir) {
           cell.alignment = { vertical: 'middle', horizontal: 'left' };
         }
       }
-      
-      // Formatting for warnings
-      const cellText = String(cell.value || '');
-      if (cellText.includes('[METRO USED!]')) {
-        cell.font = { name: 'Segoe UI', size: 10, bold: true, color: { argb: 'C00000' } };
-        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FCE4D6' } };
-      }
     });
   }
 
-  // Adjust column widths automatically
-  sheet.columns.forEach((col, colIdx) => {
+  sheet.columns.forEach((col) => {
     let maxLen = 12;
     col.eachCell({ includeEmpty: false }, (cell) => {
       const val = String(cell.value || '');
       if (val.length > maxLen) maxLen = val.length;
     });
-    col.width = Math.min(maxLen + 4, 45); // Pad and cap at 45
+    col.width = Math.min(maxLen + 4, 45);
   });
 
-  // Enforce specific base column widths
-  sheet.getColumn(1).width = 10; // Route ID
-  sheet.getColumn(2).width = 12; // Category
-  sheet.getColumn(3).width = 40; // Route Name
+  sheet.getColumn(1).width = 10;
+  sheet.getColumn(2).width = 12;
+  sheet.getColumn(3).width = 40;
 
   await wb.xlsx.writeFile(xlsxFile);
   log(`📊 Excel saved (styled & formatted): ${xlsxFile}`);
@@ -1762,11 +1583,10 @@ function startScheduler() {
     cron.schedule("0 13 * * *", () => runFetchSession("1:00 PM IST"));
     cron.schedule("0 19 * * *", () => runFetchSession("7:00 PM IST"));
   } else {
-    // UTC offsets
-    cron.schedule("30 18 * * *", () => runFetchSession("12:00 AM IST")); // 00:00 IST -> 18:30 UTC
-    cron.schedule("30 4 * * *", () => runFetchSession("10:00 AM IST"));  // 10:00 IST -> 04:30 UTC
-    cron.schedule("30 7 * * *", () => runFetchSession("1:00 PM IST"));   // 13:00 IST -> 07:30 UTC
-    cron.schedule("30 13 * * *", () => runFetchSession("7:00 PM IST"));  // 19:00 IST -> 13:30 UTC
+    cron.schedule("30 18 * * *", () => runFetchSession("12:00 AM IST"));
+    cron.schedule("30 4 * * *", () => runFetchSession("10:00 AM IST"));
+    cron.schedule("30 7 * * *", () => runFetchSession("1:00 PM IST"));
+    cron.schedule("30 13 * * *", () => runFetchSession("7:00 PM IST"));
   }
 }
 
@@ -1776,7 +1596,7 @@ if (require.main === module) {
     startScheduler();
   } else if (arg === "test") {
     log("Running TEST with first 2 routes...");
-    ROUTES.splice(2); // Keep only first 2 routes for test
+    ROUTES.splice(2);
     runFetchSession("test").then(() => process.exit(0));
   } else if (arg === "route" && process.argv[3]) {
     const targetId = process.argv[3].toUpperCase();
