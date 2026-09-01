@@ -2,7 +2,7 @@ name: Kolkata Traffic 24/7 Automated Collector
 
 on:
   schedule:
-    - cron: '27 18 * * *'  # 12:00 AM IST (target: 18:30 UTC, fire slightly early)
+    - cron: '27 18 * * *'  # 12:00 AM IST
     - cron: '27 4 * * *'   # 10:00 AM IST
     - cron: '27 7 * * *'   # 01:00 PM IST
     - cron: '27 13 * * *'  # 07:00 PM IST
@@ -36,15 +36,55 @@ jobs:
           npm install
           npx puppeteer browsers install chrome
 
+      - name: Determine Target Slot
+        id: slot
+        run: |
+          CRON="${{ github.event.schedule }}"
+          echo "Triggered by cron: $CRON"
+
+          if [ "$CRON" = "27 18 * * *" ]; then
+            SLOT="12_00 AM"
+            # Midnight IST = next day in IST
+            FORCED_DATE=$(TZ="Asia/Kolkata" date -d "+1 day" +%Y-%m-%d)
+          elif [ "$CRON" = "27 4 * * *" ]; then
+            SLOT="10_00 AM"
+            FORCED_DATE=$(TZ="Asia/Kolkata" date +%Y-%m-%d)
+          elif [ "$CRON" = "27 7 * * *" ]; then
+            SLOT="01_00 PM"
+            FORCED_DATE=$(TZ="Asia/Kolkata" date +%Y-%m-%d)
+          elif [ "$CRON" = "27 13 * * *" ]; then
+            SLOT="07_00 PM"
+            FORCED_DATE=$(TZ="Asia/Kolkata" date +%Y-%m-%d)
+          else
+            # Manual trigger — auto-detect from current IST time
+            SLOT=""
+            FORCED_DATE=$(TZ="Asia/Kolkata" date +%Y-%m-%d)
+          fi
+
+          echo "slot=$SLOT" >> $GITHUB_OUTPUT
+          echo "date=$FORCED_DATE" >> $GITHUB_OUTPUT
+          echo "✅ Target Slot: $SLOT | Date: $FORCED_DATE"
+
       - name: Run Traffic Scraper
         run: |
           mkdir -p output
-          xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" node scraper.js run
+          SLOT="${{ steps.slot.outputs.slot }}"
+          FDATE="${{ steps.slot.outputs.date }}"
+
+          if [ -n "$SLOT" ]; then
+            echo "🎯 FORCING slot=$SLOT date=$FDATE"
+            xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+              node scraper.js --force-slot "$SLOT" --force-date "$FDATE"
+          else
+            echo "🔄 Manual trigger — auto-detecting slot"
+            xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+              node scraper.js
+          fi
 
       - name: Save & Push Excel Files
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add output/
-          git commit -m "Auto-collected traffic data: $(date -u)" || exit 0
+          git commit -m "Auto-collected traffic data: $(TZ='Asia/Kolkata' date '+%Y-%m-%d %I:%M %p IST') [${{ steps.slot.outputs.slot }}]" || exit 0
           git push origin main
