@@ -2,11 +2,10 @@ name: Kolkata Traffic 24/7 Automated Collector
 
 on:
   schedule:
-    # 4 Daily Slots in Indian Standard Time (IST):
-    - cron: '30 18 * * *'  # 12:00 AM IST (18:30 UTC)
-    - cron: '30 4 * * *'   # 10:00 AM IST (04:30 UTC)
-    - cron: '30 7 * * *'   # 01:00 PM IST (07:30 UTC)
-    - cron: '30 13 * * *'  # 07:00 PM IST (13:30 UTC)
+    - cron: '27 18 * * *'  # 12:00 AM IST (target: 18:30 UTC, fire slightly early)
+    - cron: '27 4 * * *'   # 10:00 AM IST
+    - cron: '27 7 * * *'   # 01:00 PM IST
+    - cron: '27 13 * * *'  # 07:00 PM IST
   workflow_dispatch:
 
 permissions:
