@@ -888,14 +888,43 @@ async function extractTravelData(page, url, mode, route) {
           }
           
           // Pure bus travel time
-          let busMins = totalMins - walkMins;
-          if (busMins < 0) busMins = totalMins; // fallback safety
+                    let totalMins = timeToMinutes(totalTimeText);
+          
+          // 1. Extract walking time
+          let walkMins = 0;
+          const walkIcons = selectedCard.querySelectorAll('[aria-label="Walking"]');
+          for (const icon of walkIcons) {
+            const parent = icon.parentElement;
+            if (parent) {
+              const walkText = parent.innerText;
+              const wMatch = walkText.match(/(\d+)\s*min/i);
+              if (wMatch) {
+                walkMins += parseInt(wMatch[1], 10);
+              }
+            }
+          }
+
+          // 2. Extract Pure In-Vehicle Moving Time (sums individual bus ride segments, removing 4-min stoppage/wait times)
+          let pureRideMins = 0;
+          const stopMatches = selectedCard.innerText.match(/(\d+)\s*(?:hr|h|hour)?\s*(\d+)?\s*min\s*\(\d+\s*stops?\)/gi);
+          if (stopMatches && stopMatches.length > 0) {
+            for (const sm of stopMatches) {
+              const hMatch = sm.match(/(\d+)\s*(?:hr|h|hour)/i);
+              const mMatch = sm.match(/(\d+)\s*min/i);
+              let legMins = 0;
+              if (hMatch) legMins += parseInt(hMatch[1], 10) * 60;
+              if (mMatch) legMins += parseInt(mMatch[1], 10);
+              pureRideMins += legMins;
+            }
+          }
+
+          // If individual moving legs were detected, use pure moving time; otherwise fallback to (total - walk)
+          let busMins = (pureRideMins > 0) ? pureRideMins : (totalMins - walkMins);
+          if (busMins < 0) busMins = totalMins;
           
           let finalTime = minutesToTime(busMins);
           
-          return { time: finalTime, dist: transitDist, routeName: name };
-        }
-      }
+          return { time: finalTime, dist: transitDist, routeName: name, inVehicleMins: busMins, walkMins: walkMins };
 
       // Attempt to find a route that matches our keywords
       const routeCards = document.querySelectorAll(
