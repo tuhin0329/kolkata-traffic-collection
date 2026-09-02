@@ -688,16 +688,16 @@ function slotLabel() {
   return `${String(h12).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")} ${ampm}`;
 }
 
-const earlyOutDir = path.join(__dirname, "output");
-if (!fs.existsSync(earlyOutDir)) {
-  fs.mkdirSync(earlyOutDir, { recursive: true });
+const logsDir = path.join(__dirname, "output", "logs");
+if (!fs.existsSync(logsDir)) {
+  fs.mkdirSync(logsDir, { recursive: true });
 }
 
 function log(msg) {
   const ts = nowIST();
   const line = `[${ts}] ${msg}`;
   console.log(line);
-  fs.appendFileSync(path.join(__dirname, "output", "scraper.log"), line + "\n");
+  fs.appendFileSync(path.join(logsDir, "scraper.log"), line + "\n");
 }
 
 function parseMinutes(text) {
@@ -718,7 +718,8 @@ async function saveRouteScreenshot(page, route, mode) {
     const currentSlot = slotLabel();
     const generalSlot = getGeneralSlotName(currentSlot).replace(/[:\/]/g, '_');
     const safeLabel = (route.label || "route").replace(/[^a-z0-9]/gi, '_');
-    const routeFolder = `${route.id}_${safeLabel}`;
+    const paddedId = String(route.id).replace(/^([MS])([1-9])$/, '$10$2');
+    const routeFolder = `${paddedId}_${safeLabel}`;
     
     // Directory: output/screenshots/YYYY-MM-DD/SLOT/ROUTE_NAME/
     const targetDir = path.join(__dirname, "output", "screenshots", fileDate, generalSlot, routeFolder);
@@ -1366,7 +1367,9 @@ function getGeneralSlotName(timeStr) {
 
 async function saveExcel(results, outDir) {
   const fileDate = dateIST();
-  const xlsxFile = path.join(outDir, `Kolkata_Traffic_Data_${fileDate}.xlsx`);
+  const excelDir = path.join(outDir, "excel");
+  if (!fs.existsSync(excelDir)) fs.mkdirSync(excelDir, { recursive: true });
+  const xlsxFile = path.join(excelDir, `Kolkata_Traffic_Data_${fileDate}.xlsx`);
   
   let wb = new ExcelJS.Workbook();
   if (fs.existsSync(xlsxFile)) {

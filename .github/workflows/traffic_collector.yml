@@ -2,11 +2,17 @@ name: Kolkata Traffic 24/7 Automated Collector
 
 on:
   schedule:
+    # 4 Daily Backup Slots in IST (in case external cron is not used):
     - cron: '27 18 * * *'  # 12:00 AM IST
     - cron: '27 4 * * *'   # 10:00 AM IST
     - cron: '27 7 * * *'   # 01:00 PM IST
     - cron: '27 13 * * *'  # 07:00 PM IST
   workflow_dispatch:
+    inputs:
+      slot:
+        description: 'Force specific slot (e.g. 10_00 AM, 01_00 PM, 07_00 PM, 12_00 AM)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -39,35 +45,46 @@ jobs:
       - name: Determine Target Slot
         id: slot
         run: |
+          INPUT_SLOT="${{ github.event.inputs.slot }}"
           CRON="${{ github.event.schedule }}"
-          echo "Triggered by cron: $CRON"
+          EVENT="${{ github.event_name }}"
+          echo "Event: $EVENT | Input Slot: $INPUT_SLOT | Cron: $CRON"
 
-          if [ "$CRON" = "27 18 * * *" ]; then
+          if [ -n "$INPUT_SLOT" ]; then
+            SLOT="$INPUT_SLOT"
+          elif [ "$EVENT" = "workflow_dispatch" ]; then
+            # Triggered via API without manual input — auto-detect from IST hour
+            IST_HOUR=$(TZ="Asia/Kolkata" date +%H)
+            echo "Current IST hour: $IST_HOUR"
+            if [ "$IST_HOUR" -ge 9 ] && [ "$IST_HOUR" -le 11 ]; then
+              SLOT="10_00 AM"
+            elif [ "$IST_HOUR" -ge 12 ] && [ "$IST_HOUR" -le 14 ]; then
+              SLOT="01_00 PM"
+            elif [ "$IST_HOUR" -ge 18 ] && [ "$IST_HOUR" -le 20 ]; then
+              SLOT="07_00 PM"
+            else
+              SLOT="12_00 AM"
+            fi
+          elif [ "$CRON" = "27 18 * * *" ]; then
             SLOT="12_00 AM"
-            # Midnight IST = next day in IST
-            FORCED_DATE=$(TZ="Asia/Kolkata" date -d "+1 day" +%Y-%m-%d)
           elif [ "$CRON" = "27 4 * * *" ]; then
             SLOT="10_00 AM"
-            FORCED_DATE=$(TZ="Asia/Kolkata" date +%Y-%m-%d)
           elif [ "$CRON" = "27 7 * * *" ]; then
             SLOT="01_00 PM"
-            FORCED_DATE=$(TZ="Asia/Kolkata" date +%Y-%m-%d)
           elif [ "$CRON" = "27 13 * * *" ]; then
             SLOT="07_00 PM"
-            FORCED_DATE=$(TZ="Asia/Kolkata" date +%Y-%m-%d)
           else
-            # Manual trigger — auto-detect from current IST time
             SLOT=""
-            FORCED_DATE=$(TZ="Asia/Kolkata" date +%Y-%m-%d)
           fi
 
+          FORCED_DATE=$(TZ="Asia/Kolkata" date +%Y-%m-%d)
           echo "slot=$SLOT" >> $GITHUB_OUTPUT
           echo "date=$FORCED_DATE" >> $GITHUB_OUTPUT
           echo "✅ Target Slot: $SLOT | Date: $FORCED_DATE"
 
       - name: Run Traffic Scraper
         run: |
-          mkdir -p output
+          mkdir -p output/excel output/logs output/screenshots
           SLOT="${{ steps.slot.outputs.slot }}"
           FDATE="${{ steps.slot.outputs.date }}"
 
@@ -76,7 +93,7 @@ jobs:
             xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
               node scraper.js --force-slot "$SLOT" --force-date "$FDATE"
           else
-            echo "🔄 Manual trigger — auto-detecting slot"
+            echo "🔄 Auto-detecting slot"
             xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
               node scraper.js
           fi
@@ -88,3 +105,4 @@ jobs:
           git add output/
           git commit -m "Auto-collected traffic data: $(TZ='Asia/Kolkata' date '+%Y-%m-%d %I:%M %p IST') [${{ steps.slot.outputs.slot }}]" || exit 0
           git push origin main
+
