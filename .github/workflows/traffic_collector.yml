@@ -1,12 +1,6 @@
 name: Kolkata Traffic 24/7 Automated Collector
 
 on:
-  schedule:
-    # 4 Daily Backup Slots in IST (in case external cron is not used):
-    - cron: '27 18 * * *'  # 12:00 AM IST
-    - cron: '27 4 * * *'   # 10:00 AM IST
-    - cron: '27 7 * * *'   # 01:00 PM IST
-    - cron: '27 13 * * *'  # 07:00 PM IST
   workflow_dispatch:
     inputs:
       slot:
@@ -52,8 +46,8 @@ jobs:
 
           if [ -n "$INPUT_SLOT" ]; then
             SLOT="$INPUT_SLOT"
-          elif [ "$EVENT" = "workflow_dispatch" ]; then
-            # Triggered via API without manual input — auto-detect from IST hour
+          else
+            # Triggered via API — auto-detect slot from current IST hour
             IST_HOUR=$(TZ="Asia/Kolkata" date +%H)
             echo "Current IST hour: $IST_HOUR"
             if [ "$IST_HOUR" -ge 9 ] && [ "$IST_HOUR" -le 11 ]; then
@@ -65,16 +59,6 @@ jobs:
             else
               SLOT="12_00 AM"
             fi
-          elif [ "$CRON" = "27 18 * * *" ]; then
-            SLOT="12_00 AM"
-          elif [ "$CRON" = "27 4 * * *" ]; then
-            SLOT="10_00 AM"
-          elif [ "$CRON" = "27 7 * * *" ]; then
-            SLOT="01_00 PM"
-          elif [ "$CRON" = "27 13 * * *" ]; then
-            SLOT="07_00 PM"
-          else
-            SLOT=""
           fi
 
           FORCED_DATE=$(TZ="Asia/Kolkata" date +%Y-%m-%d)
