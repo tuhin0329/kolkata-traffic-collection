@@ -16699,3 +16699,250 @@ Session complete! Saving to Excel...
 [16/9/2026, 13:15:39] 
 Session complete! Saving to Excel...
 [16/9/2026, 13:15:39] 📊 Excel saved (styled & formatted): /home/runner/work/kolkata-traffic-collection/kolkata-traffic-collection/output/excel/Kolkata_Traffic_Data_2026-09-16.xlsx
+[16/9/2026, 19:03:33] 
+════════════════════════════════════════════════════════════
+[16/9/2026, 19:03:33] STARTING FETCH SESSION: manual
+[16/9/2026, 19:03:33] Time (IST): 16/9/2026, 19:03:33
+[16/9/2026, 19:03:33] Routes: 40
+[16/9/2026, 19:03:33] ════════════════════════════════════════════════════════════
+[16/9/2026, 19:03:33] [1/40] DH Road
+[16/9/2026, 19:03:41]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:03:44]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:03:51]   🚙 Car: 1 hr 14 min (74 min) | dist: 19.7 km | traffic: Unknown
+[16/9/2026, 19:03:51]   🚌 Bus: 1 hr 9 min (69 min) | dist: 19.7 km
+[16/9/2026, 19:03:51]   🛵 Bike: 1 hr 8 min (68 min) | dist: 19.7 km
+[16/9/2026, 19:03:52] [2/40] B T Road
+[16/9/2026, 19:04:00]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:04:02]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:04:10]   🚙 Car: 29 min (29 min) | dist: 6.0 km | traffic: Good
+[16/9/2026, 19:04:10]   🚌 Bus: 21 min (21 min) | dist: 6.0 km
+[16/9/2026, 19:04:10]   🛵 Bike: 25 min (25 min) | dist: 6.0 km
+[16/9/2026, 19:04:10] [3/40] B T Road
+[16/9/2026, 19:04:18]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:04:21]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:04:28]   🚙 Car: 33 min (33 min) | dist: 12.3 km | traffic: Good
+[16/9/2026, 19:04:28]   🚌 Bus: 43 min (43 min) | dist: 12.3 km
+[16/9/2026, 19:04:28]   🛵 Bike: 30 min (30 min) | dist: 12.3 km
+[16/9/2026, 19:04:29] [4/40] VIP Road
+[16/9/2026, 19:04:37]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:04:40]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:04:48]   🚙 Car: 55 min (55 min) | dist: 13.8 km | traffic: Unknown
+[16/9/2026, 19:04:48]   🚌 Bus: 32 min (32 min) | dist: 13.8 km
+[16/9/2026, 19:04:48]   🛵 Bike: 46 min (46 min) | dist: 13.8 km
+[16/9/2026, 19:04:48] [5/40] Jessore Road
+[16/9/2026, 19:04:56]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:04:58]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:05:06]   🚙 Car: 45 min (45 min) | dist: 11.3 km | traffic: Unknown
+[16/9/2026, 19:05:06]   🚌 Bus: 38 min (38 min) | dist: 11.3 km
+[16/9/2026, 19:05:06]   🛵 Bike: 39 min (39 min) | dist: 11.3 km
+[16/9/2026, 19:05:07] [6/40] Airport Road
+[16/9/2026, 19:05:14]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:05:17]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:05:25]   🚙 Car: 22 min (22 min) | dist: 4.8 km | traffic: Good
+[16/9/2026, 19:05:25]   🚌 Bus: 17 min (17 min) | dist: 4.8 km
+[16/9/2026, 19:05:25]   🛵 Bike: 19 min (19 min) | dist: 4.8 km
+[16/9/2026, 19:05:26] [7/40] APC Bose Rd
+[16/9/2026, 19:05:33]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:05:36]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:05:44]   🚙 Car: 45 min (45 min) | dist: 8.2 km | traffic: Good
+[16/9/2026, 19:05:44]   🚌 Bus: 28 min (28 min) | dist: 8.2 km
+[16/9/2026, 19:05:44]   🛵 Bike: 39 min (39 min) | dist: 8.2 km
+[16/9/2026, 19:05:45] [8/40] Bidhan Sarani
+[16/9/2026, 19:05:52]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:05:55]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:06:03]   🚙 Car: 39 min (39 min) | dist: 6.2 km | traffic: Unknown
+[16/9/2026, 19:06:03]   🚌 Bus: 22 min (22 min) | dist: 6.2 km
+[16/9/2026, 19:06:03]   🛵 Bike: 31 min (31 min) | dist: 6.2 km
+[16/9/2026, 19:06:03] [9/40] Central Avenue (C R Avenue)
+[16/9/2026, 19:06:11]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:06:13]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:06:21]   🚙 Car: 24 min (24 min) | dist: 5.0 km | traffic: Good
+[16/9/2026, 19:06:21]   🚌 Bus: 17 min (17 min) | dist: 5.0 km
+[16/9/2026, 19:06:21]   🛵 Bike: 21 min (21 min) | dist: 5.0 km
+[16/9/2026, 19:06:21] [10/40] S N Banerjee Road
+[16/9/2026, 19:06:29]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:06:32]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:06:40]   🚙 Car: 14 min (14 min) | dist: 2.3 km | traffic: Good
+[16/9/2026, 19:06:40]   🚌 Bus: 7 min (7 min) | dist: 2.3 km
+[16/9/2026, 19:06:40]   🛵 Bike: 12 min (12 min) | dist: 2.3 km
+[16/9/2026, 19:06:40] [11/40] M G Road
+[16/9/2026, 19:06:48]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:06:51]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:06:59]   🚙 Car: 38 min (38 min) | dist: 4.2 km | traffic: Unknown
+[16/9/2026, 19:06:59]   🚌 Bus: 13 min (13 min) | dist: 4.2 km
+[16/9/2026, 19:06:59]   🛵 Bike: 27 min (27 min) | dist: 4.2 km
+[16/9/2026, 19:07:00] [12/40] C I T Road
+[16/9/2026, 19:07:07]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:07:09]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:07:17]   🚙 Car: 11 min (11 min) | dist: 2.6 km | traffic: Good
+[16/9/2026, 19:07:17]   🚌 Bus: 14 min (14 min) | dist: 2.6 km
+[16/9/2026, 19:07:17]   🛵 Bike: 10 min (10 min) | dist: 2.6 km
+[16/9/2026, 19:07:18] [13/40] Sarat Bose Road
+[16/9/2026, 19:07:25]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:07:28]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:07:36]   🚙 Car: 30 min (30 min) | dist: 3.8 km | traffic: Unknown
+[16/9/2026, 19:07:36]   🚌 Bus: 13 min (13 min) | dist: 3.8 km
+[16/9/2026, 19:07:36]   🛵 Bike: 24 min (24 min) | dist: 3.8 km
+[16/9/2026, 19:07:37] [14/40] S P Mukherjee Road
+[16/9/2026, 19:07:44]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:07:46]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:07:54]   🚙 Car: 1 hr 23 min (83 min) | dist: 15.9 km | traffic: Unknown
+[16/9/2026, 19:07:54]   🚌 Bus: 1 hr 2 min (62 min) | dist: 15.9 km
+[16/9/2026, 19:07:54]   🛵 Bike: 1 hr 9 min (69 min) | dist: 15.9 km
+[16/9/2026, 19:07:55] [15/40] Hazra Road / S P Mukherjee Road connector
+[16/9/2026, 19:08:03]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:08:05]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:08:13]   🚙 Car: 33 min (33 min) | dist: 4.6 km | traffic: Unknown
+[16/9/2026, 19:08:13]   🚌 Bus: 19 min (19 min) | dist: 4.6 km
+[16/9/2026, 19:08:13]   🛵 Bike: 25 min (25 min) | dist: 4.6 km
+[16/9/2026, 19:08:14] [16/40] Gariahat Road / Rashbehari Avenue
+[16/9/2026, 19:08:22]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:08:24]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:08:33]   🚙 Car: 17 min (17 min) | dist: 2.9 km | traffic: Unknown
+[16/9/2026, 19:08:33]   🚌 Bus: 10 min (10 min) | dist: 2.9 km
+[16/9/2026, 19:08:33]   🛵 Bike: 14 min (14 min) | dist: 2.9 km
+[16/9/2026, 19:08:33] [17/40] Chetla Road
+[16/9/2026, 19:08:41]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:08:43]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:08:51]   🚙 Car: 15 min (15 min) | dist: 2.8 km | traffic: Unknown
+[16/9/2026, 19:08:51]   🚌 Bus: 9 min (9 min) | dist: 2.8 km
+[16/9/2026, 19:08:51]   🛵 Bike: 12 min (12 min) | dist: 2.8 km
+[16/9/2026, 19:08:52] [18/40] Taratala Road
+[16/9/2026, 19:09:00]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:09:02]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:09:10]   🚙 Car: 21 min (21 min) | dist: 4.3 km | traffic: Unknown
+[16/9/2026, 19:09:10]   🚌 Bus: 13 min (13 min) | dist: 4.3 km
+[16/9/2026, 19:09:10]   🛵 Bike: 19 min (19 min) | dist: 4.3 km
+[16/9/2026, 19:09:11] [19/40] Prince Anwar Shah Rd
+[16/9/2026, 19:09:19]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:09:22]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:09:30]   🚙 Car: 31 min (31 min) | dist: 6.9 km | traffic: Unknown
+[16/9/2026, 19:09:30]   🚌 Bus: 24 min (24 min) | dist: 6.9 km
+[16/9/2026, 19:09:30]   🛵 Bike: 26 min (26 min) | dist: 6.9 km
+[16/9/2026, 19:09:31] [20/40] Karunamoyee Road
+[16/9/2026, 19:09:38]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:09:41]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:09:49]   🚙 Car: 12 min (12 min) | dist: 3.3 km | traffic: Good
+[16/9/2026, 19:09:49]   🚌 Bus: 10 min (10 min) | dist: 3.3 km
+[16/9/2026, 19:09:49]   🛵 Bike: 11 min (11 min) | dist: 3.3 km
+[16/9/2026, 19:09:50] [21/40] Canal South Road
+[16/9/2026, 19:09:57]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:10:00]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:10:08]   🚙 Car: 29 min (29 min) | dist: 6.3 km | traffic: Unknown
+[16/9/2026, 19:10:08]   🚌 Bus: 15 min (15 min) | dist: 6.3 km
+[16/9/2026, 19:10:08]   🛵 Bike: 23 min (23 min) | dist: 6.3 km
+[16/9/2026, 19:10:09] [22/40] VIP Road connector
+[16/9/2026, 19:10:16]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:10:19]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:10:27]   🚙 Car: 19 min (19 min) | dist: 4.2 km | traffic: Unknown
+[16/9/2026, 19:10:27]   🚌 Bus: 13 min (13 min) | dist: 4.2 km
+[16/9/2026, 19:10:27]   🛵 Bike: 18 min (18 min) | dist: 4.2 km
+[16/9/2026, 19:10:28] [23/40] Baishnabghata-Patuli
+[16/9/2026, 19:10:35]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:10:38]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:10:46]   🚙 Car: 6 min (6 min) | dist: 1.4 km | traffic: Good
+[16/9/2026, 19:10:46]   🚌 Bus: 4 min (4 min) | dist: 1.4 km
+[16/9/2026, 19:10:46]   🛵 Bike: 5 min (5 min) | dist: 1.4 km
+[16/9/2026, 19:10:47] [24/40] Patuli - Highland Park
+[16/9/2026, 19:10:55]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:10:57]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:11:05]   🚙 Car: 2 min (2 min) | dist: 1.3 km | traffic: Good
+[16/9/2026, 19:11:05]   🚌 Bus: 4 min (4 min) | dist: 1.3 km
+[16/9/2026, 19:11:05]   🛵 Bike: 2 min (2 min) | dist: 1.3 km
+[16/9/2026, 19:11:06] [25/40] Highland Park - Ajaynagar
+[16/9/2026, 19:11:14]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:11:16]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:11:24]   🚙 Car: 2 min (2 min) | dist: 850 m | traffic: Good
+[16/9/2026, 19:11:24]   🚌 Bus: 3 min (3 min) | dist: 850 m
+[16/9/2026, 19:11:24]   🛵 Bike: 2 min (2 min) | dist: 850 m
+[16/9/2026, 19:11:25] [26/40] Ajaynagar - Kalikapur
+[16/9/2026, 19:11:33]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:11:35]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:11:43]   🚙 Car: 5 min (5 min) | dist: 1.7 km | traffic: Good
+[16/9/2026, 19:11:43]   🚌 Bus: 6 min (6 min) | dist: 1.7 km
+[16/9/2026, 19:11:43]   🛵 Bike: 5 min (5 min) | dist: 1.7 km
+[16/9/2026, 19:11:44] [27/40] Kalikapur - Ruby
+[16/9/2026, 19:11:52]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:12:02]   🚙 Car: 7 min (7 min) | dist: 1.2 km | traffic: Unknown
+[16/9/2026, 19:12:02]   🚌 Bus: N/A (? min) | dist: 1.2 km
+[16/9/2026, 19:12:02]   🛵 Bike: 5 min (5 min) | dist: 1.2 km
+[16/9/2026, 19:12:03] [28/40] Ruby - Science City
+[16/9/2026, 19:12:11]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:12:14]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:12:22]   🚙 Car: 12 min (12 min) | dist: 4.0 km | traffic: Unknown
+[16/9/2026, 19:12:22]   🚌 Bus: 14 min (14 min) | dist: 4.0 km
+[16/9/2026, 19:12:22]   🛵 Bike: 10 min (10 min) | dist: 4.0 km
+[16/9/2026, 19:12:22] [29/40] Science City - Chingrighata
+[16/9/2026, 19:12:30]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:12:32]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:12:40]   🚙 Car: 6 min (6 min) | dist: 1.8 km | traffic: Unknown
+[16/9/2026, 19:12:40]   🚌 Bus: 5 min (5 min) | dist: 1.8 km
+[16/9/2026, 19:12:40]   🛵 Bike: 5 min (5 min) | dist: 1.8 km
+[16/9/2026, 19:12:41] [30/40] Chingrighata - Sealdah
+[16/9/2026, 19:12:50]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:13:00]   🚙 Car: 30 min (30 min) | dist: 4.6 km | traffic: Good
+[16/9/2026, 19:13:00]   🚌 Bus: N/A (? min) | dist: 4.6 km
+[16/9/2026, 19:13:00]   🛵 Bike: 22 min (22 min) | dist: 4.6 km
+[16/9/2026, 19:13:01] [31/40] Sealdah - Park Circus
+[16/9/2026, 19:13:09]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:13:11]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:13:19]   🚙 Car: 18 min (18 min) | dist: 2.9 km | traffic: High
+[16/9/2026, 19:13:19]   🚌 Bus: 18 min (18 min) | dist: 2.9 km
+[16/9/2026, 19:13:19]   🛵 Bike: 11 min (11 min) | dist: 2.9 km
+[16/9/2026, 19:13:20] [32/40] Park Circus - Science City
+[16/9/2026, 19:13:28]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:13:30]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:13:38]   🚙 Car: 7 min (7 min) | dist: 3.8 km | traffic: Unknown
+[16/9/2026, 19:13:38]   🚌 Bus: 20 min (20 min) | dist: 3.8 km
+[16/9/2026, 19:13:38]   🛵 Bike: 7 min (7 min) | dist: 3.8 km
+[16/9/2026, 19:13:39] [33/40] Park Circus - Gariahat
+[16/9/2026, 19:13:46]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:13:49]       ✅ Found matching bus [] at Depart at [07:00 PM]
+[16/9/2026, 19:13:56]   🚙 Car: 28 min (28 min) | dist: 2.9 km | traffic: Unknown
+[16/9/2026, 19:13:56]   🚌 Bus: 9 min (9 min) | dist: 2.9 km
+[16/9/2026, 19:13:56]   🛵 Bike: 21 min (21 min) | dist: 2.9 km
+[16/9/2026, 19:13:57] [34/40] Gariahat - Ruby
+[16/9/2026, 19:14:05]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:14:07]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:14:15]   🚙 Car: 22 min (22 min) | dist: 4.1 km | traffic: Unknown
+[16/9/2026, 19:14:15]   🚌 Bus: 14 min (14 min) | dist: 4.1 km
+[16/9/2026, 19:14:15]   🛵 Bike: 18 min (18 min) | dist: 4.1 km
+[16/9/2026, 19:14:16] [35/40] Gariahat - Mallick Road
+[16/9/2026, 19:14:24]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:14:27]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:14:35]   🚙 Car: 26 min (26 min) | dist: 2.3 km | traffic: Unknown
+[16/9/2026, 19:14:35]   🚌 Bus: 7 min (7 min) | dist: 2.3 km
+[16/9/2026, 19:14:35]   🛵 Bike: 18 min (18 min) | dist: 2.3 km
+[16/9/2026, 19:14:36] [36/40] Jadavpur Police St. - Kalikapur
+[16/9/2026, 19:14:43]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:14:46]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:14:54]   🚙 Car: 10 min (10 min) | dist: 3.5 km | traffic: Good
+[16/9/2026, 19:14:54]   🚌 Bus: 11 min (11 min) | dist: 3.5 km
+[16/9/2026, 19:14:54]   🛵 Bike: 10 min (10 min) | dist: 3.5 km
+[16/9/2026, 19:14:55] [37/40] Mallick Road - Jadavpur Sulekha
+[16/9/2026, 19:15:02]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:15:05]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:15:13]   🚙 Car: 4 min (4 min) | dist: 1.3 km | traffic: Good
+[16/9/2026, 19:15:13]   🚌 Bus: 5 min (5 min) | dist: 1.3 km
+[16/9/2026, 19:15:13]   🛵 Bike: 4 min (4 min) | dist: 1.3 km
+[16/9/2026, 19:15:13] [38/40] Jadavpur Sulekha - Ajay Nagar
+[16/9/2026, 19:15:21]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:15:24]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:15:32]   🚙 Car: 12 min (12 min) | dist: 3.1 km | traffic: Good
+[16/9/2026, 19:15:32]   🚌 Bus: 10 min (10 min) | dist: 3.1 km
+[16/9/2026, 19:15:32]   🛵 Bike: 10 min (10 min) | dist: 3.1 km
+[16/9/2026, 19:15:33] [39/40] Jadavpur Sulekha - Bagha Jatin
+[16/9/2026, 19:15:40]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:15:43]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:15:51]   🚙 Car: 4 min (4 min) | dist: 900 m | traffic: Unknown
+[16/9/2026, 19:15:51]   🚌 Bus: 3 min (3 min) | dist: 900 m
+[16/9/2026, 19:15:51]   🛵 Bike: 3 min (3 min) | dist: 900 m
+[16/9/2026, 19:15:52] [40/40] Bagha Jatin - Baishnabghata
+[16/9/2026, 19:16:00]       📅 Adjusting Google Maps 'Depart at' to closest target slot: 07:00 PM
+[16/9/2026, 19:16:02]       ✅ Found matching bus [Matched Bus Route] at Depart at [07:00 PM]
+[16/9/2026, 19:16:10]   🚙 Car: 6 min (6 min) | dist: 1.4 km | traffic: Good
+[16/9/2026, 19:16:10]   🚌 Bus: 5 min (5 min) | dist: 1.4 km
+[16/9/2026, 19:16:10]   🛵 Bike: 5 min (5 min) | dist: 1.4 km
+[16/9/2026, 19:16:11] 
+Session complete! Saving to Excel...
+[16/9/2026, 19:16:11] 📊 Excel saved (styled & formatted): /home/runner/work/kolkata-traffic-collection/kolkata-traffic-collection/output/excel/Kolkata_Traffic_Data_2026-09-16.xlsx
