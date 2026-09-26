@@ -44,7 +44,7 @@ const ROUTES = [
     "label": "B T Road",
     "originAddress": "Shyambazar, Kolkata, West Bengal, India",
     "destAddress": "Dunlop, Kolkata, West Bengal, India",
-    "viaCoord": "22.632358132193776, 88.37835292777488",
+    "viaCoord": "22.632358132193776, 88.37835292777488|22.645954770091013, 88.37760189468997",
     "preferredBuses": [
       "S-9A",
       "78",
@@ -118,12 +118,12 @@ const ROUTES = [
   {
     "id": "M7",
     "section": "Major Road",
-    "from": "22.601056846335993, 88.37402034340928",
-    "to": "22.541558358873257, 88.34785101804736",
+    "from": "22.60157961913879, 88.37273156156854",
+    "to": "22.54155151491483, 88.34784315206437",
     "label": "APC Bose Rd",
     "originAddress": "Shyambazar, Kolkata, West Bengal, India",
     "destAddress": "Rabindra Sadan, Kolkata, West Bengal, India",
-    "viaCoord": "22.569642688737137, 88.37075116233869|22.541061188874014, 88.35908802998323",
+    "viaCoord": "22.586478170538157, 88.36785513403866|22.564365384356854, 88.36828978015252|22.54254537431056, 88.35998562511485",
     "preferredBuses": [
       "230",
       "227"
@@ -168,7 +168,7 @@ const ROUTES = [
   {
     "id": "M10",
     "section": "Major Road",
-    "from": "22.564973995769705, 88.36867828609434",
+    "from": "22.56533292976866, 88.37017968268825",
     "to": "22.56279301329408, 88.351202325141",
     "label": "S N Banerjee Road",
     "originAddress": "Sealdah, Kolkata, West Bengal, India",
@@ -182,7 +182,7 @@ const ROUTES = [
     "id": "M11",
     "section": "Major Road",
     "from": "22.565250461301765, 88.37014706506632",
-    "to": "22.584307224238653, 88.34357211013575",
+    "to": "22.58495016168921, 88.34178252501448",
     "label": "M G Road",
     "originAddress": "Sealdah, Kolkata, West Bengal, India",
     "destAddress": "Howrah, Kolkata, West Bengal, India",
@@ -205,7 +205,7 @@ const ROUTES = [
     "id": "M13",
     "section": "Major Road",
     "from": "22.542976674721288, 88.36018590570482",
-    "to": "22.513359349485555, 88.35320781629815",
+    "to": "22.512272909067946, 88.35385507955782",
     "label": "Sarat Bose Road",
     "originAddress": "Beckbagan, Kolkata, West Bengal, India",
     "destAddress": "Rabindra Sarobor, Kolkata, West Bengal, India",
@@ -219,7 +219,7 @@ const ROUTES = [
     "id": "M14",
     "section": "Major Road",
     "from": "22.564645713064767, 88.35158046049455",
-    "to": "22.46736996509972, 88.40194386708289",
+    "to": "22.467143293223113, 88.40208140550527",
     "label": "S P Mukherjee Road",
     "originAddress": "Esplanade, Kolkata, West Bengal, India",
     "destAddress": "Garia, Kolkata, West Bengal, India",
@@ -265,7 +265,7 @@ const ROUTES = [
     "label": "Chetla Road",
     "originAddress": "Chetla, Kolkata, West Bengal, India",
     "destAddress": "DH Road, Kolkata, West Bengal, India",
-    "viaCoord": "22.512715830851768, 88.32730227477536",
+    "viaCoord": "22.516932912911205, 88.33912820348779|22.516826401074105, 88.33992644410576|22.511651844862076, 88.33986117115793|22.512362564926676, 88.32884891746347",
     "preferredBuses": [
       "S-22",
       "S-3W",
@@ -277,7 +277,7 @@ const ROUTES = [
     "section": "Major Road",
     "from": "22.49390283116308, 88.34526778991841",
     "to": "22.511962015261304, 88.3220688798639",
-    "label": "Taratala Road",
+    "label": "Tollygunge Road",
     "originAddress": "Tollygunge, Kolkata, West Bengal, India",
     "destAddress": "Taratala, Kolkata, West Bengal, India",
     "viaCoord": "22.509790617362288, 88.33231180950128",
@@ -302,11 +302,11 @@ const ROUTES = [
     "id": "M21",
     "section": "Major Road",
     "from": "22.57920822201556, 88.41419893752192",
-    "to": "22.58593474320461, 88.42114053652573",
-    "label": "Karunamoyee Road",
+    "to": "22.585077302935726, 88.4212283116677",
+    "label": "Broadway Road",
     "originAddress": "Bidhannagar (Salt Lake), Kolkata, West Bengal, India",
     "destAddress": "Karunamoyee, Kolkata, West Bengal, India",
-    "viaCoord": "22.588525816330684, 88.41015859073889",
+    "viaCoord": "22.58351812520808, 88.4184565809301",
     "preferredBuses": [
       "S-14",
       "S-12NA"
@@ -315,12 +315,12 @@ const ROUTES = [
   {
     "id": "M22",
     "section": "Major Road",
-    "from": "22.58483279068582, 88.42275741933018",
+    "from": "22.585219036751344, 88.42233724825942",
     "to": "22.55660195313387, 88.41234886480974",
-    "label": "Canal South Road",
+    "label": "Karunamoyee - Biswa Bangla Sarani",
     "originAddress": "Karunamoyee, Kolkata, West Bengal, India",
     "destAddress": "Chingrighata, Kolkata, West Bengal, India",
-    "viaCoord": "22.576888446531054, 88.42931835539572|22.57090383415109, 88.4260689441617",
+    "viaCoord": "22.579750524176504, 88.42614436985471|22.574423205051904, 88.42177785377037",
     "preferredBuses": [
       "S-22"
     ]
@@ -330,7 +330,7 @@ const ROUTES = [
     "section": "Major Road",
     "from": "22.585938023125205, 88.42112360649838",
     "to": "22.591775016712575, 88.39386495368447",
-    "label": "VIP Road connector",
+    "label": "3rd Avenue",
     "originAddress": "Karunamoyee, Kolkata, West Bengal, India",
     "destAddress": "VIP Road, Kolkata, West Bengal, India",
     "viaCoord": "22.58575696050989, 88.4036713437886",
@@ -341,12 +341,11 @@ const ROUTES = [
   {
     "id": "S1",
     "section": "Local Connector Segment",
-    "from": "22.47111844588178, 88.37733766229421",
-    "to": "22.472441172210633, 88.38940268338776",
-    "label": "Baishnabghata-Patuli",
+    "from": "22.471408, 88.377338",
+    "to": "22.471887032855122, 88.3896818663446",
+    "label": "Baishnabghata \u2192 Patuli",
     "originAddress": "Baishnabghata Crossing, SH 1, Dakshin Raipur, Garia, Kolkata, West Bengal 700084",
     "destAddress": "Arindam Maitra, J-3, Baishnabghata Patuli Township, P S Jadavpur, Panchasayer, Kolkata, West Bengal 700094",
-    "viaCoord": "22.471759429057638, 88.38280156319036",
     "preferredBuses": [
       "Kamal Gazi Bypass - Dankuni Housing"
     ]
@@ -354,9 +353,9 @@ const ROUTES = [
   {
     "id": "S2",
     "section": "Local Connector Segment",
-    "from": "22.472361401316498, 88.38919163643398",
-    "to": "22.483209972897573, 88.39160731582483",
-    "label": "Patuli - Highland Park",
+    "from": "22.471887032855122, 88.3896818663446",
+    "to": "22.47989072462562, 88.38979518188575",
+    "label": "Patuli \u2192 Baghajatin Canal Bridge",
     "originAddress": "Arindam Maitra, J-3, Baishnabghata Patuli Township, P S Jadavpur, Panchasayer, Kolkata, West Bengal 700094",
     "destAddress": "Baghajatin Station Road Canal Bridge 1, F9HQ+WR3, Baghajatin Station Rd, Baghajatin Place, Patuli, Kolkata, West Bengal 700086",
     "preferredBuses": [
@@ -368,9 +367,9 @@ const ROUTES = [
   {
     "id": "S3",
     "section": "Local Connector Segment",
-    "from": "22.483238597773603, 88.39157582605505",
-    "to": "22.490218942129033, 88.39539974352829",
-    "label": "Highland Park - Ajaynagar",
+    "from": "22.47989072462562, 88.38979518188575",
+    "to": "22.489795, 88.395225",
+    "label": "Baghajatin Canal \u2192 Ajaynagar Crossing",
     "originAddress": "Baghajatin Station Road Canal Bridge 1, F9HQ+WR3, Baghajatin Station Rd, Baghajatin Place, Patuli, Kolkata, West Bengal 700086",
     "destAddress": "Ajaynagar 4-Point Crossing, F9QW+V4Q, Ajoy Nagar, Santoshpur, Kolkata, West Bengal 700099",
     "preferredBuses": [
@@ -384,9 +383,9 @@ const ROUTES = [
   {
     "id": "S4",
     "section": "Local Connector Segment",
-    "from": "22.490238916385433, 88.39539761773155",
-    "to": "22.50463376654986, 88.40069909900949",
-    "label": "Ajaynagar - Kalikapur",
+    "from": "22.489795, 88.395225",
+    "to": "22.504459553948617, 88.40073511237466",
+    "label": "Ajaynagar \u2192 EM Bypass (Kalikapur)",
     "originAddress": "Ajaynagar 4-Point Crossing, F9QW+V4Q, Ajoy Nagar, Santoshpur, Kolkata, West Bengal 700099",
     "destAddress": "E.M. Bypass (Kalikapur), North Purbachal, Haltu, Kolkata, West Bengal 700078",
     "preferredBuses": [
@@ -395,14 +394,15 @@ const ROUTES = [
       "AC-37",
       "S-14",
       "S-21"
-    ]
+    ],
+    "viaCoord": "22.493409930238286, 88.39720416569472"
   },
   {
     "id": "S5",
     "section": "Local Connector Segment",
-    "from": "22.504629632757013, 88.40070408309158",
-    "to": "22.515015506248922, 88.40121304462548",
-    "label": "Kalikapur - Ruby",
+    "from": "22.504459553948617, 88.40073511237466",
+    "to": "22.513605424895417, 88.40163813624706",
+    "label": "EM Bypass \u2192 Kasba Golpark",
     "originAddress": "E.M. Bypass (Kalikapur), North Purbachal, Haltu, Kolkata, West Bengal 700078",
     "destAddress": "Kasba Gol Park, GC72+9PF, Anandapur Main Rd, Sector I, East Kolkata Twp, Kolkata, West Bengal 700107",
     "preferredBuses": [
@@ -416,12 +416,11 @@ const ROUTES = [
   {
     "id": "S6",
     "section": "Local Connector Segment",
-    "from": "22.51500841172067, 88.40121767911239",
-    "to": "22.548629502372947, 88.40044220056303",
-    "label": "Ruby - Science City",
+    "from": "22.513605424895417, 88.40163813624706",
+    "to": "22.543215599504876, 88.39854568204892",
+    "label": "Kasba Golpark \u2192 Parama (Traffic Barrack)",
     "originAddress": "Kasba Gol Park, GC72+9PF, Anandapur Main Rd, Sector I, East Kolkata Twp, Kolkata, West Bengal 700107",
     "destAddress": "Traffic Barrack, G9VX+4HM, Parama Cir, Dhapa, Kolkata, West Bengal 700105",
-    "viaCoord": "22.548321797908233, 88.4002551595529",
     "preferredBuses": [
       "EB-16"
     ]
@@ -429,12 +428,11 @@ const ROUTES = [
   {
     "id": "S7",
     "section": "Local Connector Segment",
-    "from": "22.548628109045932, 88.40044376011365",
-    "to": "22.558998174636194, 88.41055440059681",
-    "label": "Science City - Chingrighata",
+    "from": "22.54321501141463, 88.39855834796509",
+    "to": "22.55865275587551, 88.41103526552334",
+    "label": "Parama \u2192 Chingrighata",
     "originAddress": "Traffic Barrack, G9VX+4HM, Parama Cir, Dhapa, Kolkata, West Bengal 700105",
     "destAddress": "Maa Tripura Fastfood, C6VH, 7MJCHC54, Canal S Rd, Sec-B, Chingrighata, Ward Number 57, Kolkata, West Bengal 700107",
-    "viaCoord": "22.552651634410633, 88.40768107350975",
     "preferredBuses": [
       "EB-16"
     ]
@@ -442,12 +440,12 @@ const ROUTES = [
   {
     "id": "S8",
     "section": "Local Connector Segment",
-    "from": "22.559072808494104, 88.41063802086141",
-    "to": "22.56533700908961, 88.37018480530206",
-    "label": "Chingrighata - Sealdah",
+    "from": "22.558657139516853, 88.41102767178542",
+    "to": "22.565486, 88.369782",
+    "label": "Chingrighata \u2192 Sealdah",
     "originAddress": "Maa Tripura Fastfood, C6VH, 7MJCHC54, Canal S Rd, Sec-B, Chingrighata, Ward Number 57, Kolkata, West Bengal 700107",
     "destAddress": "Suraj Store, 121, AJC Bose Rd, Sealdah, Raja Bazar, Kolkata, West Bengal 700014",
-    "viaCoord": "22.564439484187115, 88.38848599581354",
+    "viaCoord": "22.565973280132788, 88.3805302160212",
     "preferredBuses": [
       "S-12",
       "239",
@@ -457,9 +455,9 @@ const ROUTES = [
   {
     "id": "S9",
     "section": "Local Connector Segment",
-    "from": "22.565334347093035, 88.37018443948199",
-    "to": "22.54399697708432, 88.36520044431275",
-    "label": "Sealdah - Park Circus",
+    "from": "22.565486, 88.369782",
+    "to": "22.54667, 88.361556",
+    "label": "Sealdah \u2192 Park Street",
     "originAddress": "Suraj Store, 121, AJC Bose Rd, Sealdah, Raja Bazar, Kolkata, West Bengal 700014",
     "destAddress": "141, Park St, near Institute of Neurosciences, Mullick Bazar, Beniapukur, Kolkata, West Bengal 700017",
     "preferredBuses": [
@@ -475,25 +473,26 @@ const ROUTES = [
   {
     "id": "S10",
     "section": "Local Connector Segment",
-    "from": "22.5430530030704, 88.3653112954543",
-    "to": "22.541384705117025, 88.39842862077691",
-    "label": "Park Circus - Science City",
+    "from": "22.54667, 88.361556",
+    "to": "22.543215599504876, 88.39854568204892",
+    "label": "Park Street \u2192 Parama (via EM Bypass)",
     "originAddress": "141, Park St, near Institute of Neurosciences, Mullick Bazar, Beniapukur, Kolkata, West Bengal 700017",
     "destAddress": "Traffic Barrack, G9VX+4HM, Parama Cir, Dhapa, Kolkata, West Bengal 700105",
     "preferredBuses": [
       "EB-14",
       "K-4"
-    ]
+    ],
+    "viaCoord": "22.54105349403992, 88.36817957678178"
   },
   {
     "id": "S11",
     "section": "Local Connector Segment",
-    "from": "22.542674975895174, 88.36605559055536",
-    "to": "22.520039211567354, 88.36614666255528",
-    "label": "Park Circus - Gariahat",
+    "from": "22.54667, 88.361556",
+    "to": "22.519769, 88.365395",
+    "label": "Park Street \u2192 Gariahat (Rashbehari)",
     "originAddress": "141, Park St, near Institute of Neurosciences, Mullick Bazar, Beniapukur, Kolkata, West Bengal 700017",
     "destAddress": "Usha Cosmetics, 100, Rash Behari Ave, Ballygunge Gardens, Gariahat, Kolkata, West Bengal 700019",
-    "viaCoord": "22.528559348563704, 88.36606868798494",
+    "viaCoord": "22.528794536803037, 88.35651883221536",
     "preferredBuses": [
       "45A"
     ]
@@ -501,9 +500,9 @@ const ROUTES = [
   {
     "id": "S12",
     "section": "Local Connector Segment",
-    "from": "22.520027866716475, 88.36614376573124",
-    "to": "22.515017428359968, 88.40115038506943",
-    "label": "Gariahat - Ruby",
+    "from": "22.519769, 88.365395",
+    "to": "22.513605424895417, 88.40163813624706",
+    "label": "Gariahat \u2192 Kasba Golpark",
     "originAddress": "Usha Cosmetics, 100, Rash Behari Ave, Ballygunge Gardens, Gariahat, Kolkata, West Bengal 700019",
     "destAddress": "Kasba Gol Park, GC72+9PF, Anandapur Main Rd, Sector I, East Kolkata Twp, Kolkata, West Bengal 700107",
     "preferredBuses": [
@@ -513,9 +512,9 @@ const ROUTES = [
   {
     "id": "S13",
     "section": "Local Connector Segment",
-    "from": "22.519345508325756, 88.36557930294695",
-    "to": "22.502239007405652, 88.36830162732512",
-    "label": "Gariahat - Mallick Road",
+    "from": "22.519769, 88.365395",
+    "to": "22.503099, 88.367808",
+    "label": "Gariahat \u2192 Jadavpur PS",
     "originAddress": "Usha Cosmetics, 100, Rash Behari Ave, Ballygunge Gardens, Gariahat, Kolkata, West Bengal 700019",
     "destAddress": "Jadavpur Police Station 4-Point Crossing, University Campus Area, SH 1, Jadavpur, Kolkata, West Bengal 700032",
     "preferredBuses": [
@@ -523,14 +522,15 @@ const ROUTES = [
       "45",
       "AC-5",
       "S-101"
-    ]
+    ],
+    "viaCoord": "22.514734035632127, 88.3671200632832"
   },
   {
     "id": "S14",
     "section": "Local Connector Segment",
-    "from": "22.50306629533544, 88.36813682334592",
-    "to": "22.504635861203088, 88.40069806959247",
-    "label": "Jadavpur Police St. - Kalikapur",
+    "from": "22.503099, 88.367808",
+    "to": "22.504459553948617, 88.40073511237466",
+    "label": "Jadavpur PS \u2192 EM Bypass (Kalikapur)",
     "originAddress": "Jadavpur Police Station 4-Point Crossing, University Campus Area, SH 1, Jadavpur, Kolkata, West Bengal 700032",
     "destAddress": "E.M. Bypass (Kalikapur), North Purbachal, Haltu, Kolkata, West Bengal 700078",
     "preferredBuses": [
@@ -540,9 +540,9 @@ const ROUTES = [
   {
     "id": "S15",
     "section": "Local Connector Segment",
-    "from": "22.502231902553437, 88.36830005407667",
-    "to": "22.491603024125503, 88.37260168803094",
-    "label": "Mallick Road - Jadavpur Sulekha",
+    "from": "22.503099, 88.367808",
+    "to": "22.491648511822472, 88.37243350245176",
+    "label": "Jadavpur PS \u2192 Jadavpur Sulekha",
     "originAddress": "Jadavpur Police Station 4-Point Crossing, University Campus Area, SH 1, Jadavpur, Kolkata, West Bengal 700032",
     "destAddress": "Jadavpur Sulekha 4-Point Crossing, 53, Anandapally Rd, Anandapally, Bidhanpally, Jadavpur, Kolkata, West Bengal 700032",
     "preferredBuses": [
@@ -552,9 +552,9 @@ const ROUTES = [
   {
     "id": "S16",
     "section": "Local Connector Segment",
-    "from": "22.491649826180957, 88.37260244927064",
-    "to": "22.490231691118016, 88.3953971050448",
-    "label": "Jadavpur Sulekha - Ajay Nagar",
+    "from": "22.491648511822472, 88.37243350245176",
+    "to": "22.489795, 88.395225",
+    "label": "Jadavpur Sulekha \u2192 Ajaynagar Crossing",
     "originAddress": "Jadavpur Sulekha 4-Point Crossing, 53, Anandapally Rd, Anandapally, Bidhanpally, Jadavpur, Kolkata, West Bengal 700032",
     "destAddress": "Ajaynagar 4-Point Crossing, F9QW+V4Q, Ajoy Nagar, Santoshpur, Kolkata, West Bengal 700099",
     "preferredBuses": [
@@ -564,9 +564,9 @@ const ROUTES = [
   {
     "id": "S17",
     "section": "Local Connector Segment",
-    "from": "22.49080563345136, 88.3724040440187",
-    "to": "22.483337435034223, 88.37566853272418",
-    "label": "Jadavpur Sulekha - Bagha Jatin",
+    "from": "22.491663328585012, 88.37240626299364",
+    "to": "22.483895156021173, 88.3755286267775",
+    "label": "Jadavpur Sulekha \u2192 Baghajatin Station Rd",
     "originAddress": "Jadavpur Sulekha 4-Point Crossing, 53, Anandapally Rd, Anandapally, Bidhanpally, Jadavpur, Kolkata, West Bengal 700032",
     "destAddress": "Baghajatin 4-Point Crossing, F9MG+H66, Baghajatin C Block, Chittaranjan Colony 6, Baghajatin Colony, Kolkata, West Bengal 700047",
     "preferredBuses": [
@@ -579,9 +579,9 @@ const ROUTES = [
   {
     "id": "S19",
     "section": "Local Connector Segment",
-    "from": "22.483335096377978, 88.37566811394672",
-    "to": "22.47152565348505, 88.37785984412885",
-    "label": "Bagha Jatin - Baishnabghata",
+    "from": "22.483895156021173, 88.3755286267775",
+    "to": "22.471408, 88.377338",
+    "label": "Baghajatin \u2192 Baishnabghata (South)",
     "originAddress": "Baghajatin 4-Point Crossing, F9MG+H66, Baghajatin C Block, Chittaranjan Colony 6, Baghajatin Colony, Kolkata, West Bengal 700047",
     "destAddress": "Baishnabghata Crossing, SH 1, Dakshin Raipur, Garia, Kolkata, West Bengal 700084",
     "preferredBuses": [
@@ -725,7 +725,7 @@ async function saveRouteScreenshot(page, route, mode) {
     const targetDir = path.join(__dirname, "output", "screenshots", fileDate, generalSlot, routeFolder);
     if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
     
-    const imgName = `${mode}.jpg`;
+    const imgName = `${mode}.png`;
     const screenshotPath = path.join(targetDir, imgName);
     const relativePath = `screenshots/${fileDate}/${generalSlot}/${routeFolder}/${imgName}`;
     
@@ -735,9 +735,6 @@ async function saveRouteScreenshot(page, route, mode) {
 
     await page.evaluate(() => {
       window.dispatchEvent(new Event('resize'));
-      const activeCard = document.querySelector('.section-directions-trip-duration, .MespJc, [data-trip-index="0"]');
-      if (activeCard) activeCard.click();
-      
       const dismissBtns = Array.from(document.querySelectorAll('button')).filter(b => {
         const t = (b.innerText || '').toLowerCase();
         return t === 'dismiss' || t === 'close' || t === 'accept all' || t === 'reject all' || t === 'stay in web';
@@ -746,7 +743,7 @@ async function saveRouteScreenshot(page, route, mode) {
     });
     
     await new Promise(r => setTimeout(r, 2200));
-    await page.screenshot({ path: screenshotPath, type: 'jpeg', quality: 90 });
+    await page.screenshot({ path: screenshotPath, type: 'png' });
     return relativePath;
   } catch (err) {
     return null;
@@ -790,104 +787,7 @@ async function extractTravelData(page, url, mode, route) {
       else if (expectedLower.includes("tollygunge - jadavpur")) keywords = ["anwar shah", "netaji subhash", "raja subodh", "jadavpur"];
       else if (expectedLower.includes("canal south")) keywords = ["canal s", "canal south"];
 
-      if (evalMode === "bus") {
-        const cards = document.querySelectorAll('.MespJc');
-        let selectedCard = null;
-        
-        for (const card of cards) {
-          const imgs = card.querySelectorAll('img');
-          let hasMetro = false;
-          for (const img of imgs) {
-            const alt = (img.getAttribute('alt') || '').toLowerCase();
-            const src = (img.getAttribute('src') || '').toLowerCase();
-            if (alt.includes('metro') || alt.includes('subway') || alt.includes('train') || alt.includes('rail') || alt.includes('tram') ||
-                src.includes('metro') || src.includes('subway') || src.includes('train') || src.includes('rail') || src.includes('tram')) {
-              hasMetro = true;
-              break;
-            }
-          }
-          const txt = card.innerText.toLowerCase();
-          const ariaEls = card.querySelectorAll('[aria-label*="Metro"], [aria-label*="Train"], [aria-label*="Subway"], [class*="train"], [class*="subway"], [class*="metro"]');
-          if (ariaEls.length > 0 || /blue line|green line|purple line|orange line|local train|ferry|vessel|tram/i.test(txt)) {
-            hasMetro = true;
-          }
-          
-          if (hasMetro) continue;
-          selectedCard = card;
-          break;
-        }
-        
-        if (!selectedCard) return null; 
-        selectedCard.click(); 
 
-        const transitEl = selectedCard.querySelector('.Fk3sm, [class*="fontHeadlineSmall"], .UgZKXd .Fk3sm');
-        let transitRoute = "Unknown";
-        const spans = Array.from(selectedCard.querySelectorAll('span, div')).map(el => el.textContent.trim());
-        const busNumbers = [...new Set(spans.filter(t => t.length > 0 && t.length < 15 && !t.includes('min') && !t.includes('hr') && !t.includes(':') && !t.includes('Details') && !t.includes('every')))];
-        transitRoute = busNumbers.join(" + ");
-        
-        let transitDist = null;
-        const distMatch = selectedCard.innerText.match(/(\d+\.?\d*\s*km|\d+\s*m(?!\w))/i);
-        if (distMatch) {
-          transitDist = distMatch[0].trim();
-        }
-        
-        if (transitEl) {
-          let name = transitRoute || "Bus Route";
-          let totalTimeText = transitEl.textContent.trim();
-          
-          function timeToMinutes(t) {
-            let m = 0;
-            const hrMatch = t.match(/(\d+)\s*(hr|hour|h)/i);
-            if (hrMatch) m += parseInt(hrMatch[1], 10) * 60;
-            const minMatch = t.match(/(\d+)\s*min/i);
-            if (minMatch) m += parseInt(minMatch[1], 10);
-            return m;
-          }
-          function minutesToTime(m) {
-            if (m < 60) return m + " min";
-            const h = Math.floor(m / 60);
-            const mins = m % 60;
-            return mins > 0 ? `${h} hr ${mins} min` : `${h} hr`;
-          }
-
-          let totalMins = timeToMinutes(totalTimeText);
-          
-          // 1. Extract walking time
-          let walkMins = 0;
-          const walkIcons = selectedCard.querySelectorAll('[aria-label="Walking"]');
-          for (const icon of walkIcons) {
-            const parent = icon.parentElement;
-            if (parent) {
-              const walkText = parent.innerText;
-              const wMatch = walkText.match(/(\d+)\s*min/i);
-              if (wMatch) {
-                walkMins += parseInt(wMatch[1], 10);
-              }
-            }
-          }
-
-          // 2. Extract Pure In-Vehicle Moving Time (subtracts stoppage/transfer waiting)
-          let pureRideMins = 0;
-          const stopMatches = selectedCard.innerText.match(/(\d+)\s*(?:hr|h|hour)?\s*(\d+)?\s*min\s*\(\d+\s*stops?\)/gi);
-          if (stopMatches && stopMatches.length > 0) {
-            for (const sm of stopMatches) {
-              const hMatch = sm.match(/(\d+)\s*(?:hr|h|hour)/i);
-              const mMatch = sm.match(/(\d+)\s*min/i);
-              let legMins = 0;
-              if (hMatch) legMins += parseInt(hMatch[1], 10) * 60;
-              if (mMatch) legMins += parseInt(mMatch[1], 10);
-              pureRideMins += legMins;
-            }
-          }
-
-          let busMins = (pureRideMins > 0) ? pureRideMins : (totalMins - walkMins);
-          if (busMins < 0) busMins = totalMins;
-          
-          let finalTime = minutesToTime(busMins);
-          return { time: finalTime, dist: transitDist, routeName: name, inVehicleMins: busMins, walkMins: walkMins };
-        }
-      }
 
       const routeCards = document.querySelectorAll(
         '[data-index], [data-trip-index], .MespJc, .PB1zzf, [id^="section-directions-trip-"]'
@@ -1116,184 +1016,10 @@ async function runFetchSession(label = "manual") {
       
       await new Promise(r => setTimeout(r, 600));
       
-      let busRaw = null;
-      try {
-        // 2. Fetch Bus data
-        const busUrl = buildBusTransitUrl(route);
-        await page.goto(busUrl, { waitUntil: "domcontentloaded", timeout: 45000 });
-        await page.waitForSelector('.MespJc, button[aria-label*="transit"], [data-value="transit"]', { timeout: 6000 }).catch(() => {});
-        
-        try {
-          await page.evaluate(() => {
-            const t = Array.from(document.querySelectorAll('button')).find(b => (b.getAttribute('aria-label')||'').toLowerCase().includes('transit') || (b.getAttribute('data-value')||'')==='transit');
-            if (t) t.click();
-          });
-        } catch (e) {}
-        await new Promise(r => setTimeout(r, 800));
-        
-        await applyTransitOptions(page);
-        
-        const nowIST = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
-        let h = nowIST.getHours();
-        let m = nowIST.getMinutes();
-        const ampm = h >= 12 ? 'PM' : 'AM';
-        const h12 = h % 12 || 12;
-        const currentTimeStr = `${h12}:${String(m).padStart(2, '0')} ${ampm}`;
-        const targetSlotTime = getClosestTargetSlot(currentTimeStr);
-        log(`      📅 Adjusting Google Maps 'Depart at' to closest target slot: ${targetSlotTime}`);
-        
-        await setDepartAtTime(page, targetSlotTime);
-        const timeAttempts = [targetSlotTime];
-
-        for (const tryTime of timeAttempts) {
-          const prefBuses = route.preferredBuses || [];
-          const roadLabel = route.label || '';
-          const carRouteName = carData.routeName || '';
-          const currentRouteId = route.id;
-          const res = await page.evaluate((prefBuses, roadLabel, carRouteName, routeId) => {
-            function timeToMin(s) {
-              let m = 0;
-              const h = s.match(/(\d+)\s*(hr|hour|h)/i); if (h) m += parseInt(h[1]) * 60;
-              const mn = s.match(/(\d+)\s*min/i); if (mn) m += parseInt(mn[1]);
-              return m || null;
-            }
-            let bestCard = null;
-            const cardsRaw = Array.from(document.querySelectorAll('.MespJc'));
-            
-            const isMetroOrTrain = (cardEl) => {
-              const txt = (cardEl.innerText || '').toLowerCase();
-              if (/blue line|green line|purple line|orange line|local train|ferry|vessel|tram/i.test(txt)) return true;
-              const ariaEls = cardEl.querySelectorAll('[aria-label*="Metro"], [aria-label*="Train"], [aria-label*="Subway"], [class*="train"], [class*="subway"], [class*="metro"]');
-              return ariaEls.length > 0;
-            };
-
-            const isWalkOnlyCard = (cardEl) => {
-              const txt = (cardEl.innerText || '').toLowerCase();
-              if (txt.includes('via ')) return true;
-              const hasBusImg = Array.from(cardEl.querySelectorAll('img')).some(i => (i.getAttribute('alt') || i.getAttribute('src') || '').toLowerCase().includes('bus'));
-              const hasBusAria = cardEl.querySelector('[aria-label*="Bus"], [aria-label*="bus"]') !== null;
-              const hasBusBadge = cardEl.querySelector('.ivN21e, [class*="badge"], span[style*="background-color"]') !== null;
-              if (!hasBusImg && !hasBusAria && !hasBusBadge) return true;
-              return false;
-            };
-
-            const validCards = cardsRaw.filter(c => !isMetroOrTrain(c));
-            const busOnlyCards = validCards.filter(c => !isWalkOnlyCard(c));
-            if (busOnlyCards.length === 0) return null;
-            
-            let scoredCards = [];
-            for (const card of busOnlyCards) {
-              const txt = card.innerText || '';
-              let timeMin = 999;
-              const h = txt.match(/(\d+)\s*(?:hr|hour|h)/i);
-              let totalM = 0;
-              if (h) totalM += parseInt(h[1], 10) * 60;
-              const mn = txt.match(/(\d+)\s*min/i);
-              if (mn) totalM += parseInt(mn[1], 10);
-              if (totalM > 0) timeMin = totalM;
-
-              const badgeEls = card.querySelectorAll('[class*="fontBodyMedium"] span, .ivN21e span, [class*="badge"], span[style*="background"], span');
-              let busNums = Array.from(badgeEls).map(el => el.textContent.trim()).filter(t => t.length > 0 && t.length < 15 && !/min|hr|:|km|walk|from|to|every/i.test(t));
-              busNums = [...new Set(busNums)];
-              const transferCount = Math.max(0, busNums.length - 1);
-
-              let walkMin = 0;
-              const walkMatch = txt.match(/walk\s*(\d+)\s*min/i) || txt.match(/(\d+)\s*min\s*(?:walk)/i);
-              if (walkMatch) walkMin = parseInt(walkMatch[1], 10);
-
-              let score = 100000 - (timeMin * 10) - (transferCount * 5000) - (walkMin * 25);
-              if (prefBuses && prefBuses.length > 0 && prefBuses.some(pb => txt.toUpperCase().includes(pb.toUpperCase()))) {
-                score += 50000;
-              }
-
-              scoredCards.push({ card, score, transferCount, timeMin, txt });
-            }
-
-            if (routeId === "M13") {
-              scoredCards.sort((a, b) => {
-                const aHas221 = a.txt.includes("221") ? 1 : 0;
-                const bHas221 = b.txt.includes("221") ? 1 : 0;
-                if (aHas221 !== bHas221) return bHas221 - aHas221;
-                return a.timeMin - b.timeMin;
-              });
-            } else if (routeId === "M22") {
-              scoredCards.sort((a, b) => {
-                const aHas = a.txt.includes("s-22") || a.txt.includes("s22") ? 1 : 0;
-                const bHas = b.txt.includes("s-22") || b.txt.includes("s22") ? 1 : 0;
-                if (aHas !== bHas) return bHas - aHas;
-                return a.timeMin - b.timeMin;
-              });
-            } else {
-              scoredCards.sort((a, b) => b.score - a.score);
-            }
-
-            if (scoredCards.length > 0) {
-              bestCard = scoredCards[0].card;
-            }
-            
-            if (bestCard) {
-              const timeEl = bestCard.querySelector('.Fk3sm, [class*="fontHeadlineSmall"]');
-              const timeRaw = timeEl ? timeEl.textContent.trim() : null;
-              const distEl = Array.from(bestCard.querySelectorAll('div,span')).find(el => el.textContent.includes('km') || el.textContent.includes(' m'));
-              const distM = distEl ? distEl.textContent.match(/[\d.]+\s*(km|m)/i) : null;
-              const numEls = bestCard.querySelectorAll('[class*="fontBodyMedium"] span, .ivN21e span, [class*="badge"], [class*="transit"]');
-              let busNums = Array.from(numEls).map(el => el.textContent.trim()).filter(t => t.length > 0 && t.length < 15 && !/min|hr|:|km|walk/i.test(t)).join(', ');
-              if (!busNums || busNums.trim() === '') busNums = "Matched Bus Route";
-              
-              const walkMatch = bestCard.innerText.match(/(?:walk)\s*(\d+)\s*min/i);
-              const walkTime = walkMatch ? walkMatch[1] + " min" : "0 min";
-              const rawDetails = bestCard.innerText;
-              bestCard.click();
-              return { timeRaw, timeMin: timeToMin(timeRaw), distRaw: distM ? distM[0] : null, routeName: busNums, walkTime, rawDetails, exactMatch: true };
-            }
-            return null;
-          }, prefBuses, roadLabel, carRouteName, currentRouteId);
-
-          if (res) {
-            busRaw = res;
-            log(`      ✅ Found matching bus [${busRaw.routeName}] at Depart at [${tryTime}]`);
-            break;
-          }
-        }
-      } catch(e) {}
-
-      if (busRaw) {
-        await new Promise(r => setTimeout(r, 800));
-      }
-
-      const busData = {
-        timeMin:  busRaw ? busRaw.timeMin  : null,
-        timeRaw:  busRaw ? busRaw.timeRaw  : null,
-        distRaw:  (busRaw && busRaw.distRaw) ? busRaw.distRaw : carData.distRaw || null,
-        routeName: busRaw ? busRaw.routeName : '',
-        walkTime: busRaw ? busRaw.walkTime : '',
-        rawDetails: busRaw ? busRaw.rawDetails : 'N/A',
-        exactMatch: busRaw ? busRaw.exactMatch : false
-      };
-      if (carData.distRaw) busData.distRaw = carData.distRaw;
-      const busImgPath = await saveRouteScreenshot(page, route, "bus");
-
-      await new Promise(r => setTimeout(r, 600));
-      
-      // 3. Fetch Bike data
+      // 2. Fetch Bike data (Bus mode dropped per user specification)
       const bikeUrl = buildMapsUrl(route, "bike");
       const bikeData = (await extractTravelData(page, bikeUrl, "bike", route)) || {};
-      if (carData.distRaw) bikeData.distRaw = carData.distRaw;
-      
-      // 4. Discrepancy & Speed Advantage Analysis
-      let busAdvantageReason = "";
-      if (busData.timeMin) {
-        const busFasterThanCar = carData.timeMin && busData.timeMin < carData.timeMin;
-        const busFasterThanBike = bikeData.timeMin && busData.timeMin < bikeData.timeMin;
-        
-        if (busFasterThanCar || busFasterThanBike) {
-          const reasons = [];
-          if (busData.walkTime === "0 min" || !busData.walkTime) reasons.push("0 Min Walk Time (Direct Boarding)");
-          if (busData.routeName && !busData.routeName.includes(",")) reasons.push("Direct Route (No Transfers)");
-          if (carData.trafficCondition && (carData.trafficCondition.includes("Heavy") || carData.trafficCondition.includes("Red"))) reasons.push("Heavy Car Traffic Route");
-          busAdvantageReason = (reasons.length > 0) ? reasons.join(" + ") : "More direct path or dedicated lane access";
-        }
-      }
+      if (carData.distRaw && !bikeData.distRaw) bikeData.distRaw = carData.distRaw;
 
       const resultObj = {
         routeId: route.id,
@@ -1306,14 +1032,14 @@ async function runFetchSession(label = "manual") {
         carDistRaw: carData.distRaw,
         carTraffic: carData.trafficCondition,
         carRoute: carData.routeName || "",
-        busTimeRaw: busData.timeRaw,
-        busTimeMin: busData.timeMin,
-        busDistRaw: busData.distRaw,
-        busRoute: busData.routeName || "",
-        busWalkTime: busData.walkTime || "",
-        rawDetails: busData.rawDetails || "",
-        busReason: busAdvantageReason,
-        busExactMatch: busData.exactMatch,
+        busTimeRaw: null,
+        busTimeMin: null,
+        busDistRaw: null,
+        busRoute: "N/A (Bus Dropped)",
+        busWalkTime: "",
+        rawDetails: "N/A",
+        busReason: "",
+        busExactMatch: false,
         bikeTimeRaw: bikeData.timeRaw,
         bikeTimeMin: bikeData.timeMin,
         bikeDistRaw: bikeData.distRaw,
@@ -1321,13 +1047,12 @@ async function runFetchSession(label = "manual") {
         timeSlot: slotLabel(),
         carImagePath: carData.imagePath,
         bikeImagePath: bikeData.imagePath,
-        busImagePath: busImgPath
+        busImagePath: ""
       };
       
       results.push(resultObj);
 
       log(`  🚙 Car: ${carData.timeRaw || "N/A"} (${carData.timeMin || "?"} min) | dist: ${carData.distRaw || "?"} | traffic: ${carData.trafficCondition || "?"}`);
-      log(`  🚌 Bus: ${busData.timeRaw || "N/A"} (${busData.timeMin || "?"} min) | dist: ${busData.distRaw || "?"}`);
       log(`  🛵 Bike: ${bikeData.timeRaw || "N/A"} (${bikeData.timeMin || "?"} min) | dist: ${bikeData.distRaw || "?"}`);
 
       await new Promise(r => setTimeout(r, 800));

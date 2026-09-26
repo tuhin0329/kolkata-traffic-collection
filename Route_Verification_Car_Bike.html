@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kolkata Traffic Corridor Verification: Car & Bike</title>
+<style>
+  :root {
+    --primary: #1F4E78;
+    --car: #C0392B;
+    --bike: #27AE60;
+    --bg: #F4F6F9;
+    --card: #FFFFFF;
+    --text: #2C3E50;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); padding: 25px; }
+  header { background: linear-gradient(135deg, #1F4E78 0%, #163753 100%); color: white; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
+  header h1 { font-size: 24px; margin-bottom: 6px; }
+  header p { font-size: 13.5px; opacity: 0.9; }
+  
+  .filter-bar { background: var(--card); padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
+  input[type="text"] { padding: 8px 12px; border: 1px solid #BDC3C7; border-radius: 6px; font-size: 13px; width: 250px; }
+  .btn-filter { padding: 8px 14px; border: none; border-radius: 6px; background: #EAECEE; font-weight: bold; cursor: pointer; font-size: 12px; }
+  .btn-filter.active { background: var(--primary); color: white; }
+
+  table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); font-size: 12.5px; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #ECF0F1; vertical-align: middle; }
+  th { background: var(--primary); color: white; font-weight: bold; }
+  tr:hover { background: #F8F9FA; }
+  
+  .coord-pill { font-family: monospace; font-size: 11px; background: #EBF5FB; color: #1B4F72; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 3px; }
+  .via-pill { font-family: monospace; font-size: 10.5px; background: #FEF9E7; color: #7D6608; padding: 2px 5px; border-radius: 4px; display: block; margin-top: 2px; }
+  
+  .btn-map { display: inline-block; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 11.5px; margin: 2px; text-align: center; }
+  .btn-car { background: #FDEDEC; color: var(--car); border: 1px solid var(--car); }
+  .btn-car:hover { background: var(--car); color: white; }
+  .btn-bike { background: #EAFAF1; color: var(--bike); border: 1px solid var(--bike); }
+  .btn-bike:hover { background: var(--bike); color: white; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Kolkata 40 Corridor Verification Hub: Private Car & Motorcycle</h1>
+  <p>Verify exact origin/destination coordinates, corridor waypoints, and open live Google Maps routes for verification prior to resuming automated data collection.</p>
+</header>
+
+<div class="filter-bar">
+  <input type="text" id="searchInput" placeholder="Search by road name or route ID..." onkeyup="filterTable()">
+  <button class="btn-filter active" onclick="setFilter('all')">All Corridors (40)</button>
+  <button class="btn-filter" onclick="setFilter('Major Road')">Major Roads (22)</button>
+  <button class="btn-filter" onclick="setFilter('Local Connector Segment')">Local Connectors (18)</button>
+</div>
+
+<table id="routesTable">
+  <thead>
+    <tr>
+      <th style="width: 50px;">ID</th>
+      <th style="width: 140px;">Road Name</th>
+      <th>Category</th>
+      <th>Origin (Start)</th>
+      <th>Destination (End)</th>
+      <th>Waypoints (Via)</th>
+      <th style="width: 170px;">Google Maps Links</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-cat="Major Road">
+      <td><strong>M1</strong></td>
+      <td><strong>DH Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Mominpore, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.527158250575937, 88.32629182603299</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Amtala, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.36778626722586, 88.27186102336613</div>
+      </td>
+      <td><span class="via-pill">📍 22.486969536997208, 88.31331015977956</span><span class="via-pill">📍 22.453335909381124, 88.30261516019884</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.527158250575937%2C%2088.32629182603299&destination=22.36778626722586%2C%2088.27186102336613&waypoints=22.486969536997208%2C%2088.31331015977956%7C22.453335909381124%2C%2088.30261516019884&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.527158250575937%2C%2088.32629182603299&destination=22.36778626722586%2C%2088.27186102336613&waypoints=22.486969536997208%2C%2088.31331015977956%7C22.453335909381124%2C%2088.30261516019884&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M2</strong></td>
+      <td><strong>B T Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Shyambazar, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.60157745671817, 88.37273219043222</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Dunlop, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.653231538993165, 88.37720499706744</div>
+      </td>
+      <td><span class="via-pill">📍 22.632358132193776, 88.37835292777488</span><span class="via-pill">📍 22.645954770091013, 88.37760189468997</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.60157745671817%2C%2088.37273219043222&destination=22.653231538993165%2C%2088.37720499706744&waypoints=22.632358132193776%2C%2088.37835292777488%7C22.645954770091013%2C%2088.37760189468997&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.60157745671817%2C%2088.37273219043222&destination=22.653231538993165%2C%2088.37720499706744&waypoints=22.632358132193776%2C%2088.37835292777488%7C22.645954770091013%2C%2088.37760189468997&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M3</strong></td>
+      <td><strong>B T Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Dunlop, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.65322731143445, 88.37714552317215</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Barrackpore, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.76184358966365, 88.36553558285678</div>
+      </td>
+      <td><span class="via-pill">📍 22.700854419025376, 88.37475601556763</span><span class="via-pill">📍 22.738588435405088, 88.37276925613345</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.65322731143445%2C%2088.37714552317215&destination=22.76184358966365%2C%2088.36553558285678&waypoints=22.700854419025376%2C%2088.37475601556763%7C22.738588435405088%2C%2088.37276925613345&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.65322731143445%2C%2088.37714552317215&destination=22.76184358966365%2C%2088.36553558285678&waypoints=22.700854419025376%2C%2088.37475601556763%7C22.738588435405088%2C%2088.37276925613345&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M4</strong></td>
+      <td><strong>VIP Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Ultadanga, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.594576599778836, 88.38327634915908</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Airport (NSCBI Airport), Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.641482246133076, 88.43136027565988</div>
+      </td>
+      <td><span class="via-pill">📍 22.591510818252626, 88.39335462020657</span><span class="via-pill">📍 22.603363362498907, 88.42352512912707</span><span class="via-pill">📍 22.613979078954333, 88.43001259355401</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.594576599778836%2C%2088.38327634915908&destination=22.641482246133076%2C%2088.43136027565988&waypoints=22.591510818252626%2C%2088.39335462020657%7C22.603363362498907%2C%2088.42352512912707%7C22.613979078954333%2C%2088.43001259355401&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.594576599778836%2C%2088.38327634915908&destination=22.641482246133076%2C%2088.43136027565988&waypoints=22.591510818252626%2C%2088.39335462020657%7C22.603363362498907%2C%2088.42352512912707%7C22.613979078954333%2C%2088.43001259355401&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M5</strong></td>
+      <td><strong>Jessore Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Airport (NSCBI Airport), Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.642229674768757, 88.43119115662317</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Barasat, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.720270572226145, 88.48663803272736</div>
+      </td>
+      <td><span class="via-pill">📍 22.659349299790406, 88.44146370339267</span><span class="via-pill">📍 22.69239331168592, 88.46535187631933</span><span class="via-pill">📍 22.71321312857641, 88.48130313658922</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.642229674768757%2C%2088.43119115662317&destination=22.720270572226145%2C%2088.48663803272736&waypoints=22.659349299790406%2C%2088.44146370339267%7C22.69239331168592%2C%2088.46535187631933%7C22.71321312857641%2C%2088.48130313658922&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.642229674768757%2C%2088.43119115662317&destination=22.720270572226145%2C%2088.48663803272736&waypoints=22.659349299790406%2C%2088.44146370339267%7C22.69239331168592%2C%2088.46535187631933%7C22.71321312857641%2C%2088.48130313658922&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M6</strong></td>
+      <td><strong>Airport Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Airport (NSCBI Airport), Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.64150573693621, 88.43086159528802</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Dum Dum Railway Station, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.62008068521284, 88.39502383574728</div>
+      </td>
+      <td><span class="via-pill">📍 22.62278457693161, 88.4143981983047</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.64150573693621%2C%2088.43086159528802&destination=22.62008068521284%2C%2088.39502383574728&waypoints=22.62278457693161%2C%2088.4143981983047&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.64150573693621%2C%2088.43086159528802&destination=22.62008068521284%2C%2088.39502383574728&waypoints=22.62278457693161%2C%2088.4143981983047&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M7</strong></td>
+      <td><strong>APC Bose Rd</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Shyambazar, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.60157961913879, 88.37273156156854</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Rabindra Sadan, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.54155151491483, 88.34784315206437</div>
+      </td>
+      <td><span class="via-pill">📍 22.586478170538157, 88.36785513403866</span><span class="via-pill">📍 22.564365384356854, 88.36828978015252</span><span class="via-pill">📍 22.54254537431056, 88.35998562511485</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.60157961913879%2C%2088.37273156156854&destination=22.54155151491483%2C%2088.34784315206437&waypoints=22.586478170538157%2C%2088.36785513403866%7C22.564365384356854%2C%2088.36828978015252%7C22.54254537431056%2C%2088.35998562511485&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.60157961913879%2C%2088.37273156156854&destination=22.54155151491483%2C%2088.34784315206437&waypoints=22.586478170538157%2C%2088.36785513403866%7C22.564365384356854%2C%2088.36828978015252%7C22.54254537431056%2C%2088.35998562511485&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M8</strong></td>
+      <td><strong>Bidhan Sarani</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Shyambazar, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.600237959088595, 88.37309662256553</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Esplanade, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.56464030708927, 88.35157682988891</div>
+      </td>
+      <td><span class="via-pill">📍 22.58574243123134, 88.36755532294626</span><span class="via-pill">📍 22.577890081453138, 88.36931070591673</span><span class="via-pill">📍 22.56824968754297, 88.36501609623691</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.600237959088595%2C%2088.37309662256553&destination=22.56464030708927%2C%2088.35157682988891&waypoints=22.58574243123134%2C%2088.36755532294626%7C22.577890081453138%2C%2088.36931070591673%7C22.56824968754297%2C%2088.36501609623691&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.600237959088595%2C%2088.37309662256553&destination=22.56464030708927%2C%2088.35157682988891&waypoints=22.58574243123134%2C%2088.36755532294626%7C22.577890081453138%2C%2088.36931070591673%7C22.56824968754297%2C%2088.36501609623691&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M9</strong></td>
+      <td><strong>Central Avenue (C R Avenue)</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Shyambazar, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.601240174118814, 88.37214685775855</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Esplanade, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.5646441008044, 88.35157695193628</div>
+      </td>
+      <td><span class="via-pill">📍 22.586488630379588, 88.36286559862576</span><span class="via-pill">📍 22.577610115623404, 88.36044301521393</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.601240174118814%2C%2088.37214685775855&destination=22.5646441008044%2C%2088.35157695193628&waypoints=22.586488630379588%2C%2088.36286559862576%7C22.577610115623404%2C%2088.36044301521393&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.601240174118814%2C%2088.37214685775855&destination=22.5646441008044%2C%2088.35157695193628&waypoints=22.586488630379588%2C%2088.36286559862576%7C22.577610115623404%2C%2088.36044301521393&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M10</strong></td>
+      <td><strong>S N Banerjee Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Sealdah, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.56533292976866, 88.37017968268825</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Esplanade, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.56279301329408, 88.351202325141</div>
+      </td>
+      <td><span class="via-pill">📍 22.56035886787411, 88.36197075899068</span><span class="via-pill">📍 22.561790717826575, 88.35662776123334</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.56533292976866%2C%2088.37017968268825&destination=22.56279301329408%2C%2088.351202325141&waypoints=22.56035886787411%2C%2088.36197075899068%7C22.561790717826575%2C%2088.35662776123334&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.56533292976866%2C%2088.37017968268825&destination=22.56279301329408%2C%2088.351202325141&waypoints=22.56035886787411%2C%2088.36197075899068%7C22.561790717826575%2C%2088.35662776123334&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M11</strong></td>
+      <td><strong>M G Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Sealdah, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.565250461301765, 88.37014706506632</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Howrah, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.58495016168921, 88.34178252501448</div>
+      </td>
+      <td><span class="via-pill">📍 22.578667254204134, 88.3606741586771</span><span class="via-pill">📍 22.582371283202296, 88.3496606173083</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.565250461301765%2C%2088.37014706506632&destination=22.58495016168921%2C%2088.34178252501448&waypoints=22.578667254204134%2C%2088.3606741586771%7C22.582371283202296%2C%2088.3496606173083&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.565250461301765%2C%2088.37014706506632&destination=22.58495016168921%2C%2088.34178252501448&waypoints=22.578667254204134%2C%2088.3606741586771%7C22.582371283202296%2C%2088.3496606173083&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M12</strong></td>
+      <td><strong>C I T Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Moulali, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.560942770266077, 88.36791612740903</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Park Circus, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.543454352238612, 88.36682680037448</div>
+      </td>
+      <td><span class="via-pill">📍 22.554595613028884, 88.37214939399904</span><span class="via-pill">📍 22.545395813526955, 88.37059798285668</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.560942770266077%2C%2088.36791612740903&destination=22.543454352238612%2C%2088.36682680037448&waypoints=22.554595613028884%2C%2088.37214939399904%7C22.545395813526955%2C%2088.37059798285668&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.560942770266077%2C%2088.36791612740903&destination=22.543454352238612%2C%2088.36682680037448&waypoints=22.554595613028884%2C%2088.37214939399904%7C22.545395813526955%2C%2088.37059798285668&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M13</strong></td>
+      <td><strong>Sarat Bose Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Beckbagan, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.542976674721288, 88.36018590570482</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Rabindra Sarobor, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.512272909067946, 88.35385507955782</div>
+      </td>
+      <td><span class="via-pill">📍 22.540735819973026, 88.35499586195047</span><span class="via-pill">📍 22.532280307933853, 88.35314809314661</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.542976674721288%2C%2088.36018590570482&destination=22.512272909067946%2C%2088.35385507955782&waypoints=22.540735819973026%2C%2088.35499586195047%7C22.532280307933853%2C%2088.35314809314661&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.542976674721288%2C%2088.36018590570482&destination=22.512272909067946%2C%2088.35385507955782&waypoints=22.540735819973026%2C%2088.35499586195047%7C22.532280307933853%2C%2088.35314809314661&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M14</strong></td>
+      <td><strong>S P Mukherjee Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Esplanade, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.564645713064767, 88.35158046049455</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Garia, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.467143293223113, 88.40208140550527</div>
+      </td>
+      <td><span class="via-pill">📍 22.52817115841846, 88.34581932128404</span><span class="via-pill">📍 22.487953350919998, 88.35025927646016</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.564645713064767%2C%2088.35158046049455&destination=22.467143293223113%2C%2088.40208140550527&waypoints=22.52817115841846%2C%2088.34581932128404%7C22.487953350919998%2C%2088.35025927646016&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.564645713064767%2C%2088.35158046049455&destination=22.467143293223113%2C%2088.40208140550527&waypoints=22.52817115841846%2C%2088.34581932128404%7C22.487953350919998%2C%2088.35025927646016&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M15</strong></td>
+      <td><strong>Hazra Road / S P Mukherjee Road connector</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Ballygunge, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.527079059759775, 88.36556008306101</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">DH Road, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.52179187546706, 88.32469649801426</div>
+      </td>
+      <td><span class="via-pill">📍 22.523865137447483, 88.33981461622014</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.527079059759775%2C%2088.36556008306101&destination=22.52179187546706%2C%2088.32469649801426&waypoints=22.523865137447483%2C%2088.33981461622014&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.527079059759775%2C%2088.36556008306101&destination=22.52179187546706%2C%2088.32469649801426&waypoints=22.523865137447483%2C%2088.33981461622014&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M16</strong></td>
+      <td><strong>Gariahat Road / Rashbehari Avenue</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Gariahat, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.51940616763569, 88.36453630385411</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Chetla, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.5175223871419, 88.33658733140382</div>
+      </td>
+      <td><span class="via-pill">📍 22.516795226720355, 88.34140274083758</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.51940616763569%2C%2088.36453630385411&destination=22.5175223871419%2C%2088.33658733140382&waypoints=22.516795226720355%2C%2088.34140274083758&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.51940616763569%2C%2088.36453630385411&destination=22.5175223871419%2C%2088.33658733140382&waypoints=22.516795226720355%2C%2088.34140274083758&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M18</strong></td>
+      <td><strong>Chetla Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Chetla, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.517460530723888, 88.3365739418487</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">DH Road, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.511973693746853, 88.32208180677958</div>
+      </td>
+      <td><span class="via-pill">📍 22.516932912911205, 88.33912820348779</span><span class="via-pill">📍 22.516826401074105, 88.33992644410576</span><span class="via-pill">📍 22.511651844862076, 88.33986117115793</span><span class="via-pill">📍 22.512362564926676, 88.32884891746347</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.517460530723888%2C%2088.3365739418487&destination=22.511973693746853%2C%2088.32208180677958&waypoints=22.516932912911205%2C%2088.33912820348779%7C22.516826401074105%2C%2088.33992644410576%7C22.511651844862076%2C%2088.33986117115793%7C22.512362564926676%2C%2088.32884891746347&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.517460530723888%2C%2088.3365739418487&destination=22.511973693746853%2C%2088.32208180677958&waypoints=22.516932912911205%2C%2088.33912820348779%7C22.516826401074105%2C%2088.33992644410576%7C22.511651844862076%2C%2088.33986117115793%7C22.512362564926676%2C%2088.32884891746347&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M19</strong></td>
+      <td><strong>Tollygunge Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Tollygunge, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.49390283116308, 88.34526778991841</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Taratala, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.511962015261304, 88.3220688798639</div>
+      </td>
+      <td><span class="via-pill">📍 22.509790617362288, 88.33231180950128</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.49390283116308%2C%2088.34526778991841&destination=22.511962015261304%2C%2088.3220688798639&waypoints=22.509790617362288%2C%2088.33231180950128&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.49390283116308%2C%2088.34526778991841&destination=22.511962015261304%2C%2088.3220688798639&waypoints=22.509790617362288%2C%2088.33231180950128&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M20</strong></td>
+      <td><strong>Prince Anwar Shah Rd</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Tollygunge, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.49194776974465, 88.34483112331563</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Avishikta Crossing, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.504629758104123, 88.40076347979667</div>
+      </td>
+      <td><span class="via-pill">📍 22.503072120538132, 88.36813445657324</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.49194776974465%2C%2088.34483112331563&destination=22.504629758104123%2C%2088.40076347979667&waypoints=22.503072120538132%2C%2088.36813445657324&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.49194776974465%2C%2088.34483112331563&destination=22.504629758104123%2C%2088.40076347979667&waypoints=22.503072120538132%2C%2088.36813445657324&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M21</strong></td>
+      <td><strong>Broadway Road</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Bidhannagar (Salt Lake), Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.57920822201556, 88.41419893752192</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Karunamoyee, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.585077302935726, 88.4212283116677</div>
+      </td>
+      <td><span class="via-pill">📍 22.58351812520808, 88.4184565809301</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.57920822201556%2C%2088.41419893752192&destination=22.585077302935726%2C%2088.4212283116677&waypoints=22.58351812520808%2C%2088.4184565809301&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.57920822201556%2C%2088.41419893752192&destination=22.585077302935726%2C%2088.4212283116677&waypoints=22.58351812520808%2C%2088.4184565809301&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M22</strong></td>
+      <td><strong>Karunamoyee - Biswa Bangla Sarani</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Karunamoyee, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.585219036751344, 88.42233724825942</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Chingrighata, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.55660195313387, 88.41234886480974</div>
+      </td>
+      <td><span class="via-pill">📍 22.579750524176504, 88.42614436985471</span><span class="via-pill">📍 22.574423205051904, 88.42177785377037</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.585219036751344%2C%2088.42233724825942&destination=22.55660195313387%2C%2088.41234886480974&waypoints=22.579750524176504%2C%2088.42614436985471%7C22.574423205051904%2C%2088.42177785377037&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.585219036751344%2C%2088.42233724825942&destination=22.55660195313387%2C%2088.41234886480974&waypoints=22.579750524176504%2C%2088.42614436985471%7C22.574423205051904%2C%2088.42177785377037&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Major Road">
+      <td><strong>M23</strong></td>
+      <td><strong>3rd Avenue</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Major Road</span></td>
+      <td>
+        <div style="font-weight:600;">Karunamoyee, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.585938023125205, 88.42112360649838</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">VIP Road, Kolkata, West Bengal, India</div>
+        <div class="coord-pill">22.591775016712575, 88.39386495368447</div>
+      </td>
+      <td><span class="via-pill">📍 22.58575696050989, 88.4036713437886</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.585938023125205%2C%2088.42112360649838&destination=22.591775016712575%2C%2088.39386495368447&waypoints=22.58575696050989%2C%2088.4036713437886&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.585938023125205%2C%2088.42112360649838&destination=22.591775016712575%2C%2088.39386495368447&waypoints=22.58575696050989%2C%2088.4036713437886&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S1</strong></td>
+      <td><strong>Baishnabghata → Patuli</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Baishnabghata Crossing, SH 1, Dakshin Raipur, Garia, Kolkata, West Bengal 700084</div>
+        <div class="coord-pill">22.471408, 88.377338</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Arindam Maitra, J-3, Baishnabghata Patuli Township, P S Jadavpur, Panchasayer, Kolkata, West Bengal 700094</div>
+        <div class="coord-pill">22.471887032855122, 88.3896818663446</div>
+      </td>
+      <td><span style="color:#7F8C8D;font-style:italic;">Direct</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.471408,%2088.377338&destination=22.471887032855122,%2088.3896818663446&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.471408,%2088.377338&destination=22.471887032855122,%2088.3896818663446&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S2</strong></td>
+      <td><strong>Patuli → Baghajatin Canal Bridge</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Arindam Maitra, J-3, Baishnabghata Patuli Township, P S Jadavpur, Panchasayer, Kolkata, West Bengal 700094</div>
+        <div class="coord-pill">22.471887032855122, 88.3896818663446</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Baghajatin Station Road Canal Bridge 1, F9HQ+WR3, Baghajatin Station Rd, Baghajatin Place, Patuli, Kolkata, West Bengal 700086</div>
+        <div class="coord-pill">22.47989072462562, 88.38979518188575</div>
+      </td>
+      <td><span style="color:#7F8C8D;font-style:italic;">Direct</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.471887032855122,%2088.3896818663446&destination=22.47989072462562,%2088.38979518188575&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.471887032855122,%2088.3896818663446&destination=22.47989072462562,%2088.38979518188575&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S3</strong></td>
+      <td><strong>Baghajatin Canal → Ajaynagar Crossing</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Baghajatin Station Road Canal Bridge 1, F9HQ+WR3, Baghajatin Station Rd, Baghajatin Place, Patuli, Kolkata, West Bengal 700086</div>
+        <div class="coord-pill">22.47989072462562, 88.38979518188575</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Ajaynagar 4-Point Crossing, F9QW+V4Q, Ajoy Nagar, Santoshpur, Kolkata, West Bengal 700099</div>
+        <div class="coord-pill">22.489795, 88.395225</div>
+      </td>
+      <td><span style="color:#7F8C8D;font-style:italic;">Direct</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.47989072462562,%2088.38979518188575&destination=22.489795,%2088.395225&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.47989072462562,%2088.38979518188575&destination=22.489795,%2088.395225&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S4</strong></td>
+      <td><strong>Ajaynagar → EM Bypass (Kalikapur)</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Ajaynagar 4-Point Crossing, F9QW+V4Q, Ajoy Nagar, Santoshpur, Kolkata, West Bengal 700099</div>
+        <div class="coord-pill">22.489795, 88.395225</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">E.M. Bypass (Kalikapur), North Purbachal, Haltu, Kolkata, West Bengal 700078</div>
+        <div class="coord-pill">22.504459553948617, 88.40073511237466</div>
+      </td>
+      <td><span class="via-pill">📍 22.493409930238286, 88.39720416569472</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.489795,%2088.395225&destination=22.504459553948617,%2088.40073511237466&waypoints=22.493409930238286,%2088.39720416569472&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.489795,%2088.395225&destination=22.504459553948617,%2088.40073511237466&waypoints=22.493409930238286,%2088.39720416569472&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S5</strong></td>
+      <td><strong>EM Bypass → Kasba Golpark</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">E.M. Bypass (Kalikapur), North Purbachal, Haltu, Kolkata, West Bengal 700078</div>
+        <div class="coord-pill">22.504459553948617, 88.40073511237466</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Kasba Gol Park, GC72+9PF, Anandapur Main Rd, Sector I, East Kolkata Twp, Kolkata, West Bengal 700107</div>
+        <div class="coord-pill">22.513605424895417, 88.40163813624706</div>
+      </td>
+      <td><span style="color:#7F8C8D;font-style:italic;">Direct</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.504459553948617,%2088.40073511237466&destination=22.513605424895417,%2088.40163813624706&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.504459553948617,%2088.40073511237466&destination=22.513605424895417,%2088.40163813624706&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S6</strong></td>
+      <td><strong>Kasba Golpark → Parama (Traffic Barrack)</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Kasba Gol Park, GC72+9PF, Anandapur Main Rd, Sector I, East Kolkata Twp, Kolkata, West Bengal 700107</div>
+        <div class="coord-pill">22.513605424895417, 88.40163813624706</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Traffic Barrack, G9VX+4HM, Parama Cir, Dhapa, Kolkata, West Bengal 700105</div>
+        <div class="coord-pill">22.543215599504876, 88.39854568204892</div>
+      </td>
+      <td><span style="color:#7F8C8D;font-style:italic;">Direct</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.513605424895417,%2088.40163813624706&destination=22.543215599504876,%2088.39854568204892&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.513605424895417,%2088.40163813624706&destination=22.543215599504876,%2088.39854568204892&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S7</strong></td>
+      <td><strong>Parama → Chingrighata</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Traffic Barrack, G9VX+4HM, Parama Cir, Dhapa, Kolkata, West Bengal 700105</div>
+        <div class="coord-pill">22.54321501141463, 88.39855834796509</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Maa Tripura Fastfood, C6VH, 7MJCHC54, Canal S Rd, Sec-B, Chingrighata, Ward Number 57, Kolkata, West Bengal 700107</div>
+        <div class="coord-pill">22.55865275587551, 88.41103526552334</div>
+      </td>
+      <td><span style="color:#7F8C8D;font-style:italic;">Direct</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.54321501141463,%2088.39855834796509&destination=22.55865275587551,%2088.41103526552334&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.54321501141463,%2088.39855834796509&destination=22.55865275587551,%2088.41103526552334&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S8</strong></td>
+      <td><strong>Chingrighata → Sealdah</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Maa Tripura Fastfood, C6VH, 7MJCHC54, Canal S Rd, Sec-B, Chingrighata, Ward Number 57, Kolkata, West Bengal 700107</div>
+        <div class="coord-pill">22.558657139516853, 88.41102767178542</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Suraj Store, 121, AJC Bose Rd, Sealdah, Raja Bazar, Kolkata, West Bengal 700014</div>
+        <div class="coord-pill">22.565486, 88.369782</div>
+      </td>
+      <td><span class="via-pill">📍 22.565973280132788, 88.3805302160212</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.558657139516853,%2088.41102767178542&destination=22.565486,%2088.369782&waypoints=22.565973280132788,%2088.3805302160212&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.558657139516853,%2088.41102767178542&destination=22.565486,%2088.369782&waypoints=22.565973280132788,%2088.3805302160212&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S9</strong></td>
+      <td><strong>Sealdah → Park Street</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Suraj Store, 121, AJC Bose Rd, Sealdah, Raja Bazar, Kolkata, West Bengal 700014</div>
+        <div class="coord-pill">22.565486, 88.369782</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">141, Park St, near Institute of Neurosciences, Mullick Bazar, Beniapukur, Kolkata, West Bengal 700017</div>
+        <div class="coord-pill">22.54667, 88.361556</div>
+      </td>
+      <td><span style="color:#7F8C8D;font-style:italic;">Direct</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.565486,%2088.369782&destination=22.54667,%2088.361556&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.565486,%2088.369782&destination=22.54667,%2088.361556&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S10</strong></td>
+      <td><strong>Park Street → Parama (via EM Bypass)</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">141, Park St, near Institute of Neurosciences, Mullick Bazar, Beniapukur, Kolkata, West Bengal 700017</div>
+        <div class="coord-pill">22.54667, 88.361556</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Traffic Barrack, G9VX+4HM, Parama Cir, Dhapa, Kolkata, West Bengal 700105</div>
+        <div class="coord-pill">22.543215599504876, 88.39854568204892</div>
+      </td>
+      <td><span class="via-pill">📍 22.54105349403992, 88.36817957678178</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.54667,%2088.361556&destination=22.543215599504876,%2088.39854568204892&waypoints=22.54105349403992,%2088.36817957678178&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.54667,%2088.361556&destination=22.543215599504876,%2088.39854568204892&waypoints=22.54105349403992,%2088.36817957678178&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S11</strong></td>
+      <td><strong>Park Street → Gariahat (Rashbehari)</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">141, Park St, near Institute of Neurosciences, Mullick Bazar, Beniapukur, Kolkata, West Bengal 700017</div>
+        <div class="coord-pill">22.54667, 88.361556</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Usha Cosmetics, 100, Rash Behari Ave, Ballygunge Gardens, Gariahat, Kolkata, West Bengal 700019</div>
+        <div class="coord-pill">22.519769, 88.365395</div>
+      </td>
+      <td><span class="via-pill">📍 22.528794536803037, 88.35651883221536</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.54667,%2088.361556&destination=22.519769,%2088.365395&waypoints=22.528794536803037,%2088.35651883221536&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.54667,%2088.361556&destination=22.519769,%2088.365395&waypoints=22.528794536803037,%2088.35651883221536&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S12</strong></td>
+      <td><strong>Gariahat → Kasba Golpark</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Usha Cosmetics, 100, Rash Behari Ave, Ballygunge Gardens, Gariahat, Kolkata, West Bengal 700019</div>
+        <div class="coord-pill">22.519769, 88.365395</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Kasba Gol Park, GC72+9PF, Anandapur Main Rd, Sector I, East Kolkata Twp, Kolkata, West Bengal 700107</div>
+        <div class="coord-pill">22.513605424895417, 88.40163813624706</div>
+      </td>
+      <td><span style="color:#7F8C8D;font-style:italic;">Direct</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.519769,%2088.365395&destination=22.513605424895417,%2088.40163813624706&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.519769,%2088.365395&destination=22.513605424895417,%2088.40163813624706&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S13</strong></td>
+      <td><strong>Gariahat → Jadavpur PS</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Usha Cosmetics, 100, Rash Behari Ave, Ballygunge Gardens, Gariahat, Kolkata, West Bengal 700019</div>
+        <div class="coord-pill">22.519769, 88.365395</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Jadavpur Police Station 4-Point Crossing, University Campus Area, SH 1, Jadavpur, Kolkata, West Bengal 700032</div>
+        <div class="coord-pill">22.503099, 88.367808</div>
+      </td>
+      <td><span class="via-pill">📍 22.514734035632127, 88.3671200632832</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.519769,%2088.365395&destination=22.503099,%2088.367808&waypoints=22.514734035632127,%2088.3671200632832&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.519769,%2088.365395&destination=22.503099,%2088.367808&waypoints=22.514734035632127,%2088.3671200632832&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S14</strong></td>
+      <td><strong>Jadavpur PS → EM Bypass (Kalikapur)</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Jadavpur Police Station 4-Point Crossing, University Campus Area, SH 1, Jadavpur, Kolkata, West Bengal 700032</div>
+        <div class="coord-pill">22.503099, 88.367808</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">E.M. Bypass (Kalikapur), North Purbachal, Haltu, Kolkata, West Bengal 700078</div>
+        <div class="coord-pill">22.504459553948617, 88.40073511237466</div>
+      </td>
+      <td><span style="color:#7F8C8D;font-style:italic;">Direct</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.503099,%2088.367808&destination=22.504459553948617,%2088.40073511237466&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.503099,%2088.367808&destination=22.504459553948617,%2088.40073511237466&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S15</strong></td>
+      <td><strong>Jadavpur PS → Jadavpur Sulekha</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Jadavpur Police Station 4-Point Crossing, University Campus Area, SH 1, Jadavpur, Kolkata, West Bengal 700032</div>
+        <div class="coord-pill">22.503099, 88.367808</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Jadavpur Sulekha 4-Point Crossing, 53, Anandapally Rd, Anandapally, Bidhanpally, Jadavpur, Kolkata, West Bengal 700032</div>
+        <div class="coord-pill">22.491648511822472, 88.37243350245176</div>
+      </td>
+      <td><span style="color:#7F8C8D;font-style:italic;">Direct</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.503099,%2088.367808&destination=22.491648511822472,%2088.37243350245176&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.503099,%2088.367808&destination=22.491648511822472,%2088.37243350245176&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S16</strong></td>
+      <td><strong>Jadavpur Sulekha → Ajaynagar Crossing</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Jadavpur Sulekha 4-Point Crossing, 53, Anandapally Rd, Anandapally, Bidhanpally, Jadavpur, Kolkata, West Bengal 700032</div>
+        <div class="coord-pill">22.491648511822472, 88.37243350245176</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Ajaynagar 4-Point Crossing, F9QW+V4Q, Ajoy Nagar, Santoshpur, Kolkata, West Bengal 700099</div>
+        <div class="coord-pill">22.489795, 88.395225</div>
+      </td>
+      <td><span style="color:#7F8C8D;font-style:italic;">Direct</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.491648511822472,%2088.37243350245176&destination=22.489795,%2088.395225&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.491648511822472,%2088.37243350245176&destination=22.489795,%2088.395225&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S17</strong></td>
+      <td><strong>Jadavpur Sulekha → Baghajatin Station Rd</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Jadavpur Sulekha 4-Point Crossing, 53, Anandapally Rd, Anandapally, Bidhanpally, Jadavpur, Kolkata, West Bengal 700032</div>
+        <div class="coord-pill">22.491663328585012, 88.37240626299364</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Baghajatin 4-Point Crossing, F9MG+H66, Baghajatin C Block, Chittaranjan Colony 6, Baghajatin Colony, Kolkata, West Bengal 700047</div>
+        <div class="coord-pill">22.483895156021173, 88.3755286267775</div>
+      </td>
+      <td><span style="color:#7F8C8D;font-style:italic;">Direct</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.491663328585012,%2088.37240626299364&destination=22.483895156021173,%2088.3755286267775&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.491663328585012,%2088.37240626299364&destination=22.483895156021173,%2088.3755286267775&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+    <tr data-cat="Local Connector Segment">
+      <td><strong>S19</strong></td>
+      <td><strong>Baghajatin → Baishnabghata (South)</strong></td>
+      <td><span style="font-size:11px;color:#5D6D7E;">Local Connector Segment</span></td>
+      <td>
+        <div style="font-weight:600;">Baghajatin 4-Point Crossing, F9MG+H66, Baghajatin C Block, Chittaranjan Colony 6, Baghajatin Colony, Kolkata, West Bengal 700047</div>
+        <div class="coord-pill">22.483895156021173, 88.3755286267775</div>
+      </td>
+      <td>
+        <div style="font-weight:600;">Baishnabghata Crossing, SH 1, Dakshin Raipur, Garia, Kolkata, West Bengal 700084</div>
+        <div class="coord-pill">22.471408, 88.377338</div>
+      </td>
+      <td><span style="color:#7F8C8D;font-style:italic;">Direct</span></td>
+      <td>
+        <a class="btn-map btn-car" href="https://www.google.co.in/maps/dir/?api=1&origin=22.483895156021173,%2088.3755286267775&destination=22.471408,%2088.377338&travelmode=driving&gl=in&hl=en" target="_blank">🚗 Open Car</a>
+        <a class="btn-map btn-bike" href="https://www.google.co.in/maps/dir/?api=1&origin=22.483895156021173,%2088.3755286267775&destination=22.471408,%2088.377338&travelmode=two-wheeler&gl=in&hl=en" target="_blank">🏍️ Open Bike</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  let currentFilter = 'all';
+
+  function setFilter(cat) {
+    currentFilter = cat;
+    document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    filterTable();
+  }
+
+  function filterTable() {
+    const q = document.getElementById('searchInput').value.toLowerCase();
+    const rows = document.querySelectorAll('#routesTable tbody tr');
+    rows.forEach(r => {
+      const cat = r.getAttribute('data-cat');
+      const text = r.innerText.toLowerCase();
+      const matchCat = (currentFilter === 'all' || cat === currentFilter);
+      const matchText = text.includes(q);
+      r.style.display = (matchCat && matchText) ? '' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,389 @@
+[
+  {
+    "id": "M1",
+    "section": "Major Road",
+    "from": "22.527158250575937, 88.32629182603299",
+    "to": "22.36778626722586, 88.27186102336613",
+    "label": "DH Road",
+    "originAddress": "Mominpore, Kolkata, West Bengal, India",
+    "destAddress": "Amtala, Kolkata, West Bengal, India",
+    "viaCoord": "22.486969536997208, 88.31331015977956|22.453335909381124, 88.30261516019884"
+  },
+  {
+    "id": "M2",
+    "section": "Major Road",
+    "from": "22.60157745671817, 88.37273219043222",
+    "to": "22.653231538993165, 88.37720499706744",
+    "label": "B T Road",
+    "originAddress": "Shyambazar, Kolkata, West Bengal, India",
+    "destAddress": "Dunlop, Kolkata, West Bengal, India",
+    "viaCoord": "22.632358132193776, 88.37835292777488|22.645954770091013, 88.37760189468997"
+  },
+  {
+    "id": "M3",
+    "section": "Major Road",
+    "from": "22.65322731143445, 88.37714552317215",
+    "to": "22.76184358966365, 88.36553558285678",
+    "label": "B T Road",
+    "originAddress": "Dunlop, Kolkata, West Bengal, India",
+    "destAddress": "Barrackpore, Kolkata, West Bengal, India",
+    "viaCoord": "22.700854419025376, 88.37475601556763|22.738588435405088, 88.37276925613345"
+  },
+  {
+    "id": "M4",
+    "section": "Major Road",
+    "from": "22.594576599778836, 88.38327634915908",
+    "to": "22.641482246133076, 88.43136027565988",
+    "label": "VIP Road",
+    "originAddress": "Ultadanga, Kolkata, West Bengal, India",
+    "destAddress": "Airport (NSCBI Airport), Kolkata, West Bengal, India",
+    "viaCoord": "22.591510818252626, 88.39335462020657|22.603363362498907, 88.42352512912707|22.613979078954333, 88.43001259355401"
+  },
+  {
+    "id": "M5",
+    "section": "Major Road",
+    "from": "22.642229674768757, 88.43119115662317",
+    "to": "22.720270572226145, 88.48663803272736",
+    "label": "Jessore Road",
+    "originAddress": "Airport (NSCBI Airport), Kolkata, West Bengal, India",
+    "destAddress": "Barasat, Kolkata, West Bengal, India",
+    "viaCoord": "22.659349299790406, 88.44146370339267|22.69239331168592, 88.46535187631933|22.71321312857641, 88.48130313658922"
+  },
+  {
+    "id": "M6",
+    "section": "Major Road",
+    "from": "22.64150573693621, 88.43086159528802",
+    "to": "22.62008068521284, 88.39502383574728",
+    "label": "Airport Road",
+    "originAddress": "Airport (NSCBI Airport), Kolkata, West Bengal, India",
+    "destAddress": "Dum Dum Railway Station, Kolkata, West Bengal, India",
+    "viaCoord": "22.62278457693161, 88.4143981983047"
+  },
+  {
+    "id": "M7",
+    "section": "Major Road",
+    "from": "22.60157961913879, 88.37273156156854",
+    "to": "22.54155151491483, 88.34784315206437",
+    "label": "APC Bose Rd",
+    "originAddress": "Shyambazar, Kolkata, West Bengal, India",
+    "destAddress": "Rabindra Sadan, Kolkata, West Bengal, India",
+    "viaCoord": "22.586478170538157, 88.36785513403866|22.564365384356854, 88.36828978015252|22.54254537431056, 88.35998562511485"
+  },
+  {
+    "id": "M8",
+    "section": "Major Road",
+    "from": "22.600237959088595, 88.37309662256553",
+    "to": "22.56464030708927, 88.35157682988891",
+    "label": "Bidhan Sarani",
+    "originAddress": "Shyambazar, Kolkata, West Bengal, India",
+    "destAddress": "Esplanade, Kolkata, West Bengal, India",
+    "viaCoord": "22.58574243123134, 88.36755532294626|22.577890081453138, 88.36931070591673|22.56824968754297, 88.36501609623691"
+  },
+  {
+    "id": "M9",
+    "section": "Major Road",
+    "from": "22.601240174118814, 88.37214685775855",
+    "to": "22.5646441008044, 88.35157695193628",
+    "label": "Central Avenue (C R Avenue)",
+    "originAddress": "Shyambazar, Kolkata, West Bengal, India",
+    "destAddress": "Esplanade, Kolkata, West Bengal, India",
+    "viaCoord": "22.586488630379588, 88.36286559862576|22.577610115623404, 88.36044301521393"
+  },
+  {
+    "id": "M10",
+    "section": "Major Road",
+    "from": "22.56533292976866, 88.37017968268825",
+    "to": "22.56279301329408, 88.351202325141",
+    "label": "S N Banerjee Road",
+    "originAddress": "Sealdah, Kolkata, West Bengal, India",
+    "destAddress": "Esplanade, Kolkata, West Bengal, India",
+    "viaCoord": "22.56035886787411, 88.36197075899068|22.561790717826575, 88.35662776123334"
+  },
+  {
+    "id": "M11",
+    "section": "Major Road",
+    "from": "22.565250461301765, 88.37014706506632",
+    "to": "22.58495016168921, 88.34178252501448",
+    "label": "M G Road",
+    "originAddress": "Sealdah, Kolkata, West Bengal, India",
+    "destAddress": "Howrah, Kolkata, West Bengal, India",
+    "viaCoord": "22.578667254204134, 88.3606741586771|22.582371283202296, 88.3496606173083"
+  },
+  {
+    "id": "M12",
+    "section": "Major Road",
+    "from": "22.560942770266077, 88.36791612740903",
+    "to": "22.543454352238612, 88.36682680037448",
+    "label": "C I T Road",
+    "originAddress": "Moulali, Kolkata, West Bengal, India",
+    "destAddress": "Park Circus, Kolkata, West Bengal, India",
+    "viaCoord": "22.554595613028884, 88.37214939399904|22.545395813526955, 88.37059798285668"
+  },
+  {
+    "id": "M13",
+    "section": "Major Road",
+    "from": "22.542976674721288, 88.36018590570482",
+    "to": "22.512272909067946, 88.35385507955782",
+    "label": "Sarat Bose Road",
+    "originAddress": "Beckbagan, Kolkata, West Bengal, India",
+    "destAddress": "Rabindra Sarobor, Kolkata, West Bengal, India",
+    "viaCoord": "22.540735819973026, 88.35499586195047|22.532280307933853, 88.35314809314661"
+  },
+  {
+    "id": "M14",
+    "section": "Major Road",
+    "from": "22.564645713064767, 88.35158046049455",
+    "to": "22.467143293223113, 88.40208140550527",
+    "label": "S P Mukherjee Road",
+    "originAddress": "Esplanade, Kolkata, West Bengal, India",
+    "destAddress": "Garia, Kolkata, West Bengal, India",
+    "viaCoord": "22.52817115841846, 88.34581932128404|22.487953350919998, 88.35025927646016"
+  },
+  {
+    "id": "M15",
+    "section": "Major Road",
+    "from": "22.527079059759775, 88.36556008306101",
+    "to": "22.52179187546706, 88.32469649801426",
+    "label": "Hazra Road / S P Mukherjee Road connector",
+    "originAddress": "Ballygunge, Kolkata, West Bengal, India",
+    "destAddress": "DH Road, Kolkata, West Bengal, India",
+    "viaCoord": "22.523865137447483, 88.33981461622014"
+  },
+  {
+    "id": "M16",
+    "section": "Major Road",
+    "from": "22.51940616763569, 88.36453630385411",
+    "to": "22.5175223871419, 88.33658733140382",
+    "label": "Gariahat Road / Rashbehari Avenue",
+    "originAddress": "Gariahat, Kolkata, West Bengal, India",
+    "destAddress": "Chetla, Kolkata, West Bengal, India",
+    "viaCoord": "22.516795226720355, 88.34140274083758"
+  },
+  {
+    "id": "M18",
+    "section": "Major Road",
+    "from": "22.517460530723888, 88.3365739418487",
+    "to": "22.511973693746853, 88.32208180677958",
+    "label": "Chetla Road",
+    "originAddress": "Chetla, Kolkata, West Bengal, India",
+    "destAddress": "DH Road, Kolkata, West Bengal, India",
+    "viaCoord": "22.516932912911205, 88.33912820348779|22.516826401074105, 88.33992644410576|22.511651844862076, 88.33986117115793|22.512362564926676, 88.32884891746347"
+  },
+  {
+    "id": "M19",
+    "section": "Major Road",
+    "from": "22.49390283116308, 88.34526778991841",
+    "to": "22.511962015261304, 88.3220688798639",
+    "label": "Tollygunge Road",
+    "originAddress": "Tollygunge, Kolkata, West Bengal, India",
+    "destAddress": "Taratala, Kolkata, West Bengal, India",
+    "viaCoord": "22.509790617362288, 88.33231180950128"
+  },
+  {
+    "id": "M20",
+    "section": "Major Road",
+    "from": "22.49194776974465, 88.34483112331563",
+    "to": "22.504629758104123, 88.40076347979667",
+    "label": "Prince Anwar Shah Rd",
+    "originAddress": "Tollygunge, Kolkata, West Bengal, India",
+    "destAddress": "Avishikta Crossing, Kolkata, West Bengal, India",
+    "viaCoord": "22.503072120538132, 88.36813445657324"
+  },
+  {
+    "id": "M21",
+    "section": "Major Road",
+    "from": "22.57920822201556, 88.41419893752192",
+    "to": "22.585077302935726, 88.4212283116677",
+    "label": "Broadway Road",
+    "originAddress": "Bidhannagar (Salt Lake), Kolkata, West Bengal, India",
+    "destAddress": "Karunamoyee, Kolkata, West Bengal, India",
+    "viaCoord": "22.58351812520808, 88.4184565809301"
+  },
+  {
+    "id": "M22",
+    "section": "Major Road",
+    "from": "22.585219036751344, 88.42233724825942",
+    "to": "22.55660195313387, 88.41234886480974",
+    "label": "Karunamoyee - Biswa Bangla Sarani",
+    "originAddress": "Karunamoyee, Kolkata, West Bengal, India",
+    "destAddress": "Chingrighata, Kolkata, West Bengal, India",
+    "viaCoord": "22.579750524176504, 88.42614436985471|22.574423205051904, 88.42177785377037"
+  },
+  {
+    "id": "M23",
+    "section": "Major Road",
+    "from": "22.585938023125205, 88.42112360649838",
+    "to": "22.591775016712575, 88.39386495368447",
+    "label": "3rd Avenue",
+    "originAddress": "Karunamoyee, Kolkata, West Bengal, India",
+    "destAddress": "VIP Road, Kolkata, West Bengal, India",
+    "viaCoord": "22.58575696050989, 88.4036713437886"
+  },
+  {
+    "id": "S1",
+    "section": "Local Connector Segment",
+    "from": "22.471408, 88.377338",
+    "to": "22.471887032855122, 88.3896818663446",
+    "label": "Baishnabghata \u2192 Patuli",
+    "originAddress": "Baishnabghata Crossing, SH 1, Dakshin Raipur, Garia, Kolkata, West Bengal 700084",
+    "destAddress": "Arindam Maitra, J-3, Baishnabghata Patuli Township, P S Jadavpur, Panchasayer, Kolkata, West Bengal 700094"
+  },
+  {
+    "id": "S2",
+    "section": "Local Connector Segment",
+    "from": "22.471887032855122, 88.3896818663446",
+    "to": "22.47989072462562, 88.38979518188575",
+    "label": "Patuli \u2192 Baghajatin Canal Bridge",
+    "originAddress": "Arindam Maitra, J-3, Baishnabghata Patuli Township, P S Jadavpur, Panchasayer, Kolkata, West Bengal 700094",
+    "destAddress": "Baghajatin Station Road Canal Bridge 1, F9HQ+WR3, Baghajatin Station Rd, Baghajatin Place, Patuli, Kolkata, West Bengal 700086"
+  },
+  {
+    "id": "S3",
+    "section": "Local Connector Segment",
+    "from": "22.47989072462562, 88.38979518188575",
+    "to": "22.489795, 88.395225",
+    "label": "Baghajatin Canal \u2192 Ajaynagar Crossing",
+    "originAddress": "Baghajatin Station Road Canal Bridge 1, F9HQ+WR3, Baghajatin Station Rd, Baghajatin Place, Patuli, Kolkata, West Bengal 700086",
+    "destAddress": "Ajaynagar 4-Point Crossing, F9QW+V4Q, Ajoy Nagar, Santoshpur, Kolkata, West Bengal 700099"
+  },
+  {
+    "id": "S4",
+    "section": "Local Connector Segment",
+    "from": "22.489795, 88.395225",
+    "to": "22.504459553948617, 88.40073511237466",
+    "label": "Ajaynagar \u2192 EM Bypass (Kalikapur)",
+    "originAddress": "Ajaynagar 4-Point Crossing, F9QW+V4Q, Ajoy Nagar, Santoshpur, Kolkata, West Bengal 700099",
+    "destAddress": "E.M. Bypass (Kalikapur), North Purbachal, Haltu, Kolkata, West Bengal 700078",
+    "viaCoord": "22.493409930238286, 88.39720416569472"
+  },
+  {
+    "id": "S5",
+    "section": "Local Connector Segment",
+    "from": "22.504459553948617, 88.40073511237466",
+    "to": "22.513605424895417, 88.40163813624706",
+    "label": "EM Bypass \u2192 Kasba Golpark",
+    "originAddress": "E.M. Bypass (Kalikapur), North Purbachal, Haltu, Kolkata, West Bengal 700078",
+    "destAddress": "Kasba Gol Park, GC72+9PF, Anandapur Main Rd, Sector I, East Kolkata Twp, Kolkata, West Bengal 700107"
+  },
+  {
+    "id": "S6",
+    "section": "Local Connector Segment",
+    "from": "22.513605424895417, 88.40163813624706",
+    "to": "22.543215599504876, 88.39854568204892",
+    "label": "Kasba Golpark \u2192 Parama (Traffic Barrack)",
+    "originAddress": "Kasba Gol Park, GC72+9PF, Anandapur Main Rd, Sector I, East Kolkata Twp, Kolkata, West Bengal 700107",
+    "destAddress": "Traffic Barrack, G9VX+4HM, Parama Cir, Dhapa, Kolkata, West Bengal 700105"
+  },
+  {
+    "id": "S7",
+    "section": "Local Connector Segment",
+    "from": "22.54321501141463, 88.39855834796509",
+    "to": "22.55865275587551, 88.41103526552334",
+    "label": "Parama \u2192 Chingrighata",
+    "originAddress": "Traffic Barrack, G9VX+4HM, Parama Cir, Dhapa, Kolkata, West Bengal 700105",
+    "destAddress": "Maa Tripura Fastfood, C6VH, 7MJCHC54, Canal S Rd, Sec-B, Chingrighata, Ward Number 57, Kolkata, West Bengal 700107"
+  },
+  {
+    "id": "S8",
+    "section": "Local Connector Segment",
+    "from": "22.558657139516853, 88.41102767178542",
+    "to": "22.565486, 88.369782",
+    "label": "Chingrighata \u2192 Sealdah",
+    "originAddress": "Maa Tripura Fastfood, C6VH, 7MJCHC54, Canal S Rd, Sec-B, Chingrighata, Ward Number 57, Kolkata, West Bengal 700107",
+    "destAddress": "Suraj Store, 121, AJC Bose Rd, Sealdah, Raja Bazar, Kolkata, West Bengal 700014",
+    "viaCoord": "22.565973280132788, 88.3805302160212"
+  },
+  {
+    "id": "S9",
+    "section": "Local Connector Segment",
+    "from": "22.565486, 88.369782",
+    "to": "22.54667, 88.361556",
+    "label": "Sealdah \u2192 Park Street",
+    "originAddress": "Suraj Store, 121, AJC Bose Rd, Sealdah, Raja Bazar, Kolkata, West Bengal 700014",
+    "destAddress": "141, Park St, near Institute of Neurosciences, Mullick Bazar, Beniapukur, Kolkata, West Bengal 700017"
+  },
+  {
+    "id": "S10",
+    "section": "Local Connector Segment",
+    "from": "22.54667, 88.361556",
+    "to": "22.543215599504876, 88.39854568204892",
+    "label": "Park Street \u2192 Parama (via EM Bypass)",
+    "originAddress": "141, Park St, near Institute of Neurosciences, Mullick Bazar, Beniapukur, Kolkata, West Bengal 700017",
+    "destAddress": "Traffic Barrack, G9VX+4HM, Parama Cir, Dhapa, Kolkata, West Bengal 700105",
+    "viaCoord": "22.54105349403992, 88.36817957678178"
+  },
+  {
+    "id": "S11",
+    "section": "Local Connector Segment",
+    "from": "22.54667, 88.361556",
+    "to": "22.519769, 88.365395",
+    "label": "Park Street \u2192 Gariahat (Rashbehari)",
+    "originAddress": "141, Park St, near Institute of Neurosciences, Mullick Bazar, Beniapukur, Kolkata, West Bengal 700017",
+    "destAddress": "Usha Cosmetics, 100, Rash Behari Ave, Ballygunge Gardens, Gariahat, Kolkata, West Bengal 700019",
+    "viaCoord": "22.528794536803037, 88.35651883221536"
+  },
+  {
+    "id": "S12",
+    "section": "Local Connector Segment",
+    "from": "22.519769, 88.365395",
+    "to": "22.513605424895417, 88.40163813624706",
+    "label": "Gariahat \u2192 Kasba Golpark",
+    "originAddress": "Usha Cosmetics, 100, Rash Behari Ave, Ballygunge Gardens, Gariahat, Kolkata, West Bengal 700019",
+    "destAddress": "Kasba Gol Park, GC72+9PF, Anandapur Main Rd, Sector I, East Kolkata Twp, Kolkata, West Bengal 700107"
+  },
+  {
+    "id": "S13",
+    "section": "Local Connector Segment",
+    "from": "22.519769, 88.365395",
+    "to": "22.503099, 88.367808",
+    "label": "Gariahat \u2192 Jadavpur PS",
+    "originAddress": "Usha Cosmetics, 100, Rash Behari Ave, Ballygunge Gardens, Gariahat, Kolkata, West Bengal 700019",
+    "destAddress": "Jadavpur Police Station 4-Point Crossing, University Campus Area, SH 1, Jadavpur, Kolkata, West Bengal 700032",
+    "viaCoord": "22.514734035632127, 88.3671200632832"
+  },
+  {
+    "id": "S14",
+    "section": "Local Connector Segment",
+    "from": "22.503099, 88.367808",
+    "to": "22.504459553948617, 88.40073511237466",
+    "label": "Jadavpur PS \u2192 EM Bypass (Kalikapur)",
+    "originAddress": "Jadavpur Police Station 4-Point Crossing, University Campus Area, SH 1, Jadavpur, Kolkata, West Bengal 700032",
+    "destAddress": "E.M. Bypass (Kalikapur), North Purbachal, Haltu, Kolkata, West Bengal 700078"
+  },
+  {
+    "id": "S15",
+    "section": "Local Connector Segment",
+    "from": "22.503099, 88.367808",
+    "to": "22.491648511822472, 88.37243350245176",
+    "label": "Jadavpur PS \u2192 Jadavpur Sulekha",
+    "originAddress": "Jadavpur Police Station 4-Point Crossing, University Campus Area, SH 1, Jadavpur, Kolkata, West Bengal 700032",
+    "destAddress": "Jadavpur Sulekha 4-Point Crossing, 53, Anandapally Rd, Anandapally, Bidhanpally, Jadavpur, Kolkata, West Bengal 700032"
+  },
+  {
+    "id": "S16",
+    "section": "Local Connector Segment",
+    "from": "22.491648511822472, 88.37243350245176",
+    "to": "22.489795, 88.395225",
+    "label": "Jadavpur Sulekha \u2192 Ajaynagar Crossing",
+    "originAddress": "Jadavpur Sulekha 4-Point Crossing, 53, Anandapally Rd, Anandapally, Bidhanpally, Jadavpur, Kolkata, West Bengal 700032",
+    "destAddress": "Ajaynagar 4-Point Crossing, F9QW+V4Q, Ajoy Nagar, Santoshpur, Kolkata, West Bengal 700099"
+  },
+  {
+    "id": "S17",
+    "section": "Local Connector Segment",
+    "from": "22.491663328585012, 88.37240626299364",
+    "to": "22.483895156021173, 88.3755286267775",
+    "label": "Jadavpur Sulekha \u2192 Baghajatin Station Rd",
+    "originAddress": "Jadavpur Sulekha 4-Point Crossing, 53, Anandapally Rd, Anandapally, Bidhanpally, Jadavpur, Kolkata, West Bengal 700032",
+    "destAddress": "Baghajatin 4-Point Crossing, F9MG+H66, Baghajatin C Block, Chittaranjan Colony 6, Baghajatin Colony, Kolkata, West Bengal 700047"
+  },
+  {
+    "id": "S19",
+    "section": "Local Connector Segment",
+    "from": "22.483895156021173, 88.3755286267775",
+    "to": "22.471408, 88.377338",
+    "label": "Baghajatin \u2192 Baishnabghata (South)",
+    "originAddress": "Baghajatin 4-Point Crossing, F9MG+H66, Baghajatin C Block, Chittaranjan Colony 6, Baghajatin Colony, Kolkata, West Bengal 700047",
+    "destAddress": "Baishnabghata Crossing, SH 1, Dakshin Raipur, Garia, Kolkata, West Bengal 700084"
+  }
+]
