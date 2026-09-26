@@ -1,0 +1,66 @@
+name: Daily End-of-Day Traffic Verification Audit
+
+on:
+  schedule:
+    # 11:55 PM IST every day (18:25 UTC)
+    - cron: '25 18 * * *'
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: 'Specific Date to Audit (YYYY-MM-DD, defaults to today IST)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Determine Audit Date
+        id: date
+        run: |
+          INPUT_DATE="${{ github.event.inputs.target_date }}"
+          if [ -n "$INPUT_DATE" ]; then
+            TARGET_DATE="$INPUT_DATE"
+          else
+            TARGET_DATE=$(TZ="Asia/Kolkata" date +%Y-%m-%d)
+          fi
+          echo "target_date=$TARGET_DATE" >> $GITHUB_OUTPUT
+          echo "📅 Auditing Date: $TARGET_DATE"
+
+      - name: Run End-of-Day Verification Audit
+        run: |
+          TARGET_DATE="${{ steps.date.outputs.target_date }}"
+          node daily_end_of_day_verifier.js --date "$TARGET_DATE"
+
+      - name: Render Summary in GitHub Actions
+        run: |
+          TARGET_DATE="${{ steps.date.outputs.target_date }}"
+          REPORT_FILE="output/verification_reports/Daily_Audit_${TARGET_DATE}.md"
+          if [ -f "$REPORT_FILE" ]; then
+            cat "$REPORT_FILE" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Commit & Push Daily Audit Report
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/verification_reports/
+          git commit -m "Automated Daily Audit Report: ${{ steps.date.outputs.target_date }}" || exit 0
+          git push origin main

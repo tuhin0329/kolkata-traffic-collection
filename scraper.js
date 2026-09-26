@@ -1061,6 +1061,17 @@ async function runFetchSession(label = "manual") {
     log(`\nSession complete! Saving to Excel...`);
     await saveExcel(results, outDir);
 
+    try {
+      const { execSync } = require('child_process');
+      const verifierScript = path.join(__dirname, 'daily_end_of_day_verifier.js');
+      if (fs.existsSync(verifierScript)) {
+        log(`\n🔍 Automatically triggering daily verification audit...`);
+        execSync(`node "${verifierScript}" --date "${dateIST()}"`, { stdio: 'inherit' });
+      }
+    } catch (e) {
+      log(`⚠️ Auto-verification notice: ${e.message}`);
+    }
+
     return results;
   } finally {
     if (browser) {

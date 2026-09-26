@@ -82,6 +82,15 @@ jobs:
               node scraper.js
           fi
 
+      - name: Verify Data & Screenshots
+        run: |
+          FDATE="${{ steps.slot.outputs.date }}"
+          node daily_end_of_day_verifier.js --date "$FDATE" || true
+          REPORT_FILE="output/verification_reports/Daily_Audit_${FDATE}.md"
+          if [ -f "$REPORT_FILE" ]; then
+            cat "$REPORT_FILE" >> $GITHUB_STEP_SUMMARY
+          fi
+
       - name: Save & Push Excel Files
         run: |
           git config --global user.name "github-actions[bot]"
