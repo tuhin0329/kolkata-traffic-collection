@@ -97,5 +97,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add output/
           git commit -m "Auto-collected traffic data: $(TZ='Asia/Kolkata' date '+%Y-%m-%d %I:%M %p IST') [${{ steps.slot.outputs.slot }}]" || exit 0
-          git push origin main
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin main && break || (echo "Push conflict, retrying in 5s..." && sleep 5)
+          done
 
