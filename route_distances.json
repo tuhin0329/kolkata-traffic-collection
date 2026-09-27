@@ -1,0 +1,282 @@
+{
+  "M1": {
+    "id": "M1",
+    "label": "DH Road",
+    "section": "Major Road",
+    "carDist": "18.8 km",
+    "bikeDist": "18.8 km"
+  },
+  "M2": {
+    "id": "M2",
+    "label": "B T Road",
+    "section": "Major Road",
+    "carDist": "6.0 km",
+    "bikeDist": "6.0 km"
+  },
+  "M3": {
+    "id": "M3",
+    "label": "B T Road",
+    "section": "Major Road",
+    "carDist": "12.3 km",
+    "bikeDist": "12.3 km"
+  },
+  "M4": {
+    "id": "M4",
+    "label": "VIP Road",
+    "section": "Major Road",
+    "carDist": "13.8 km",
+    "bikeDist": "12.4 km"
+  },
+  "M5": {
+    "id": "M5",
+    "label": "Jessore Road",
+    "section": "Major Road",
+    "carDist": "11.3 km",
+    "bikeDist": "11.3 km"
+  },
+  "M6": {
+    "id": "M6",
+    "label": "Airport Road",
+    "section": "Major Road",
+    "carDist": "4.8 km",
+    "bikeDist": "4.8 km"
+  },
+  "M7": {
+    "id": "M7",
+    "label": "APC Bose Rd",
+    "section": "Major Road",
+    "carDist": "10.7 km",
+    "bikeDist": "10.4 km"
+  },
+  "M8": {
+    "id": "M8",
+    "label": "Bidhan Sarani",
+    "section": "Major Road",
+    "carDist": "7.3 km",
+    "bikeDist": "6.7 km"
+  },
+  "M9": {
+    "id": "M9",
+    "label": "Central Avenue (C R Avenue)",
+    "section": "Major Road",
+    "carDist": "5.0 km",
+    "bikeDist": "5.0 km"
+  },
+  "M10": {
+    "id": "M10",
+    "label": "S N Banerjee Road",
+    "section": "Major Road",
+    "carDist": "2.5 km",
+    "bikeDist": "2.5 km"
+  },
+  "M11": {
+    "id": "M11",
+    "label": "M G Road",
+    "section": "Major Road",
+    "carDist": "4.4 km",
+    "bikeDist": "4.4 km"
+  },
+  "M12": {
+    "id": "M12",
+    "label": "C I T Road",
+    "section": "Major Road",
+    "carDist": "2.6 km",
+    "bikeDist": "2.6 km"
+  },
+  "M13": {
+    "id": "M13",
+    "label": "Sarat Bose Road",
+    "section": "Major Road",
+    "carDist": "4.0 km",
+    "bikeDist": "4.0 km"
+  },
+  "M14": {
+    "id": "M14",
+    "label": "S P Mukherjee Road",
+    "section": "Major Road",
+    "carDist": "16.9 km",
+    "bikeDist": "16.0 km"
+  },
+  "M15": {
+    "id": "M15",
+    "label": "Hazra Road / S P Mukherjee Road connector",
+    "section": "Major Road",
+    "carDist": "4.6 km",
+    "bikeDist": "4.6 km"
+  },
+  "M16": {
+    "id": "M16",
+    "label": "Gariahat Road / Rashbehari Avenue",
+    "section": "Major Road",
+    "carDist": "2.9 km",
+    "bikeDist": "2.9 km"
+  },
+  "M18": {
+    "id": "M18",
+    "label": "Chetla Road",
+    "section": "Major Road",
+    "carDist": "3.7 km",
+    "bikeDist": "3.7 km"
+  },
+  "M19": {
+    "id": "M19",
+    "label": "Tollygunge Road",
+    "section": "Major Road",
+    "carDist": "3.9 km",
+    "bikeDist": "3.9 km"
+  },
+  "M20": {
+    "id": "M20",
+    "label": "Prince Anwar Shah Rd",
+    "section": "Major Road",
+    "carDist": "6.9 km",
+    "bikeDist": "6.9 km"
+  },
+  "M21": {
+    "id": "M21",
+    "label": "Broadway Road",
+    "section": "Major Road",
+    "carDist": "1.2 km",
+    "bikeDist": "1.2 km"
+  },
+  "M22": {
+    "id": "M22",
+    "label": "Karunamoyee - Biswa Bangla Sarani",
+    "section": "Major Road",
+    "carDist": "4.9 km",
+    "bikeDist": "4.9 km"
+  },
+  "M23": {
+    "id": "M23",
+    "label": "3rd Avenue",
+    "section": "Major Road",
+    "carDist": "4.1 km",
+    "bikeDist": "4.1 km"
+  },
+  "S1": {
+    "id": "S1",
+    "label": "Baishnabghata → Patuli",
+    "section": "Local Connector Segment",
+    "carDist": "1.3 km",
+    "bikeDist": "1.3 km"
+  },
+  "S2": {
+    "id": "S2",
+    "label": "Patuli → Baghajatin Canal Bridge",
+    "section": "Local Connector Segment",
+    "carDist": "950 m",
+    "bikeDist": "950 m"
+  },
+  "S3": {
+    "id": "S3",
+    "label": "Baghajatin Canal → Ajaynagar Crossing",
+    "section": "Local Connector Segment",
+    "carDist": "1.2 km",
+    "bikeDist": "1.2 km"
+  },
+  "S4": {
+    "id": "S4",
+    "label": "Ajaynagar → EM Bypass (Kalikapur)",
+    "section": "Local Connector Segment",
+    "carDist": "1.7 km",
+    "bikeDist": "1.7 km"
+  },
+  "S5": {
+    "id": "S5",
+    "label": "EM Bypass → Kasba Golpark",
+    "section": "Local Connector Segment",
+    "carDist": "1.0 km",
+    "bikeDist": "1.0 km"
+  },
+  "S6": {
+    "id": "S6",
+    "label": "Kasba Golpark → Parama (Traffic Barrack)",
+    "section": "Local Connector Segment",
+    "carDist": "3.5 km",
+    "bikeDist": "3.5 km"
+  },
+  "S7": {
+    "id": "S7",
+    "label": "Parama → Chingrighata",
+    "section": "Local Connector Segment",
+    "carDist": "2.5 km",
+    "bikeDist": "2.5 km"
+  },
+  "S8": {
+    "id": "S8",
+    "label": "Chingrighata → Sealdah",
+    "section": "Local Connector Segment",
+    "carDist": "4.7 km",
+    "bikeDist": "4.7 km"
+  },
+  "S9": {
+    "id": "S9",
+    "label": "Sealdah → Park Street",
+    "section": "Local Connector Segment",
+    "carDist": "2.3 km",
+    "bikeDist": "2.3 km"
+  },
+  "S10": {
+    "id": "S10",
+    "label": "Park Street → Parama (via EM Bypass)",
+    "section": "Local Connector Segment",
+    "carDist": "4.3 km",
+    "bikeDist": "4.3 km"
+  },
+  "S11": {
+    "id": "S11",
+    "label": "Park Street → Gariahat (Rashbehari)",
+    "section": "Local Connector Segment",
+    "carDist": "4.2 km",
+    "bikeDist": "4.2 km"
+  },
+  "S12": {
+    "id": "S12",
+    "label": "Gariahat → Kasba Golpark",
+    "section": "Local Connector Segment",
+    "carDist": "4.0 km",
+    "bikeDist": "4.0 km"
+  },
+  "S13": {
+    "id": "S13",
+    "label": "Gariahat → Jadavpur PS",
+    "section": "Local Connector Segment",
+    "carDist": "1.9 km",
+    "bikeDist": "1.9 km"
+  },
+  "S14": {
+    "id": "S14",
+    "label": "Jadavpur PS → EM Bypass (Kalikapur)",
+    "section": "Local Connector Segment",
+    "carDist": "3.5 km",
+    "bikeDist": "3.5 km"
+  },
+  "S15": {
+    "id": "S15",
+    "label": "Jadavpur PS → Jadavpur Sulekha",
+    "section": "Local Connector Segment",
+    "carDist": "1.4 km",
+    "bikeDist": "1.4 km"
+  },
+  "S16": {
+    "id": "S16",
+    "label": "Jadavpur Sulekha → Ajaynagar Crossing",
+    "section": "Local Connector Segment",
+    "carDist": "3.0 km",
+    "bikeDist": "3.0 km"
+  },
+  "S17": {
+    "id": "S17",
+    "label": "Jadavpur Sulekha → Baghajatin Station Rd",
+    "section": "Local Connector Segment",
+    "carDist": "1.0 km",
+    "bikeDist": "1.0 km"
+  },
+  "S19": {
+    "id": "S19",
+    "label": "Baghajatin → Baishnabghata (South)",
+    "section": "Local Connector Segment",
+    "carDist": "1.4 km",
+    "bikeDist": "1.4 km"
+  }
+}

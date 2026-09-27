@@ -1145,7 +1145,8 @@ async function saveExcel(results, outDir) {
     const targetRowNumber = routeIndex + 2;
     const addedRow = sheet.getRow(targetRowNumber);
     
-    const distVal = rData.carDistRaw || rData.busDistRaw || "N/A";
+    const carDistVal = rData.carDistRaw || "N/A";
+    const bikeDistVal = rData.bikeDistRaw || rData.carDistRaw || "N/A";
     const carMinVal = rData.carTimeMin || 0;
     const bikeMinVal = rData.bikeTimeMin || 0;
     const busMinVal = rData.busTimeMin || 0;
@@ -1158,18 +1159,18 @@ async function saveExcel(results, outDir) {
       r.label || `${r.from} -> ${r.to}`,
       rData.timeSlot || currentSlot,
       getPeakClassification(generalSlot),
-      distVal,
+      carDistVal,
       carMinVal || "",
-      calcSpeed(distVal, carMinVal),
-      distVal,
+      calcSpeed(carDistVal, carMinVal),
+      bikeDistVal,
       bikeMinVal || "",
-      calcSpeed(distVal, bikeMinVal),
+      calcSpeed(bikeDistVal, bikeMinVal),
       calcBikeDiff(bikeMinVal, carMinVal),
-      distVal,
+      carDistVal,
       busMinVal || "",
       inVehVal || "",
       walkMinVal || 0,
-      calcSpeed(distVal, busMinVal),
+      calcSpeed(carDistVal, busMinVal),
       rData.busRoute || "N/A",
       rData.rawDetails || "N/A",
       calcTransitRatio(busMinVal, carMinVal),

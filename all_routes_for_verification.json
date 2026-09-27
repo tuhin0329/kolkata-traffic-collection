@@ -10,7 +10,9 @@
     "to": "22.36778626722586, 88.27186102336613",
     "viaCoord": "22.486969536997208, 88.31331015977956|22.453335909381124, 88.30261516019884",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.526862452154507%2C%2088.32590541146433&destination=22.36778626722586%2C%2088.27186102336613&waypoints=22.486969536997208%2C%2088.31331015977956%7C22.453335909381124%2C%2088.30261516019884&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.526862452154507%2C%2088.32590541146433&destination=22.36778626722586%2C%2088.27186102336613&waypoints=22.486969536997208%2C%2088.31331015977956%7C22.453335909381124%2C%2088.30261516019884&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.526862452154507%2C%2088.32590541146433&destination=22.36778626722586%2C%2088.27186102336613&waypoints=22.486969536997208%2C%2088.31331015977956%7C22.453335909381124%2C%2088.30261516019884&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "18.8 km",
+    "bikeDistance": "18.8 km"
   },
   {
     "index": 2,
@@ -23,7 +25,9 @@
     "to": "22.653231538993165, 88.37720499706744",
     "viaCoord": "22.632358132193776, 88.37835292777488|22.645954770091013, 88.37760189468997",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.60157745671817%2C%2088.37273219043222&destination=22.653231538993165%2C%2088.37720499706744&waypoints=22.632358132193776%2C%2088.37835292777488%7C22.645954770091013%2C%2088.37760189468997&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.60157745671817%2C%2088.37273219043222&destination=22.653231538993165%2C%2088.37720499706744&waypoints=22.632358132193776%2C%2088.37835292777488%7C22.645954770091013%2C%2088.37760189468997&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.60157745671817%2C%2088.37273219043222&destination=22.653231538993165%2C%2088.37720499706744&waypoints=22.632358132193776%2C%2088.37835292777488%7C22.645954770091013%2C%2088.37760189468997&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "6.0 km",
+    "bikeDistance": "6.0 km"
   },
   {
     "index": 3,
@@ -36,7 +40,9 @@
     "to": "22.76184358966365, 88.36553558285678",
     "viaCoord": "22.700854419025376, 88.37475601556763|22.738588435405088, 88.37276925613345",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.65322731143445%2C%2088.37714552317215&destination=22.76184358966365%2C%2088.36553558285678&waypoints=22.700854419025376%2C%2088.37475601556763%7C22.738588435405088%2C%2088.37276925613345&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.65322731143445%2C%2088.37714552317215&destination=22.76184358966365%2C%2088.36553558285678&waypoints=22.700854419025376%2C%2088.37475601556763%7C22.738588435405088%2C%2088.37276925613345&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.65322731143445%2C%2088.37714552317215&destination=22.76184358966365%2C%2088.36553558285678&waypoints=22.700854419025376%2C%2088.37475601556763%7C22.738588435405088%2C%2088.37276925613345&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "12.3 km",
+    "bikeDistance": "12.3 km"
   },
   {
     "index": 4,
@@ -49,7 +55,9 @@
     "to": "22.641482246133076, 88.43136027565988",
     "viaCoord": "22.591510818252626, 88.39335462020657|22.603363362498907, 88.42352512912707|22.613979078954333, 88.43001259355401",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.594576599778836%2C%2088.38327634915908&destination=22.641482246133076%2C%2088.43136027565988&waypoints=22.591510818252626%2C%2088.39335462020657%7C22.603363362498907%2C%2088.42352512912707%7C22.613979078954333%2C%2088.43001259355401&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.594576599778836%2C%2088.38327634915908&destination=22.641482246133076%2C%2088.43136027565988&waypoints=22.591510818252626%2C%2088.39335462020657%7C22.603363362498907%2C%2088.42352512912707%7C22.613979078954333%2C%2088.43001259355401&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.594576599778836%2C%2088.38327634915908&destination=22.641482246133076%2C%2088.43136027565988&waypoints=22.591510818252626%2C%2088.39335462020657%7C22.603363362498907%2C%2088.42352512912707%7C22.613979078954333%2C%2088.43001259355401&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "13.8 km",
+    "bikeDistance": "12.4 km"
   },
   {
     "index": 5,
@@ -62,7 +70,9 @@
     "to": "22.720270572226145, 88.48663803272736",
     "viaCoord": "22.659349299790406, 88.44146370339267|22.69239331168592, 88.46535187631933|22.71321312857641, 88.48130313658922",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.642229674768757%2C%2088.43119115662317&destination=22.720270572226145%2C%2088.48663803272736&waypoints=22.659349299790406%2C%2088.44146370339267%7C22.69239331168592%2C%2088.46535187631933%7C22.71321312857641%2C%2088.48130313658922&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.642229674768757%2C%2088.43119115662317&destination=22.720270572226145%2C%2088.48663803272736&waypoints=22.659349299790406%2C%2088.44146370339267%7C22.69239331168592%2C%2088.46535187631933%7C22.71321312857641%2C%2088.48130313658922&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.642229674768757%2C%2088.43119115662317&destination=22.720270572226145%2C%2088.48663803272736&waypoints=22.659349299790406%2C%2088.44146370339267%7C22.69239331168592%2C%2088.46535187631933%7C22.71321312857641%2C%2088.48130313658922&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "11.3 km",
+    "bikeDistance": "11.3 km"
   },
   {
     "index": 6,
@@ -75,7 +85,9 @@
     "to": "22.62008068521284, 88.39502383574728",
     "viaCoord": "22.62278457693161, 88.4143981983047",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.64150573693621%2C%2088.43086159528802&destination=22.62008068521284%2C%2088.39502383574728&waypoints=22.62278457693161%2C%2088.4143981983047&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.64150573693621%2C%2088.43086159528802&destination=22.62008068521284%2C%2088.39502383574728&waypoints=22.62278457693161%2C%2088.4143981983047&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.64150573693621%2C%2088.43086159528802&destination=22.62008068521284%2C%2088.39502383574728&waypoints=22.62278457693161%2C%2088.4143981983047&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "4.8 km",
+    "bikeDistance": "4.8 km"
   },
   {
     "index": 7,
@@ -88,7 +100,9 @@
     "to": "22.54155151491483, 88.34784315206437",
     "viaCoord": "22.586478170538157, 88.36785513403866|22.564365384356854, 88.36828978015252|22.54254537431056, 88.35998562511485",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.60157961913879%2C%2088.37273156156854&destination=22.54155151491483%2C%2088.34784315206437&waypoints=22.586478170538157%2C%2088.36785513403866%7C22.564365384356854%2C%2088.36828978015252%7C22.54254537431056%2C%2088.35998562511485&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.60157961913879%2C%2088.37273156156854&destination=22.54155151491483%2C%2088.34784315206437&waypoints=22.586478170538157%2C%2088.36785513403866%7C22.564365384356854%2C%2088.36828978015252%7C22.54254537431056%2C%2088.35998562511485&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.60157961913879%2C%2088.37273156156854&destination=22.54155151491483%2C%2088.34784315206437&waypoints=22.586478170538157%2C%2088.36785513403866%7C22.564365384356854%2C%2088.36828978015252%7C22.54254537431056%2C%2088.35998562511485&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "10.7 km",
+    "bikeDistance": "10.4 km"
   },
   {
     "index": 8,
@@ -101,7 +115,9 @@
     "to": "22.56464030708927, 88.35157682988891",
     "viaCoord": "22.58574243123134, 88.36755532294626|22.577890081453138, 88.36931070591673|22.56824968754297, 88.36501609623691",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.600237959088595%2C%2088.37309662256553&destination=22.56464030708927%2C%2088.35157682988891&waypoints=22.58574243123134%2C%2088.36755532294626%7C22.577890081453138%2C%2088.36931070591673%7C22.56824968754297%2C%2088.36501609623691&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.600237959088595%2C%2088.37309662256553&destination=22.56464030708927%2C%2088.35157682988891&waypoints=22.58574243123134%2C%2088.36755532294626%7C22.577890081453138%2C%2088.36931070591673%7C22.56824968754297%2C%2088.36501609623691&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.600237959088595%2C%2088.37309662256553&destination=22.56464030708927%2C%2088.35157682988891&waypoints=22.58574243123134%2C%2088.36755532294626%7C22.577890081453138%2C%2088.36931070591673%7C22.56824968754297%2C%2088.36501609623691&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "7.3 km",
+    "bikeDistance": "6.7 km"
   },
   {
     "index": 9,
@@ -114,7 +130,9 @@
     "to": "22.5646441008044, 88.35157695193628",
     "viaCoord": "22.586488630379588, 88.36286559862576|22.577610115623404, 88.36044301521393",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.601240174118814%2C%2088.37214685775855&destination=22.5646441008044%2C%2088.35157695193628&waypoints=22.586488630379588%2C%2088.36286559862576%7C22.577610115623404%2C%2088.36044301521393&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.601240174118814%2C%2088.37214685775855&destination=22.5646441008044%2C%2088.35157695193628&waypoints=22.586488630379588%2C%2088.36286559862576%7C22.577610115623404%2C%2088.36044301521393&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.601240174118814%2C%2088.37214685775855&destination=22.5646441008044%2C%2088.35157695193628&waypoints=22.586488630379588%2C%2088.36286559862576%7C22.577610115623404%2C%2088.36044301521393&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "5.0 km",
+    "bikeDistance": "5.0 km"
   },
   {
     "index": 10,
@@ -127,7 +145,9 @@
     "to": "22.56279301329408, 88.351202325141",
     "viaCoord": "22.56035886787411, 88.36197075899068|22.561790717826575, 88.35662776123334",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.56533292976866%2C%2088.37017968268825&destination=22.56279301329408%2C%2088.351202325141&waypoints=22.56035886787411%2C%2088.36197075899068%7C22.561790717826575%2C%2088.35662776123334&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.56533292976866%2C%2088.37017968268825&destination=22.56279301329408%2C%2088.351202325141&waypoints=22.56035886787411%2C%2088.36197075899068%7C22.561790717826575%2C%2088.35662776123334&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.56533292976866%2C%2088.37017968268825&destination=22.56279301329408%2C%2088.351202325141&waypoints=22.56035886787411%2C%2088.36197075899068%7C22.561790717826575%2C%2088.35662776123334&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "2.5 km",
+    "bikeDistance": "2.5 km"
   },
   {
     "index": 11,
@@ -140,7 +160,9 @@
     "to": "22.58495016168921, 88.34178252501448",
     "viaCoord": "22.578667254204134, 88.3606741586771|22.582371283202296, 88.3496606173083",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.565250461301765%2C%2088.37014706506632&destination=22.58495016168921%2C%2088.34178252501448&waypoints=22.578667254204134%2C%2088.3606741586771%7C22.582371283202296%2C%2088.3496606173083&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.565250461301765%2C%2088.37014706506632&destination=22.58495016168921%2C%2088.34178252501448&waypoints=22.578667254204134%2C%2088.3606741586771%7C22.582371283202296%2C%2088.3496606173083&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.565250461301765%2C%2088.37014706506632&destination=22.58495016168921%2C%2088.34178252501448&waypoints=22.578667254204134%2C%2088.3606741586771%7C22.582371283202296%2C%2088.3496606173083&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "4.4 km",
+    "bikeDistance": "4.4 km"
   },
   {
     "index": 12,
@@ -153,7 +175,9 @@
     "to": "22.543454352238612, 88.36682680037448",
     "viaCoord": "22.554595613028884, 88.37214939399904|22.545395813526955, 88.37059798285668",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.560942770266077%2C%2088.36791612740903&destination=22.543454352238612%2C%2088.36682680037448&waypoints=22.554595613028884%2C%2088.37214939399904%7C22.545395813526955%2C%2088.37059798285668&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.560942770266077%2C%2088.36791612740903&destination=22.543454352238612%2C%2088.36682680037448&waypoints=22.554595613028884%2C%2088.37214939399904%7C22.545395813526955%2C%2088.37059798285668&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.560942770266077%2C%2088.36791612740903&destination=22.543454352238612%2C%2088.36682680037448&waypoints=22.554595613028884%2C%2088.37214939399904%7C22.545395813526955%2C%2088.37059798285668&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "2.6 km",
+    "bikeDistance": "2.6 km"
   },
   {
     "index": 13,
@@ -166,7 +190,9 @@
     "to": "22.512272909067946, 88.35385507955782",
     "viaCoord": "22.540735819973026, 88.35499586195047|22.532280307933853, 88.35314809314661",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.542976674721288%2C%2088.36018590570482&destination=22.512272909067946%2C%2088.35385507955782&waypoints=22.540735819973026%2C%2088.35499586195047%7C22.532280307933853%2C%2088.35314809314661&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.542976674721288%2C%2088.36018590570482&destination=22.512272909067946%2C%2088.35385507955782&waypoints=22.540735819973026%2C%2088.35499586195047%7C22.532280307933853%2C%2088.35314809314661&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.542976674721288%2C%2088.36018590570482&destination=22.512272909067946%2C%2088.35385507955782&waypoints=22.540735819973026%2C%2088.35499586195047%7C22.532280307933853%2C%2088.35314809314661&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "4.0 km",
+    "bikeDistance": "4.0 km"
   },
   {
     "index": 14,
@@ -179,7 +205,9 @@
     "to": "22.467143293223113, 88.40208140550527",
     "viaCoord": "22.52817115841846, 88.34581932128404|22.487953350919998, 88.35025927646016",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.564645713064767%2C%2088.35158046049455&destination=22.467143293223113%2C%2088.40208140550527&waypoints=22.52817115841846%2C%2088.34581932128404%7C22.487953350919998%2C%2088.35025927646016&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.564645713064767%2C%2088.35158046049455&destination=22.467143293223113%2C%2088.40208140550527&waypoints=22.52817115841846%2C%2088.34581932128404%7C22.487953350919998%2C%2088.35025927646016&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.564645713064767%2C%2088.35158046049455&destination=22.467143293223113%2C%2088.40208140550527&waypoints=22.52817115841846%2C%2088.34581932128404%7C22.487953350919998%2C%2088.35025927646016&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "16.9 km",
+    "bikeDistance": "16.0 km"
   },
   {
     "index": 15,
@@ -192,7 +220,9 @@
     "to": "22.52179187546706, 88.32469649801426",
     "viaCoord": "22.523865137447483, 88.33981461622014",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.527079059759775%2C%2088.36556008306101&destination=22.52179187546706%2C%2088.32469649801426&waypoints=22.523865137447483%2C%2088.33981461622014&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.527079059759775%2C%2088.36556008306101&destination=22.52179187546706%2C%2088.32469649801426&waypoints=22.523865137447483%2C%2088.33981461622014&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.527079059759775%2C%2088.36556008306101&destination=22.52179187546706%2C%2088.32469649801426&waypoints=22.523865137447483%2C%2088.33981461622014&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "4.6 km",
+    "bikeDistance": "4.6 km"
   },
   {
     "index": 16,
@@ -205,7 +235,9 @@
     "to": "22.5175223871419, 88.33658733140382",
     "viaCoord": "22.516795226720355, 88.34140274083758",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.51940616763569%2C%2088.36453630385411&destination=22.5175223871419%2C%2088.33658733140382&waypoints=22.516795226720355%2C%2088.34140274083758&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.51940616763569%2C%2088.36453630385411&destination=22.5175223871419%2C%2088.33658733140382&waypoints=22.516795226720355%2C%2088.34140274083758&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.51940616763569%2C%2088.36453630385411&destination=22.5175223871419%2C%2088.33658733140382&waypoints=22.516795226720355%2C%2088.34140274083758&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "2.9 km",
+    "bikeDistance": "2.9 km"
   },
   {
     "index": 17,
@@ -218,7 +250,9 @@
     "to": "22.511973693746853, 88.32208180677958",
     "viaCoord": "22.516932912911205, 88.33912820348779|22.516826401074105, 88.33992644410576|22.511651844862076, 88.33986117115793|22.512362564926676, 88.32884891746347",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.517460530723888%2C%2088.3365739418487&destination=22.511973693746853%2C%2088.32208180677958&waypoints=22.516932912911205%2C%2088.33912820348779%7C22.516826401074105%2C%2088.33992644410576%7C22.511651844862076%2C%2088.33986117115793%7C22.512362564926676%2C%2088.32884891746347&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.517460530723888%2C%2088.3365739418487&destination=22.511973693746853%2C%2088.32208180677958&waypoints=22.516932912911205%2C%2088.33912820348779%7C22.516826401074105%2C%2088.33992644410576%7C22.511651844862076%2C%2088.33986117115793%7C22.512362564926676%2C%2088.32884891746347&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.517460530723888%2C%2088.3365739418487&destination=22.511973693746853%2C%2088.32208180677958&waypoints=22.516932912911205%2C%2088.33912820348779%7C22.516826401074105%2C%2088.33992644410576%7C22.511651844862076%2C%2088.33986117115793%7C22.512362564926676%2C%2088.32884891746347&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "3.7 km",
+    "bikeDistance": "3.7 km"
   },
   {
     "index": 18,
@@ -231,7 +265,9 @@
     "to": "22.511962015261304, 88.3220688798639",
     "viaCoord": "22.509790617362288, 88.33231180950128",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.49390283116308%2C%2088.34526778991841&destination=22.511962015261304%2C%2088.3220688798639&waypoints=22.509790617362288%2C%2088.33231180950128&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.49390283116308%2C%2088.34526778991841&destination=22.511962015261304%2C%2088.3220688798639&waypoints=22.509790617362288%2C%2088.33231180950128&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.49390283116308%2C%2088.34526778991841&destination=22.511962015261304%2C%2088.3220688798639&waypoints=22.509790617362288%2C%2088.33231180950128&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "3.9 km",
+    "bikeDistance": "3.9 km"
   },
   {
     "index": 19,
@@ -244,7 +280,9 @@
     "to": "22.504629758104123, 88.40076347979667",
     "viaCoord": "22.503072120538132, 88.36813445657324",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.49194776974465%2C%2088.34483112331563&destination=22.504629758104123%2C%2088.40076347979667&waypoints=22.503072120538132%2C%2088.36813445657324&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.49194776974465%2C%2088.34483112331563&destination=22.504629758104123%2C%2088.40076347979667&waypoints=22.503072120538132%2C%2088.36813445657324&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.49194776974465%2C%2088.34483112331563&destination=22.504629758104123%2C%2088.40076347979667&waypoints=22.503072120538132%2C%2088.36813445657324&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "6.9 km",
+    "bikeDistance": "6.9 km"
   },
   {
     "index": 20,
@@ -257,7 +295,9 @@
     "to": "22.585077302935726, 88.4212283116677",
     "viaCoord": "22.58351812520808, 88.4184565809301",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.57920822201556%2C%2088.41419893752192&destination=22.585077302935726%2C%2088.4212283116677&waypoints=22.58351812520808%2C%2088.4184565809301&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.57920822201556%2C%2088.41419893752192&destination=22.585077302935726%2C%2088.4212283116677&waypoints=22.58351812520808%2C%2088.4184565809301&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.57920822201556%2C%2088.41419893752192&destination=22.585077302935726%2C%2088.4212283116677&waypoints=22.58351812520808%2C%2088.4184565809301&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "1.2 km",
+    "bikeDistance": "1.2 km"
   },
   {
     "index": 21,
@@ -270,7 +310,9 @@
     "to": "22.55660195313387, 88.41234886480974",
     "viaCoord": "22.579750524176504, 88.42614436985471|22.574423205051904, 88.42177785377037",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.585219036751344%2C%2088.42233724825942&destination=22.55660195313387%2C%2088.41234886480974&waypoints=22.579750524176504%2C%2088.42614436985471%7C22.574423205051904%2C%2088.42177785377037&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.585219036751344%2C%2088.42233724825942&destination=22.55660195313387%2C%2088.41234886480974&waypoints=22.579750524176504%2C%2088.42614436985471%7C22.574423205051904%2C%2088.42177785377037&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.585219036751344%2C%2088.42233724825942&destination=22.55660195313387%2C%2088.41234886480974&waypoints=22.579750524176504%2C%2088.42614436985471%7C22.574423205051904%2C%2088.42177785377037&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "4.9 km",
+    "bikeDistance": "4.9 km"
   },
   {
     "index": 22,
@@ -283,12 +325,14 @@
     "to": "22.591775016712575, 88.39386495368447",
     "viaCoord": "22.58575696050989, 88.4036713437886",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.585938023125205%2C%2088.42112360649838&destination=22.591775016712575%2C%2088.39386495368447&waypoints=22.58575696050989%2C%2088.4036713437886&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.585938023125205%2C%2088.42112360649838&destination=22.591775016712575%2C%2088.39386495368447&waypoints=22.58575696050989%2C%2088.4036713437886&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.585938023125205%2C%2088.42112360649838&destination=22.591775016712575%2C%2088.39386495368447&waypoints=22.58575696050989%2C%2088.4036713437886&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "4.1 km",
+    "bikeDistance": "4.1 km"
   },
   {
     "index": 23,
     "id": "S1",
-    "label": "Baishnabghata \u2192 Patuli",
+    "label": "Baishnabghata → Patuli",
     "section": "Local Connector Segment",
     "originAddress": "Baishnabghata Crossing, SH 1, Dakshin Raipur, Garia, Kolkata, West Bengal 700084",
     "destAddress": "Arindam Maitra, J-3, Baishnabghata Patuli Township, P S Jadavpur, Panchasayer, Kolkata, West Bengal 700094",
@@ -296,12 +340,14 @@
     "to": "22.471887032855122, 88.3896818663446",
     "viaCoord": "None",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.471408,%2088.377338&destination=22.471887032855122,%2088.3896818663446&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.471408,%2088.377338&destination=22.471887032855122,%2088.3896818663446&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.471408,%2088.377338&destination=22.471887032855122,%2088.3896818663446&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "1.3 km",
+    "bikeDistance": "1.3 km"
   },
   {
     "index": 24,
     "id": "S2",
-    "label": "Patuli \u2192 Baghajatin Canal Bridge",
+    "label": "Patuli → Baghajatin Canal Bridge",
     "section": "Local Connector Segment",
     "originAddress": "Arindam Maitra, J-3, Baishnabghata Patuli Township, P S Jadavpur, Panchasayer, Kolkata, West Bengal 700094",
     "destAddress": "Baghajatin Station Road Canal Bridge 1, F9HQ+WR3, Baghajatin Station Rd, Baghajatin Place, Patuli, Kolkata, West Bengal 700086",
@@ -309,12 +355,14 @@
     "to": "22.47989072462562, 88.38979518188575",
     "viaCoord": "None",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.471887032855122,%2088.3896818663446&destination=22.47989072462562,%2088.38979518188575&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.471887032855122,%2088.3896818663446&destination=22.47989072462562,%2088.38979518188575&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.471887032855122,%2088.3896818663446&destination=22.47989072462562,%2088.38979518188575&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "950 m",
+    "bikeDistance": "950 m"
   },
   {
     "index": 25,
     "id": "S3",
-    "label": "Baghajatin Canal \u2192 Ajaynagar Crossing",
+    "label": "Baghajatin Canal → Ajaynagar Crossing",
     "section": "Local Connector Segment",
     "originAddress": "Baghajatin Station Road Canal Bridge 1, F9HQ+WR3, Baghajatin Station Rd, Baghajatin Place, Patuli, Kolkata, West Bengal 700086",
     "destAddress": "Ajaynagar 4-Point Crossing, F9QW+V4Q, Ajoy Nagar, Santoshpur, Kolkata, West Bengal 700099",
@@ -322,12 +370,14 @@
     "to": "22.489795, 88.395225",
     "viaCoord": "None",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.47989072462562,%2088.38979518188575&destination=22.489795,%2088.395225&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.47989072462562,%2088.38979518188575&destination=22.489795,%2088.395225&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.47989072462562,%2088.38979518188575&destination=22.489795,%2088.395225&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "1.2 km",
+    "bikeDistance": "1.2 km"
   },
   {
     "index": 26,
     "id": "S4",
-    "label": "Ajaynagar \u2192 EM Bypass (Kalikapur)",
+    "label": "Ajaynagar → EM Bypass (Kalikapur)",
     "section": "Local Connector Segment",
     "originAddress": "Ajaynagar 4-Point Crossing, F9QW+V4Q, Ajoy Nagar, Santoshpur, Kolkata, West Bengal 700099",
     "destAddress": "E.M. Bypass (Kalikapur), North Purbachal, Haltu, Kolkata, West Bengal 700078",
@@ -335,12 +385,14 @@
     "to": "22.504459553948617, 88.40073511237466",
     "viaCoord": "22.493409930238286, 88.39720416569472",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.489795,%2088.395225&destination=22.504459553948617,%2088.40073511237466&waypoints=22.493409930238286,%2088.39720416569472&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.489795,%2088.395225&destination=22.504459553948617,%2088.40073511237466&waypoints=22.493409930238286,%2088.39720416569472&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.489795,%2088.395225&destination=22.504459553948617,%2088.40073511237466&waypoints=22.493409930238286,%2088.39720416569472&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "1.7 km",
+    "bikeDistance": "1.7 km"
   },
   {
     "index": 27,
     "id": "S5",
-    "label": "EM Bypass \u2192 Kasba Golpark",
+    "label": "EM Bypass → Kasba Golpark",
     "section": "Local Connector Segment",
     "originAddress": "E.M. Bypass (Kalikapur), North Purbachal, Haltu, Kolkata, West Bengal 700078",
     "destAddress": "Kasba Gol Park, GC72+9PF, Anandapur Main Rd, Sector I, East Kolkata Twp, Kolkata, West Bengal 700107",
@@ -348,12 +400,14 @@
     "to": "22.513605424895417, 88.40163813624706",
     "viaCoord": "None",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.504459553948617,%2088.40073511237466&destination=22.513605424895417,%2088.40163813624706&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.504459553948617,%2088.40073511237466&destination=22.513605424895417,%2088.40163813624706&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.504459553948617,%2088.40073511237466&destination=22.513605424895417,%2088.40163813624706&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "1.0 km",
+    "bikeDistance": "1.0 km"
   },
   {
     "index": 28,
     "id": "S6",
-    "label": "Kasba Golpark \u2192 Parama (Traffic Barrack)",
+    "label": "Kasba Golpark → Parama (Traffic Barrack)",
     "section": "Local Connector Segment",
     "originAddress": "Kasba Gol Park, GC72+9PF, Anandapur Main Rd, Sector I, East Kolkata Twp, Kolkata, West Bengal 700107",
     "destAddress": "Traffic Barrack, G9VX+4HM, Parama Cir, Dhapa, Kolkata, West Bengal 700105",
@@ -361,12 +415,14 @@
     "to": "22.543215599504876, 88.39854568204892",
     "viaCoord": "None",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.513605424895417,%2088.40163813624706&destination=22.543215599504876,%2088.39854568204892&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.513605424895417,%2088.40163813624706&destination=22.543215599504876,%2088.39854568204892&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.513605424895417,%2088.40163813624706&destination=22.543215599504876,%2088.39854568204892&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "3.5 km",
+    "bikeDistance": "3.5 km"
   },
   {
     "index": 29,
     "id": "S7",
-    "label": "Parama \u2192 Chingrighata",
+    "label": "Parama → Chingrighata",
     "section": "Local Connector Segment",
     "originAddress": "Traffic Barrack, G9VX+4HM, Parama Cir, Dhapa, Kolkata, West Bengal 700105",
     "destAddress": "Maa Tripura Fastfood, C6VH, 7MJCHC54, Canal S Rd, Sec-B, Chingrighata, Ward Number 57, Kolkata, West Bengal 700107",
@@ -374,12 +430,14 @@
     "to": "22.55865275587551, 88.41103526552334",
     "viaCoord": "None",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.54321501141463,%2088.39855834796509&destination=22.55865275587551,%2088.41103526552334&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.54321501141463,%2088.39855834796509&destination=22.55865275587551,%2088.41103526552334&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.54321501141463,%2088.39855834796509&destination=22.55865275587551,%2088.41103526552334&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "2.5 km",
+    "bikeDistance": "2.5 km"
   },
   {
     "index": 30,
     "id": "S8",
-    "label": "Chingrighata \u2192 Sealdah",
+    "label": "Chingrighata → Sealdah",
     "section": "Local Connector Segment",
     "originAddress": "Maa Tripura Fastfood, C6VH, 7MJCHC54, Canal S Rd, Sec-B, Chingrighata, Ward Number 57, Kolkata, West Bengal 700107",
     "destAddress": "Suraj Store, 121, AJC Bose Rd, Sealdah, Raja Bazar, Kolkata, West Bengal 700014",
@@ -387,12 +445,14 @@
     "to": "22.565486, 88.369782",
     "viaCoord": "22.565973280132788, 88.3805302160212",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.558657139516853,%2088.41102767178542&destination=22.565486,%2088.369782&waypoints=22.565973280132788,%2088.3805302160212&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.558657139516853,%2088.41102767178542&destination=22.565486,%2088.369782&waypoints=22.565973280132788,%2088.3805302160212&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.558657139516853,%2088.41102767178542&destination=22.565486,%2088.369782&waypoints=22.565973280132788,%2088.3805302160212&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "4.7 km",
+    "bikeDistance": "4.7 km"
   },
   {
     "index": 31,
     "id": "S9",
-    "label": "Sealdah \u2192 Park Street",
+    "label": "Sealdah → Park Street",
     "section": "Local Connector Segment",
     "originAddress": "Suraj Store, 121, AJC Bose Rd, Sealdah, Raja Bazar, Kolkata, West Bengal 700014",
     "destAddress": "141, Park St, near Institute of Neurosciences, Mullick Bazar, Beniapukur, Kolkata, West Bengal 700017",
@@ -400,12 +460,14 @@
     "to": "22.54667, 88.361556",
     "viaCoord": "None",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.565486,%2088.369782&destination=22.54667,%2088.361556&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.565486,%2088.369782&destination=22.54667,%2088.361556&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.565486,%2088.369782&destination=22.54667,%2088.361556&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "2.3 km",
+    "bikeDistance": "2.3 km"
   },
   {
     "index": 32,
     "id": "S10",
-    "label": "Park Street \u2192 Parama (via EM Bypass)",
+    "label": "Park Street → Parama (via EM Bypass)",
     "section": "Local Connector Segment",
     "originAddress": "141, Park St, near Institute of Neurosciences, Mullick Bazar, Beniapukur, Kolkata, West Bengal 700017",
     "destAddress": "Traffic Barrack, G9VX+4HM, Parama Cir, Dhapa, Kolkata, West Bengal 700105",
@@ -413,12 +475,14 @@
     "to": "22.543215599504876, 88.39854568204892",
     "viaCoord": "22.54105349403992, 88.36817957678178",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.54667,%2088.361556&destination=22.543215599504876,%2088.39854568204892&waypoints=22.54105349403992,%2088.36817957678178&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.54667,%2088.361556&destination=22.543215599504876,%2088.39854568204892&waypoints=22.54105349403992,%2088.36817957678178&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.54667,%2088.361556&destination=22.543215599504876,%2088.39854568204892&waypoints=22.54105349403992,%2088.36817957678178&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "4.3 km",
+    "bikeDistance": "4.3 km"
   },
   {
     "index": 33,
     "id": "S11",
-    "label": "Park Street \u2192 Gariahat (Rashbehari)",
+    "label": "Park Street → Gariahat (Rashbehari)",
     "section": "Local Connector Segment",
     "originAddress": "141, Park St, near Institute of Neurosciences, Mullick Bazar, Beniapukur, Kolkata, West Bengal 700017",
     "destAddress": "Usha Cosmetics, 100, Rash Behari Ave, Ballygunge Gardens, Gariahat, Kolkata, West Bengal 700019",
@@ -426,12 +490,14 @@
     "to": "22.519769, 88.365395",
     "viaCoord": "22.528794536803037, 88.35651883221536",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.54667,%2088.361556&destination=22.519769,%2088.365395&waypoints=22.528794536803037,%2088.35651883221536&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.54667,%2088.361556&destination=22.519769,%2088.365395&waypoints=22.528794536803037,%2088.35651883221536&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.54667,%2088.361556&destination=22.519769,%2088.365395&waypoints=22.528794536803037,%2088.35651883221536&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "4.2 km",
+    "bikeDistance": "4.2 km"
   },
   {
     "index": 34,
     "id": "S12",
-    "label": "Gariahat \u2192 Kasba Golpark",
+    "label": "Gariahat → Kasba Golpark",
     "section": "Local Connector Segment",
     "originAddress": "Usha Cosmetics, 100, Rash Behari Ave, Ballygunge Gardens, Gariahat, Kolkata, West Bengal 700019",
     "destAddress": "Kasba Gol Park, GC72+9PF, Anandapur Main Rd, Sector I, East Kolkata Twp, Kolkata, West Bengal 700107",
@@ -439,12 +505,14 @@
     "to": "22.513605424895417, 88.40163813624706",
     "viaCoord": "None",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.519769,%2088.365395&destination=22.513605424895417,%2088.40163813624706&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.519769,%2088.365395&destination=22.513605424895417,%2088.40163813624706&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.519769,%2088.365395&destination=22.513605424895417,%2088.40163813624706&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "4.0 km",
+    "bikeDistance": "4.0 km"
   },
   {
     "index": 35,
     "id": "S13",
-    "label": "Gariahat \u2192 Jadavpur PS",
+    "label": "Gariahat → Jadavpur PS",
     "section": "Local Connector Segment",
     "originAddress": "Usha Cosmetics, 100, Rash Behari Ave, Ballygunge Gardens, Gariahat, Kolkata, West Bengal 700019",
     "destAddress": "Jadavpur Police Station 4-Point Crossing, University Campus Area, SH 1, Jadavpur, Kolkata, West Bengal 700032",
@@ -452,12 +520,14 @@
     "to": "22.503099, 88.367808",
     "viaCoord": "22.514734035632127, 88.3671200632832",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.519769,%2088.365395&destination=22.503099,%2088.367808&waypoints=22.514734035632127,%2088.3671200632832&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.519769,%2088.365395&destination=22.503099,%2088.367808&waypoints=22.514734035632127,%2088.3671200632832&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.519769,%2088.365395&destination=22.503099,%2088.367808&waypoints=22.514734035632127,%2088.3671200632832&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "1.9 km",
+    "bikeDistance": "1.9 km"
   },
   {
     "index": 36,
     "id": "S14",
-    "label": "Jadavpur PS \u2192 EM Bypass (Kalikapur)",
+    "label": "Jadavpur PS → EM Bypass (Kalikapur)",
     "section": "Local Connector Segment",
     "originAddress": "Jadavpur Police Station 4-Point Crossing, University Campus Area, SH 1, Jadavpur, Kolkata, West Bengal 700032",
     "destAddress": "E.M. Bypass (Kalikapur), North Purbachal, Haltu, Kolkata, West Bengal 700078",
@@ -465,12 +535,14 @@
     "to": "22.504459553948617, 88.40073511237466",
     "viaCoord": "None",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.503099,%2088.367808&destination=22.504459553948617,%2088.40073511237466&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.503099,%2088.367808&destination=22.504459553948617,%2088.40073511237466&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.503099,%2088.367808&destination=22.504459553948617,%2088.40073511237466&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "3.5 km",
+    "bikeDistance": "3.5 km"
   },
   {
     "index": 37,
     "id": "S15",
-    "label": "Jadavpur PS \u2192 Jadavpur Sulekha",
+    "label": "Jadavpur PS → Jadavpur Sulekha",
     "section": "Local Connector Segment",
     "originAddress": "Jadavpur Police Station 4-Point Crossing, University Campus Area, SH 1, Jadavpur, Kolkata, West Bengal 700032",
     "destAddress": "Jadavpur Sulekha 4-Point Crossing, 53, Anandapally Rd, Anandapally, Bidhanpally, Jadavpur, Kolkata, West Bengal 700032",
@@ -478,12 +550,14 @@
     "to": "22.491648511822472, 88.37243350245176",
     "viaCoord": "None",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.503099,%2088.367808&destination=22.491648511822472,%2088.37243350245176&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.503099,%2088.367808&destination=22.491648511822472,%2088.37243350245176&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.503099,%2088.367808&destination=22.491648511822472,%2088.37243350245176&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "1.4 km",
+    "bikeDistance": "1.4 km"
   },
   {
     "index": 38,
     "id": "S16",
-    "label": "Jadavpur Sulekha \u2192 Ajaynagar Crossing",
+    "label": "Jadavpur Sulekha → Ajaynagar Crossing",
     "section": "Local Connector Segment",
     "originAddress": "Jadavpur Sulekha 4-Point Crossing, 53, Anandapally Rd, Anandapally, Bidhanpally, Jadavpur, Kolkata, West Bengal 700032",
     "destAddress": "Ajaynagar 4-Point Crossing, F9QW+V4Q, Ajoy Nagar, Santoshpur, Kolkata, West Bengal 700099",
@@ -491,12 +565,14 @@
     "to": "22.489795, 88.395225",
     "viaCoord": "None",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.491648511822472,%2088.37243350245176&destination=22.489795,%2088.395225&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.491648511822472,%2088.37243350245176&destination=22.489795,%2088.395225&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.491648511822472,%2088.37243350245176&destination=22.489795,%2088.395225&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "3.0 km",
+    "bikeDistance": "3.0 km"
   },
   {
     "index": 39,
     "id": "S17",
-    "label": "Jadavpur Sulekha \u2192 Baghajatin Station Rd",
+    "label": "Jadavpur Sulekha → Baghajatin Station Rd",
     "section": "Local Connector Segment",
     "originAddress": "Jadavpur Sulekha 4-Point Crossing, 53, Anandapally Rd, Anandapally, Bidhanpally, Jadavpur, Kolkata, West Bengal 700032",
     "destAddress": "Baghajatin 4-Point Crossing, F9MG+H66, Baghajatin C Block, Chittaranjan Colony 6, Baghajatin Colony, Kolkata, West Bengal 700047",
@@ -504,12 +580,14 @@
     "to": "22.483895156021173, 88.3755286267775",
     "viaCoord": "None",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.491663328585012,%2088.37240626299364&destination=22.483895156021173,%2088.3755286267775&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.491663328585012,%2088.37240626299364&destination=22.483895156021173,%2088.3755286267775&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.491663328585012,%2088.37240626299364&destination=22.483895156021173,%2088.3755286267775&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "1.0 km",
+    "bikeDistance": "1.0 km"
   },
   {
     "index": 40,
     "id": "S19",
-    "label": "Baghajatin \u2192 Baishnabghata (South)",
+    "label": "Baghajatin → Baishnabghata (South)",
     "section": "Local Connector Segment",
     "originAddress": "Baghajatin 4-Point Crossing, F9MG+H66, Baghajatin C Block, Chittaranjan Colony 6, Baghajatin Colony, Kolkata, West Bengal 700047",
     "destAddress": "Baishnabghata Crossing, SH 1, Dakshin Raipur, Garia, Kolkata, West Bengal 700084",
@@ -517,6 +595,8 @@
     "to": "22.471408, 88.377338",
     "viaCoord": "None",
     "carUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.483895156021173,%2088.3755286267775&destination=22.471408,%2088.377338&travelmode=driving&gl=in&hl=en",
-    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.483895156021173,%2088.3755286267775&destination=22.471408,%2088.377338&travelmode=two-wheeler&gl=in&hl=en"
+    "bikeUrl": "https://www.google.co.in/maps/dir/?api=1&origin=22.483895156021173,%2088.3755286267775&destination=22.471408,%2088.377338&travelmode=two-wheeler&gl=in&hl=en",
+    "carDistance": "1.4 km",
+    "bikeDistance": "1.4 km"
   }
 ]
