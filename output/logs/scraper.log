@@ -29512,3 +29512,136 @@ Session complete! Saving to Excel...
 [1/10/2026, 10:15:22] 📊 Excel saved (styled & formatted): /home/runner/work/kolkata-traffic-collection/kolkata-traffic-collection/output/excel/Kolkata_Traffic_Data_2026-10-01.xlsx
 [1/10/2026, 10:15:22] 
 🔍 Automatically triggering daily verification audit...
+[1/10/2026, 13:08:36] 
+════════════════════════════════════════════════════════════
+[1/10/2026, 13:08:36] STARTING FETCH SESSION: manual
+[1/10/2026, 13:08:36] Time (IST): 1/10/2026, 13:08:36
+[1/10/2026, 13:08:36] Routes: 40
+[1/10/2026, 13:08:36] ════════════════════════════════════════════════════════════
+[1/10/2026, 13:08:36] [1/40] DH Road
+[1/10/2026, 13:08:46]   🚙 Car: 1 hr
+18 (60 min) | dist: 18.8 km | traffic: Unknown
+[1/10/2026, 13:08:46]   🛵 Bike: 55 min (55 min) | dist: 18.8 km
+[1/10/2026, 13:08:47] [2/40] B T Road
+[1/10/2026, 13:08:57]   🚙 Car: 26 min (26 min) | dist: 6.2 km | traffic: Unknown
+[1/10/2026, 13:08:57]   🛵 Bike: 23 min (23 min) | dist: 6.0 km
+[1/10/2026, 13:08:58] [3/40] B T Road
+[1/10/2026, 13:09:07]   🚙 Car: 29 min (29 min) | dist: 12.3 km | traffic: Good
+[1/10/2026, 13:09:07]   🛵 Bike: 27 min (27 min) | dist: 12.3 km
+[1/10/2026, 13:09:08] [4/40] VIP Road
+[1/10/2026, 13:09:17]   🚙 Car: 49 min (49 min) | dist: 13.8 km | traffic: Good
+[1/10/2026, 13:09:17]   🛵 Bike: 40 min (40 min) | dist: 12.4 km
+[1/10/2026, 13:09:18] [5/40] Jessore Road
+[1/10/2026, 13:09:28]   🚙 Car: 57 min (57 min) | dist: 11.3 km | traffic: Unknown
+[1/10/2026, 13:09:28]   🛵 Bike: 39 min (39 min) | dist: 12.2 km
+[1/10/2026, 13:09:28] [6/40] Airport Road
+[1/10/2026, 13:09:38]   🚙 Car: 23 min (23 min) | dist: 4.8 km | traffic: Unknown
+[1/10/2026, 13:09:38]   🛵 Bike: 19 min (19 min) | dist: 4.8 km
+[1/10/2026, 13:09:39] [7/40] APC Bose Rd
+[1/10/2026, 13:09:48]   🚙 Car: 1 hr
+9 (60 min) | dist: 9.8 km | traffic: Unknown
+[1/10/2026, 13:09:48]   🛵 Bike: 50 min (50 min) | dist: 9.9 km
+[1/10/2026, 13:09:49] [8/40] Bidhan Sarani
+[1/10/2026, 13:09:58]   🚙 Car: 32 min (32 min) | dist: 6.0 km | traffic: Unknown
+[1/10/2026, 13:09:58]   🛵 Bike: 27 min (27 min) | dist: 6.0 km
+[1/10/2026, 13:09:59] [9/40] Central Avenue (C R Avenue)
+[1/10/2026, 13:10:09]   🚙 Car: 30 min (30 min) | dist: 5.0 km | traffic: Good
+[1/10/2026, 13:10:09]   🛵 Bike: 25 min (25 min) | dist: 5.0 km
+[1/10/2026, 13:10:10] [10/40] S N Banerjee Road
+[1/10/2026, 13:10:19]   🚙 Car: 16 min (16 min) | dist: 2.5 km | traffic: Unknown
+[1/10/2026, 13:10:19]   🛵 Bike: 12 min (12 min) | dist: 2.5 km
+[1/10/2026, 13:10:20] [11/40] M G Road
+[1/10/2026, 13:10:30]   🚙 Car: 36 min (36 min) | dist: 5.8 km | traffic: Unknown
+[1/10/2026, 13:10:30]   🛵 Bike: 24 min (24 min) | dist: 5.0 km
+[1/10/2026, 13:10:31] [12/40] C I T Road
+[1/10/2026, 13:10:41]   🚙 Car: 13 min (13 min) | dist: 2.6 km | traffic: Good
+[1/10/2026, 13:10:41]   🛵 Bike: 11 min (11 min) | dist: 2.6 km
+[1/10/2026, 13:10:42] [13/40] Sarat Bose Road
+[1/10/2026, 13:10:51]   🚙 Car: 22 min (22 min) | dist: 4.0 km | traffic: Good
+[1/10/2026, 13:10:51]   🛵 Bike: 19 min (19 min) | dist: 4.0 km
+[1/10/2026, 13:10:52] [14/40] S P Mukherjee Road
+[1/10/2026, 13:11:02]   🚙 Car: 1 hr 11 min (71 min) | dist: 15.9 km | traffic: Unknown
+[1/10/2026, 13:11:02]   🛵 Bike: 1 hr 3 min (63 min) | dist: 15.9 km
+[1/10/2026, 13:11:02] [15/40] Hazra Road / S P Mukherjee Road connector
+[1/10/2026, 13:11:12]   🚙 Car: 27 min (27 min) | dist: 4.6 km | traffic: Unknown
+[1/10/2026, 13:11:12]   🛵 Bike: 23 min (23 min) | dist: 4.6 km
+[1/10/2026, 13:11:13] [16/40] Gariahat Road / Rashbehari Avenue
+[1/10/2026, 13:11:22]   🚙 Car: 15 min (15 min) | dist: 2.9 km | traffic: Unknown
+[1/10/2026, 13:11:22]   🛵 Bike: 14 min (14 min) | dist: 2.9 km
+[1/10/2026, 13:11:23] [17/40] Chetla Road
+[1/10/2026, 13:11:32]   🚙 Car: 16 min (16 min) | dist: 3.7 km | traffic: Good
+[1/10/2026, 13:11:32]   🛵 Bike: 15 min (15 min) | dist: 3.7 km
+[1/10/2026, 13:11:33] [18/40] Tollygunge Road
+[1/10/2026, 13:11:43]   🚙 Car: 21 min (21 min) | dist: 3.9 km | traffic: Unknown
+[1/10/2026, 13:11:43]   🛵 Bike: 16 min (16 min) | dist: 4.0 km
+[1/10/2026, 13:11:43] [19/40] Prince Anwar Shah Rd
+[1/10/2026, 13:11:53]   🚙 Car: 25 min (25 min) | dist: 6.9 km | traffic: Unknown
+[1/10/2026, 13:11:53]   🛵 Bike: 24 min (24 min) | dist: 6.9 km
+[1/10/2026, 13:11:54] [20/40] Broadway Road
+[1/10/2026, 13:12:03]   🚙 Car: 3 min (3 min) | dist: 1.2 km | traffic: Good
+[1/10/2026, 13:12:03]   🛵 Bike: 3 min (3 min) | dist: 1.2 km
+[1/10/2026, 13:12:04] [21/40] Karunamoyee - Biswa Bangla Sarani
+[1/10/2026, 13:12:13]   🚙 Car: 17 min (17 min) | dist: 4.9 km | traffic: Good
+[1/10/2026, 13:12:13]   🛵 Bike: 16 min (16 min) | dist: 4.9 km
+[1/10/2026, 13:12:14] [22/40] 3rd Avenue
+[1/10/2026, 13:12:24]   🚙 Car: 18 min (18 min) | dist: 4.1 km | traffic: Good
+[1/10/2026, 13:12:24]   🛵 Bike: 17 min (17 min) | dist: 4.1 km
+[1/10/2026, 13:12:25] [23/40] Baishnabghata → Patuli
+[1/10/2026, 13:12:35]   🚙 Car: 4 min (4 min) | dist: 1.3 km | traffic: Good
+[1/10/2026, 13:12:35]   🛵 Bike: 4 min (4 min) | dist: 1.3 km
+[1/10/2026, 13:12:35] [24/40] Patuli → Baghajatin Canal Bridge
+[1/10/2026, 13:12:45]   🚙 Car: 2 min (2 min) | dist: 950 m | traffic: Good
+[1/10/2026, 13:12:45]   🛵 Bike: 2 min (2 min) | dist: 950 m
+[1/10/2026, 13:12:46] [25/40] Baghajatin Canal → Ajaynagar Crossing
+[1/10/2026, 13:12:55]   🚙 Car: 3 min (3 min) | dist: 1.2 km | traffic: Good
+[1/10/2026, 13:12:55]   🛵 Bike: 3 min (3 min) | dist: 1.2 km
+[1/10/2026, 13:12:56] [26/40] Ajaynagar → EM Bypass (Kalikapur)
+[1/10/2026, 13:13:05]   🚙 Car: 4 min (4 min) | dist: 1.7 km | traffic: Good
+[1/10/2026, 13:13:05]   🛵 Bike: 4 min (4 min) | dist: 1.7 km
+[1/10/2026, 13:13:06] [27/40] EM Bypass → Kasba Golpark
+[1/10/2026, 13:13:15]   🚙 Car: 3 min (3 min) | dist: 1.0 km | traffic: Good
+[1/10/2026, 13:13:15]   🛵 Bike: 3 min (3 min) | dist: 1.0 km
+[1/10/2026, 13:13:16] [28/40] Kasba Golpark → Parama (Traffic Barrack)
+[1/10/2026, 13:13:26]   🚙 Car: 9 min (9 min) | dist: 3.5 km | traffic: Good
+[1/10/2026, 13:13:26]   🛵 Bike: 8 min (8 min) | dist: 3.5 km
+[1/10/2026, 13:13:27] [29/40] Parama → Chingrighata
+[1/10/2026, 13:13:36]   🚙 Car: 5 min (5 min) | dist: 2.5 km | traffic: Good
+[1/10/2026, 13:13:36]   🛵 Bike: 5 min (5 min) | dist: 2.5 km
+[1/10/2026, 13:13:37] [30/40] Chingrighata → Sealdah
+[1/10/2026, 13:13:47]   🚙 Car: 19 min (19 min) | dist: 4.7 km | traffic: Good
+[1/10/2026, 13:13:47]   🛵 Bike: 16 min (16 min) | dist: 4.7 km
+[1/10/2026, 13:13:48] [31/40] Sealdah → Park Street
+[1/10/2026, 13:13:57]   🚙 Car: 19 min (19 min) | dist: 2.3 km | traffic: Unknown
+[1/10/2026, 13:13:57]   🛵 Bike: 15 min (15 min) | dist: 2.7 km
+[1/10/2026, 13:13:58] [32/40] Park Street → Parama (via EM Bypass)
+[1/10/2026, 13:14:08]   🚙 Car: 14 min (14 min) | dist: 4.3 km | traffic: Good
+[1/10/2026, 13:14:08]   🛵 Bike: 14 min (14 min) | dist: 4.3 km
+[1/10/2026, 13:14:09] [33/40] Park Street → Gariahat (Rashbehari)
+[1/10/2026, 13:14:19]   🚙 Car: 25 min (25 min) | dist: 4.2 km | traffic: Unknown
+[1/10/2026, 13:14:19]   🛵 Bike: 21 min (21 min) | dist: 4.2 km
+[1/10/2026, 13:14:20] [34/40] Gariahat → Kasba Golpark
+[1/10/2026, 13:14:29]   🚙 Car: 16 min (16 min) | dist: 4.0 km | traffic: Good
+[1/10/2026, 13:14:29]   🛵 Bike: 14 min (14 min) | dist: 4.0 km
+[1/10/2026, 13:14:30] [35/40] Gariahat → Jadavpur PS
+[1/10/2026, 13:14:40]   🚙 Car: 10 min (10 min) | dist: 1.9 km | traffic: Good
+[1/10/2026, 13:14:40]   🛵 Bike: 9 min (9 min) | dist: 1.9 km
+[1/10/2026, 13:14:40] [36/40] Jadavpur PS → EM Bypass (Kalikapur)
+[1/10/2026, 13:14:50]   🚙 Car: 10 min (10 min) | dist: 3.5 km | traffic: Good
+[1/10/2026, 13:14:50]   🛵 Bike: 9 min (9 min) | dist: 3.5 km
+[1/10/2026, 13:14:51] [37/40] Jadavpur PS → Jadavpur Sulekha
+[1/10/2026, 13:15:01]   🚙 Car: 5 min (5 min) | dist: 1.4 km | traffic: Good
+[1/10/2026, 13:15:01]   🛵 Bike: 5 min (5 min) | dist: 1.4 km
+[1/10/2026, 13:15:01] [38/40] Jadavpur Sulekha → Ajaynagar Crossing
+[1/10/2026, 13:15:11]   🚙 Car: 10 min (10 min) | dist: 3.0 km | traffic: High
+[1/10/2026, 13:15:11]   🛵 Bike: 9 min (9 min) | dist: 3.0 km
+[1/10/2026, 13:15:12] [39/40] Jadavpur Sulekha → Baghajatin Station Rd
+[1/10/2026, 13:15:22]   🚙 Car: 3 min (3 min) | dist: 1.0 km | traffic: Good
+[1/10/2026, 13:15:22]   🛵 Bike: 3 min (3 min) | dist: 1.0 km
+[1/10/2026, 13:15:23] [40/40] Baghajatin → Baishnabghata (South)
+[1/10/2026, 13:15:32]   🚙 Car: 5 min (5 min) | dist: 1.4 km | traffic: Good
+[1/10/2026, 13:15:32]   🛵 Bike: 5 min (5 min) | dist: 1.4 km
+[1/10/2026, 13:15:33] 
+Session complete! Saving to Excel...
+[1/10/2026, 13:15:33] 📊 Excel saved (styled & formatted): /home/runner/work/kolkata-traffic-collection/kolkata-traffic-collection/output/excel/Kolkata_Traffic_Data_2026-10-01.xlsx
+[1/10/2026, 13:15:33] 
+🔍 Automatically triggering daily verification audit...
