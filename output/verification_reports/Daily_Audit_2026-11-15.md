@@ -1,6 +1,6 @@
 # KOLKATA TRAFFIC STUDY — DAILY AUDIT VERIFICATION REPORT
 **Audit Date:** 2026-11-15  
-**Generated At:** 15/11/2026, 4:18:46 am IST  
+**Generated At:** 15/11/2026, 10:23:32 am IST  
 **Excel File:** `output/excel/Kolkata_Traffic_Data_2026-11-15.xlsx`  
 **Overall Day Status:** 🟡 PARTIAL (Collection in progress)
 
@@ -11,7 +11,7 @@
 | Slot | Sheet Status | Car Verified | Bike Verified | Car Screenshots | Bike Screenshots | Status |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|
 | **12_00 AM** | ✅ Yes | 40 / 40 | 40 / 40 | 40 / 40 | 40 / 40 | 🟢 Complete |
-| **10_00 AM** | ❌ No | 0 / 40 | 0 / 40 | 0 / 40 | 0 / 40 | ⚪ Pending |
+| **10_00 AM** | ✅ Yes | 39 / 40 | 40 / 40 | 39 / 40 | 40 / 40 | 🟡 Partial |
 | **01_00 PM** | ❌ No | 0 / 40 | 0 / 40 | 0 / 40 | 0 / 40 | ⚪ Pending |
 | **07_00 PM** | ❌ No | 0 / 40 | 0 / 40 | 0 / 40 | 0 / 40 | ⚪ Pending |
 
@@ -19,10 +19,10 @@
 
 ## 2. Telemetry & Media Summary
 
-- **Total Route Records Verified:** **40 / 160**
-- **Total Screenshots Verified:** **80 / 320**
+- **Total Route Records Verified:** **79 / 160**
+- **Total Screenshots Verified:** **159 / 320**
 - **Total Corridors Monitored:** 40 (22 Major Roads + 18 Secondary Connectors)
 - **Modes Verified:** Private Passenger Car (`driving`) · Motorcycle (`two-wheeler`)
 
-### 3. Quality Check Result
-All corridors have zero missing values and 100% verified screenshots.
+### 3. Missing or Flagged Items (1)
+- [10_00 AM] S10: car.png missing or corrupt (<20KB)
